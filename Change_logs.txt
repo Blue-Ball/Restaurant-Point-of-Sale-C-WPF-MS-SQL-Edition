@@ -1,0 +1,27 @@
+Application changes log
+	-Vs 7.2.2  22 June 2018
+	* Web Extension Update
+	
+	-Vs 7.2.1  19 April 2018
+	* Website Customer order place
+	* Now Customer can order from anywhere using web platform  
+	* Web order also display into Kitchen display monitor. 
+
+	-Vs 7.2  24 Feb 2018
+	*ADD NEW - Hold order and print kitchen ticket 
+	*ADD NEW - Resume hold order - SalesRegister 
+	*UPDATE - Display Table is Booked or Free 
+	*UPDATE - Add New button into Kitchen Display to open New window for multiple monitor 
+	
+	-Vs SQL-7.1 10 Feb 2018
+	*Initial Release
+
+Table changes
+	-Vs 7.2.1  19 April 2018
+	*ADD NEW -  Stored Procedure for Website connection
+
+	-Vs 3.1  23 Feb 2018 
+	*Add New table tbl_hold_sales_item
+	*ALTER table tbl_tablezone  - add new column ordertime
+
+				

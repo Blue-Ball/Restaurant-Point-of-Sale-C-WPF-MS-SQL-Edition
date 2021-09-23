@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnAddnew" xml:space="preserve">
+    <value>Adăuga nou</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="btnBack" xml:space="preserve">
+    <value>Înapoi</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnBrowse" xml:space="preserve">
+    <value>Naviga</value>
+    <comment>Users</comment>
+  </data>
+  <data name="btnDataSaveas" xml:space="preserve">
+    <value>Salvați copia de siguranță ca</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="btnDelete" xml:space="preserve">
+    <value>Elimina</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="btnDirectSale" xml:space="preserve">
+    <value>Vânzarea în numerar</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnExpiredItem" xml:space="preserve">
+    <value>Elementul expirat</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnExpiringItem" xml:space="preserve">
+    <value>Expiră în următoarele 30 de zile</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnExport" xml:space="preserve">
+    <value>Exportați în Excel</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnHomeMenuLink" xml:space="preserve">
+    <value>Închide</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="btnLowQuantityItem" xml:space="preserve">
+    <value>Articol cu ​​cantitate redusă</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnOrderReady" xml:space="preserve">
+    <value>Comandă pregătită</value>
+    <comment>KD</comment>
+  </data>
+  <data name="btnPrint" xml:space="preserve">
+    <value>Impresie</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="btnReceivePayment" xml:space="preserve">
+    <value>Plată</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnReset" xml:space="preserve">
+    <value>restabili</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="btnSave" xml:space="preserve">
+    <value>Salvați</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="btnSubmit" xml:space="preserve">
+    <value>A depune</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="btnSuspend" xml:space="preserve">
+    <value>Suspenda</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnTruncate" xml:space="preserve">
+    <value>Import</value>
+    <comment>Config - Datamanager import Data</comment>
+  </data>
+  <data name="chkTxaApply" xml:space="preserve">
+    <value>da</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbladdresstitle" xml:space="preserve">
+    <value>Adresa</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblalltitle" xml:space="preserve">
+    <value>Toate</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblassigntitle" xml:space="preserve">
+    <value>Atribuiți o locație la magazin</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblassingtitle" xml:space="preserve">
+    <value>Atribuiți o locație la magazin *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblbackgrouncolortitle" xml:space="preserve">
+    <value>Culoare de fundal</value>
+    <comment>sauce options</comment>
+  </data>
+  <data name="lblbgcolortitle" xml:space="preserve">
+    <value>Culoare de fundal</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lblbrchnametile" xml:space="preserve">
+    <value>Numele sucursalei *</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblcategorytitle" xml:space="preserve">
+    <value>Categorie *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblChangetitle" xml:space="preserve">
+    <value>Schimbare:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblchngamttitle" xml:space="preserve">
+    <value>Modificați suma</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblcitytitle" xml:space="preserve">
+    <value>Oraș</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblCommenttitle" xml:space="preserve">
+    <value>cometariu</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblcomnametile" xml:space="preserve">
+    <value>Numele Companiei *</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblcontacttitle" xml:space="preserve">
+    <value>a lua legatura</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblcurrencysigntitle" xml:space="preserve">
+    <value>Semnul valutar</value>
+    <comment>Config</comment>
+  </data>
+  <data name="lblCustomertitle" xml:space="preserve">
+    <value>Client</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbldatetitle" xml:space="preserve">
+    <value>Data</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbldescriptitle" xml:space="preserve">
+    <value>Descrierea</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbldiscounttitle" xml:space="preserve">
+    <value>Reducere</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbldisctitle" xml:space="preserve">
+    <value>Procent de reducere</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbldistile" xml:space="preserve">
+    <value>Procentajul de reducere%:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbldobtitle" xml:space="preserve">
+    <value>Data nașterii</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblduetitle" xml:space="preserve">
+    <value>datorat</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblemailtitle" xml:space="preserve">
+    <value>E-mail</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblexpdatetitle" xml:space="preserve">
+    <value>Data de expirare</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblfindreporttitle" xml:space="preserve">
+    <value>Găsiți o chitanță</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblfootertile" xml:space="preserve">
+    <value>Notă de subsol: (maxim 29 caractere)</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblinfotofindreceipttitle" xml:space="preserve">
+    <value>Faceți clic în partea de sus a liniei pentru a imprima chitanța</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblinserttitle" xml:space="preserve">
+    <value>Introduceți numele opțiunii</value>
+    <comment>sauce options</comment>
+  </data>
+  <data name="lblinvoiceNoPNTtitle" xml:space="preserve">
+    <value>Factura nu:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lblInvoiceNotitle" xml:space="preserve">
+    <value>Factura vândută nr</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblinvoicePNTtile" xml:space="preserve">
+    <value>Factura fiscala:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbliskitchentitle" xml:space="preserve">
+    <value>Este un articol din bucătărie?</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblistaxapplytitle" xml:space="preserve">
+    <value>Taxa se aplică? "</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblitembarcodetitle" xml:space="preserve">
+    <value>Codul de bare al articolului *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblitemnametitle" xml:space="preserve">
+    <value>Nume produs *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbllanguagecodetitle" xml:space="preserve">
+    <value>Limba acestui Terminal</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbllocationaddresstile" xml:space="preserve">
+    <value>Adresă de locație</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbllogidtitle" xml:space="preserve">
+    <value>Deconectare</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblmanfactdateitle" xml:space="preserve">
+    <value>Data fabricatiei</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblmsgSR" xml:space="preserve">
+    <value>Faceți dublu clic pentru a mări cantitatea</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblNametitle" xml:space="preserve">
+    <value>Nume</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblNotetitle" xml:space="preserve">
+    <value>Notă:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbloveralldiscounttitle" xml:space="preserve">
+    <value>Discount total%:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblpagetitle" xml:space="preserve">
+    <value>Returnați elementul</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblPaidAmounttitle" xml:space="preserve">
+    <value>Suma salariului:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblPaidAmounttitle1" xml:space="preserve">
+    <value>Suma returnată</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblpaidamt" xml:space="preserve">
+    <value>Suma salariilor</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblpasswordtitle" xml:space="preserve">
+    <value>Parola</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblpaybytitle" xml:space="preserve">
+    <value>Plătit de</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblpaytypetitle" xml:space="preserve">
+    <value>Tipul de salarizare:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblpeopletypetitle" xml:space="preserve">
+    <value>Tipul persoanei</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="lblpurchasetitle" xml:space="preserve">
+    <value>Prețul de cumpărare *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblqtytitle" xml:space="preserve">
+    <value>Cantitate (Cantitate) *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblreporttitle" xml:space="preserve">
+    <value>rapoarte</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblresettitle" xml:space="preserve">
+    <value>Resetați baza</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lblrestoredescription" xml:space="preserve">
+    <value>Selectați fișierul bază de date de rezervă (fișier .db) Înainte de a importa, asigurați-vă că ați închis baza de date Deschidere</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lblrestoretitle" xml:space="preserve">
+    <value>Restaurați baza de date</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lblreturntytitle" xml:space="preserve">
+    <value>Tip retur:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsalepricetitle" xml:space="preserve">
+    <value>Prețul de vânzare *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblsalereporttitle" xml:space="preserve">
+    <value>Raport de vânzări</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblSalesbytitle" xml:space="preserve">
+    <value>Vânzări prin:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsalestimetitle" xml:space="preserve">
+    <value>Timp vânzări:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblscannerSRTitle" xml:space="preserve">
+    <value>Introduceți codul de bare al elementului</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblscannerTitle" xml:space="preserve">
+    <value>Introduceți factura nr</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsearchtitle" xml:space="preserve">
+    <value>Căutați clienți</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="lblsearchtitlestock" xml:space="preserve">
+    <value>Cercetare</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblseattitle" xml:space="preserve">
+    <value>Numărul locului disponibil</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lblselectcategorytitle" xml:space="preserve">
+    <value>Alege o categorie</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblselectsrtypetitle" xml:space="preserve">
+    <value>Selectați Stilul înregistrării vânzărilor</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblselecttableSRtitle" xml:space="preserve">
+    <value>Tabel selectat:</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblShopidtitle" xml:space="preserve">
+    <value>ID magazin:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsorttitle" xml:space="preserve">
+    <value>Ordinea de sortare</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lblstockpagetitle" xml:space="preserve">
+    <value>Lista stocurilor</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblsubtotaltitle" xml:space="preserve">
+    <value>Subtotal</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsuppliertitle" xml:space="preserve">
+    <value>Furnizor *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblsvrPNTtitle" xml:space="preserve">
+    <value>servit:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltablePNTtitle" xml:space="preserve">
+    <value>Masa:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltablezonenametitle" xml:space="preserve">
+    <value>Numele tabelului: (EX: TAB-IN10)</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lbltablezonetitle" xml:space="preserve">
+    <value>Zona mesei</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lbltattitle" xml:space="preserve">
+    <value>Impozit</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltaxreginotile" xml:space="preserve">
+    <value>Număr de înregistrare fiscală: * (RTX029)</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbltaxtile" xml:space="preserve">
+    <value>Procentajul impozitului%:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblticketPNTtitle" xml:space="preserve">
+    <value>Bilet</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltimePNTtitle" xml:space="preserve">
+    <value>Timp:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltokenPNTtitle" xml:space="preserve">
+    <value>Jeton:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltokonnoSRtitle" xml:space="preserve">
+    <value>Nr. De jetoane:</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblTotalItemstypes" xml:space="preserve">
+    <value>Tipuri totale de articole</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lbltotalpayabletitle" xml:space="preserve">
+    <value>Total să plătească</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltotaltitle" xml:space="preserve">
+    <value>Total</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltruncatedeslabel" xml:space="preserve">
+    <value>Utilizatorii rolului de administrator nu vor fi șterși.</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lbltrxTypetitle" xml:space="preserve">
+    <value>Tipul tranzacției:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltypetitle" xml:space="preserve">
+    <value>Tip</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblusertitle" xml:space="preserve">
+    <value>Lista de utilizatori</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblwebtitle" xml:space="preserve">
+    <value>Site-ul:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblweighttitle" xml:space="preserve">
+    <value>Greutate</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblzonenametitle" xml:space="preserve">
+    <value>Numele zonei</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="tabCustomerslist" xml:space="preserve">
+    <value>Listă de clienți</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="tabCustomersview" xml:space="preserve">
+    <value>Adăuga nou</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="tabDataManager" xml:space="preserve">
+    <value>Manager de date</value>
+    <comment>Config</comment>
+  </data>
+  <data name="tabduereport" xml:space="preserve">
+    <value>Raport de expirare</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabfindreceipt" xml:space="preserve">
+    <value>Găsiți o chitanță</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabGridview" xml:space="preserve">
+    <value>Articole</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabImportItem" xml:space="preserve">
+    <value>Importați elementul</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabItemlist" xml:space="preserve">
+    <value>Lista stocurilor</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabItemsAlert" xml:space="preserve">
+    <value>Articolul alertă</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabItemsCategories" xml:space="preserve">
+    <value>adăugați o categorie</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabitemview" xml:space="preserve">
+    <value>Adăugați un element</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabPayment" xml:space="preserve">
+    <value>Plată</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabreturn" xml:space="preserve">
+    <value>Raport de retur</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabsalesreport" xml:space="preserve">
+    <value>Raport de vânzări</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabsauceoptions" xml:space="preserve">
+    <value>Adăugați un sos</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabSauceOptionsSR" xml:space="preserve">
+    <value>Sosuri opțiuni</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabtableLayout" xml:space="preserve">
+    <value>Structura tabelului</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabTablezone" xml:space="preserve">
+    <value>Zona mesei</value>
+    <comment>Config</comment>
+  </data>
+  <data name="tabterminal" xml:space="preserve">
+    <value>Terminal</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabTerminallist" xml:space="preserve">
+    <value>Lista terminalelor</value>
+    <comment>Config</comment>
+  </data>
+  <data name="tabtopsales" xml:space="preserve">
+    <value>Cele mai vandute</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="txtCustomers" xml:space="preserve">
+    <value>clienţii</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtKitdisply" xml:space="preserve">
+    <value>Afișaj de bucătărie</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtLogout" xml:space="preserve">
+    <value>Deconectare</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtReports" xml:space="preserve">
+    <value>rapoarte</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtReturn" xml:space="preserve">
+    <value>Întoarce-te</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtSettings" xml:space="preserve">
+    <value>Setări</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtsrlink" xml:space="preserve">
+    <value>Registrul vânzărilor</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtStock" xml:space="preserve">
+    <value>Lista stocurilor</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtUsers" xml:space="preserve">
+    <value>Angajat</value>
+    <comment>Home</comment>
+  </data>
+</root>

@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="RestPOS.Items.Import_Items"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="Auto" Width="Auto"   >
+    <Grid  >
+        <Grid HorizontalAlignment="Left" Height="Auto" Margin="0,42,0,0" VerticalAlignment="Top">
+            <DataGrid Name="dtgridviewImportPreview" HorizontalAlignment="Left" ColumnWidth="*"   CanUserAddRows="False" Margin="0,18,0,0" GridLinesVisibility="Horizontal" HeadersVisibility="Column"  VerticalAlignment="Top"  />
+        </Grid>
+        <TextBlock Name="lblRows" HorizontalAlignment="Left" Margin="11,12,0,0" TextWrapping="Wrap" Text="--" VerticalAlignment="Top"/>
+        <Button Content="Save to Database" Name="btnSave"  HorizontalAlignment="Left" Margin="343,8,0,0" VerticalAlignment="Top" Width="117" Click="btnSave_Click"/>
+        <Button Content="Select file" Name="btnImportPreview" HorizontalAlignment="Left" Margin="199,8,0,0" VerticalAlignment="Top" Width="75" Click="btnImportPreview_Click"/>
+        <TextBlock Name="lblwaiting" Visibility="Hidden"   HorizontalAlignment="Left" Margin="500,9,0,0" TextWrapping="Wrap" Text="--" VerticalAlignment="Top"/>
+        <TextBlock Name="lblmsg" HorizontalAlignment="Left" Margin="622,9,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top"/>
+        <Button Name="btnDataSample" Content="Data Sample" HorizontalAlignment="Left" Margin="762,9,0,0" BorderThickness="0" Foreground="Blue" Background="Transparent" VerticalAlignment="Top" Width="102" Click="btnDataSample_Click"/>
+
+    </Grid>
+</UserControl>

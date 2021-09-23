@@ -1,0 +1,45 @@
+﻿<UserControl x:Name="Sauceoptions_form" x:Class="RestPOS.Items.Sauceoptions"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:k="clr-namespace:RestPOS.Keyboard"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="450" Width="772.561" Loaded="Sauceoptions_form_Loaded"  >
+    <Grid>
+        <Grid HorizontalAlignment="Left" Height="Auto" Margin="302,40,0,0" Width="430" VerticalAlignment="Top">
+            <DataGrid Name="datagridsauceoptions" HorizontalAlignment="Left" ColumnWidth="*"    CanUserAddRows="False" IsReadOnly="True"   GridLinesVisibility="Horizontal" HeadersVisibility="Column"  VerticalAlignment="Top" SelectedCellsChanged="datagridsauceoptions_SelectedCellsChanged">
+                <DataGrid.Columns>
+                    <!--<DataGridTextColumn x:Name="ItemName" Binding="{x:Null}"  ClipboardContentBinding="{x:Null}" Header="ItemName"/>-->
+                    <DataGridTemplateColumn    Header="Del">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <Button x:Name="grdvwbtnDeleteRows"  ToolTip="Remove Option"    Click="grdvwbtnDeleteRows_Click"   Background="Red" Foreground="WhiteSmoke" FontWeight="Bold"   Content="X"   />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Name="lblinserttitle" Margin="15,22,0,0" TextWrapping="Wrap" Text="Insert Option name" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Name="lblID" Margin="153,22,0,0" TextWrapping="Wrap" Text="-" VerticalAlignment="Top"/>
+        <TextBox Name="txtOptionsName"  k:TouchScreenKeyboard.TouchScreenKeyboard="true"  HorizontalAlignment="Left" Height="21" Margin="15,41,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="270"/>
+        <Button Name="btnSave" IsDefault="True" Content="Save" HorizontalAlignment="Left" Margin="15,420,0,0" VerticalAlignment="Top" Width="270" Click="btnSave_Click"/>
+        <TextBlock Name="lblMsg" HorizontalAlignment="Left" Margin="302,14,0,0" Foreground="Red" TextWrapping="Wrap" Text="-" VerticalAlignment="Top"/>
+        <TextBlock  Name="lblbackgrouncolortitle" HorizontalAlignment="Left" Margin="15,65,0,0" TextWrapping="Wrap" Text="Background Color" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="332" Margin="15,85,0,0" VerticalAlignment="Top" Width="270">
+            <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,27" ScrollViewer.HorizontalScrollBarVisibility="Disabled" x:Name="colorList" SelectionChanged="colorList_SelectionChanged">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Rectangle Fill="{Binding Name}" Width="20" Height="20" Stroke="#FF211E1E" OpacityMask="Black" StrokeThickness="1" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Rectangle x:Name="rtlfill" Fill="#FF3120D4" HorizontalAlignment="Left" Height="26" Margin="0,306,0,0" Stroke="Black" VerticalAlignment="Top" Width="270" RenderTransformOrigin="0.533,0.6"/>
+        </Grid>
+    </Grid>
+</UserControl>

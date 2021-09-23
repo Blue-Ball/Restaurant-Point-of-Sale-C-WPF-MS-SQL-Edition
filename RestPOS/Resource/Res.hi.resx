@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnAddnew" xml:space="preserve">
+    <value>नया जोड़ें</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="btnBack" xml:space="preserve">
+    <value>वापस</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnBrowse" xml:space="preserve">
+    <value>ब्राउज</value>
+    <comment>Users</comment>
+  </data>
+  <data name="btnDataSaveas" xml:space="preserve">
+    <value>इस रूप में बैकअप सहेजें</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="btnDelete" xml:space="preserve">
+    <value>हटाना</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="btnDirectSale" xml:space="preserve">
+    <value>नकद बिक्री</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnExpiredItem" xml:space="preserve">
+    <value>समय सीमा समाप्त आइटम</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnExpiringItem" xml:space="preserve">
+    <value>अगले 30 दिनों में समाप्त हो रहा है</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnExport" xml:space="preserve">
+    <value>एक्सेल में भेजे</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnHomeMenuLink" xml:space="preserve">
+    <value>बंद करे</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="btnLowQuantityItem" xml:space="preserve">
+    <value>कम मात्रा वाला आइटम</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnOrderReady" xml:space="preserve">
+    <value>आदेश तैयार</value>
+    <comment>KD</comment>
+  </data>
+  <data name="btnPrint" xml:space="preserve">
+    <value>प्रभाव</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="btnReceivePayment" xml:space="preserve">
+    <value>भुगतान</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnReset" xml:space="preserve">
+    <value>रीसेट</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="btnSave" xml:space="preserve">
+    <value>बचाना</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="btnSubmit" xml:space="preserve">
+    <value>जमा करें</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="btnSuspend" xml:space="preserve">
+    <value>निलंबित करें</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnTruncate" xml:space="preserve">
+    <value>आयात</value>
+    <comment>Config - Datamanager import Data</comment>
+  </data>
+  <data name="chkTxaApply" xml:space="preserve">
+    <value>हाँ</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbladdresstitle" xml:space="preserve">
+    <value>पता</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblalltitle" xml:space="preserve">
+    <value>सब</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblassigntitle" xml:space="preserve">
+    <value>स्टोर स्थान निर्दिष्ट करें</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblassingtitle" xml:space="preserve">
+    <value>स्टोर स्थान निर्दिष्ट करें *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblbackgrouncolortitle" xml:space="preserve">
+    <value>पीछे का रंग</value>
+    <comment>sauce options</comment>
+  </data>
+  <data name="lblbgcolortitle" xml:space="preserve">
+    <value>पीछे का रंग</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lblbrchnametile" xml:space="preserve">
+    <value>शाखा का नाम *</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblcategorytitle" xml:space="preserve">
+    <value>वर्ग *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblChangetitle" xml:space="preserve">
+    <value>परिवर्तन:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblchngamttitle" xml:space="preserve">
+    <value>राशि बदलें</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblcitytitle" xml:space="preserve">
+    <value>शहर</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblCommenttitle" xml:space="preserve">
+    <value>टिप्पणी</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblcomnametile" xml:space="preserve">
+    <value>कंपनी का नाम *</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblcontacttitle" xml:space="preserve">
+    <value>संपर्क करें</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblcurrencysigntitle" xml:space="preserve">
+    <value>मुद्रा चिह्न</value>
+    <comment>Config</comment>
+  </data>
+  <data name="lblCustomertitle" xml:space="preserve">
+    <value>ग्राहक</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbldatetitle" xml:space="preserve">
+    <value>तारीख</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbldescriptitle" xml:space="preserve">
+    <value>विवरण</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbldiscounttitle" xml:space="preserve">
+    <value>छूट</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbldisctitle" xml:space="preserve">
+    <value>छूट की दर</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbldistile" xml:space="preserve">
+    <value>प्रतिशत छूट%:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbldobtitle" xml:space="preserve">
+    <value>जन्म कि तिथी</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblduetitle" xml:space="preserve">
+    <value>देय</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblemailtitle" xml:space="preserve">
+    <value>ईमेल</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblexpdatetitle" xml:space="preserve">
+    <value>समाप्त होने की तिथि</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblfindreporttitle" xml:space="preserve">
+    <value>रसीद ढूंढें</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblfootertile" xml:space="preserve">
+    <value>फुटनोट: (अधिकतम 29 वर्ण)</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblinfotofindreceipttitle" xml:space="preserve">
+    <value>रसीद प्रिंट करने के लिए लाइन के शीर्ष पर क्लिक करें</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblinserttitle" xml:space="preserve">
+    <value>सम्मिलित करें विकल्प का नाम</value>
+    <comment>sauce options</comment>
+  </data>
+  <data name="lblinvoiceNoPNTtitle" xml:space="preserve">
+    <value>चालान नंबर:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lblInvoiceNotitle" xml:space="preserve">
+    <value>चालान नहीं</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblinvoicePNTtile" xml:space="preserve">
+    <value>चालान:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbliskitchentitle" xml:space="preserve">
+    <value>क्या यह एक रसोई का लेख है?</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblistaxapplytitle" xml:space="preserve">
+    <value>क्या कर लागू होता है? "</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblitembarcodetitle" xml:space="preserve">
+    <value>लेख का बारकोड *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblitemnametitle" xml:space="preserve">
+    <value>वस्तु का नाम *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbllanguagecodetitle" xml:space="preserve">
+    <value>इस टर्मिनल की भाषा</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbllocationaddresstile" xml:space="preserve">
+    <value>स्थान का पता</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbllogidtitle" xml:space="preserve">
+    <value>लोग आउट</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblmanfactdateitle" xml:space="preserve">
+    <value>निर्माण की तारीख</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblmsgSR" xml:space="preserve">
+    <value>मात्रा बढ़ाने के लिए डबल क्लिक करें</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblNametitle" xml:space="preserve">
+    <value>पहला नाम</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblNotetitle" xml:space="preserve">
+    <value>ध्यान दें:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbloveralldiscounttitle" xml:space="preserve">
+    <value>कुल छूट%:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblpagetitle" xml:space="preserve">
+    <value>वस्तु वापस</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblPaidAmounttitle" xml:space="preserve">
+    <value>पेरोल राशि:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblPaidAmounttitle1" xml:space="preserve">
+    <value>वापसी राशि</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblpaidamt" xml:space="preserve">
+    <value>पेरोल राशि</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblpasswordtitle" xml:space="preserve">
+    <value>पारण शब्द</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblpaybytitle" xml:space="preserve">
+    <value>द्वारा भुगतान</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblpaytypetitle" xml:space="preserve">
+    <value>वेतन का प्रकार:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblpeopletypetitle" xml:space="preserve">
+    <value>क़िस्म का मनुष्य</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="lblpurchasetitle" xml:space="preserve">
+    <value>खरीद मूल्य *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblqtytitle" xml:space="preserve">
+    <value>मात्रा (मात्रा) *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblreporttitle" xml:space="preserve">
+    <value>रिपोर्ट</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblresettitle" xml:space="preserve">
+    <value>आधार को रीसेट करें</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lblrestoredescription" xml:space="preserve">
+    <value>आयात करने से पहले अपना बैकअप डेटाबेस फ़ाइल (.db फ़ाइल) चुनें अपने खुले डेटाबेस को बंद करना सुनिश्चित करें</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lblrestoretitle" xml:space="preserve">
+    <value>डेटाबेस को पुनर्स्थापित करें</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lblreturntytitle" xml:space="preserve">
+    <value>वापसी प्रकार:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsalepricetitle" xml:space="preserve">
+    <value>विक्रय मूल्य *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblsalereporttitle" xml:space="preserve">
+    <value>बिक्री रिपोर्ट</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblSalesbytitle" xml:space="preserve">
+    <value>द्वारा बिक्री:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsalestimetitle" xml:space="preserve">
+    <value>बिक्री का समय:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblscannerSRTitle" xml:space="preserve">
+    <value>आइटम बारकोड सम्मिलित करें</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblscannerTitle" xml:space="preserve">
+    <value>चालान नहीं डालें</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsearchtitle" xml:space="preserve">
+    <value>ग्राहक खोजें</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="lblsearchtitlestock" xml:space="preserve">
+    <value>अनुसंधान</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblseattitle" xml:space="preserve">
+    <value>उपलब्ध सीट संख्या</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lblselectcategorytitle" xml:space="preserve">
+    <value>कोई श्रेणी चुनें</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblselectsrtypetitle" xml:space="preserve">
+    <value>बिक्री रजिस्टर शैली चुनें</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblselecttableSRtitle" xml:space="preserve">
+    <value>चयनित तालिका:</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblShopidtitle" xml:space="preserve">
+    <value>दुकान:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsorttitle" xml:space="preserve">
+    <value>क्रमबद्ध आदेश</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lblstockpagetitle" xml:space="preserve">
+    <value>स्टॉक की सूची</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblsubtotaltitle" xml:space="preserve">
+    <value>उप-योग</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsuppliertitle" xml:space="preserve">
+    <value>प्रदाता *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblsvrPNTtitle" xml:space="preserve">
+    <value>प्रस्तुत:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltablePNTtitle" xml:space="preserve">
+    <value>तालिका:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltablezonenametitle" xml:space="preserve">
+    <value>तालिका का नाम: (EX: TAB-IN10)</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lbltablezonetitle" xml:space="preserve">
+    <value>टेबल जोन</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lbltattitle" xml:space="preserve">
+    <value>कर</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltaxreginotile" xml:space="preserve">
+    <value>कर पंजीकरण संख्या: * (RTX029)</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbltaxtile" xml:space="preserve">
+    <value>कर% का प्रतिशत:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblticketPNTtitle" xml:space="preserve">
+    <value>टिकट</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltimePNTtitle" xml:space="preserve">
+    <value>पहर:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltokenPNTtitle" xml:space="preserve">
+    <value>टोकन:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltokonnoSRtitle" xml:space="preserve">
+    <value>टोकन नंबर:</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblTotalItemstypes" xml:space="preserve">
+    <value>कुल प्रकार की वस्तुओं</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lbltotalpayabletitle" xml:space="preserve">
+    <value>भुगतान करने के लिए कुल</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltotaltitle" xml:space="preserve">
+    <value>कुल</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltruncatedeslabel" xml:space="preserve">
+    <value>व्यवस्थापक भूमिका के उपयोगकर्ताओं को हटाया नहीं जाएगा।</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lbltrxTypetitle" xml:space="preserve">
+    <value>सौदे का प्रकार:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltypetitle" xml:space="preserve">
+    <value>प्रकार</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblusertitle" xml:space="preserve">
+    <value>उपयोगकर्ता सूची</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblwebtitle" xml:space="preserve">
+    <value>वेबसाइट:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblweighttitle" xml:space="preserve">
+    <value>वजन</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblzonenametitle" xml:space="preserve">
+    <value>क्षेत्र का नाम</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="tabCustomerslist" xml:space="preserve">
+    <value>ग्राहकों की सूची</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="tabCustomersview" xml:space="preserve">
+    <value>नया जोड़ें</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="tabDataManager" xml:space="preserve">
+    <value>डाटा प्रबंधक</value>
+    <comment>Config</comment>
+  </data>
+  <data name="tabduereport" xml:space="preserve">
+    <value>समाप्ति की रिपोर्ट</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabfindreceipt" xml:space="preserve">
+    <value>रसीद ढूंढें</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabGridview" xml:space="preserve">
+    <value>आइटम</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabImportItem" xml:space="preserve">
+    <value>आइटम आयात करें</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabItemlist" xml:space="preserve">
+    <value>शेयर सूची</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabItemsAlert" xml:space="preserve">
+    <value>अनुच्छेद चेतावनी</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabItemsCategories" xml:space="preserve">
+    <value>एक श्रेणी जोड़ें</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabitemview" xml:space="preserve">
+    <value>एक आइटम जोड़ें</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabPayment" xml:space="preserve">
+    <value>भुगतान</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabreturn" xml:space="preserve">
+    <value>रिटर्न रिपोर्ट</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabsalesreport" xml:space="preserve">
+    <value>बिक्री रिपोर्ट</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabsauceoptions" xml:space="preserve">
+    <value>एक सॉस जोड़ें</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabSauceOptionsSR" xml:space="preserve">
+    <value>सॉस विकल्प</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabtableLayout" xml:space="preserve">
+    <value>टेबल लेआउट</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabTablezone" xml:space="preserve">
+    <value>टेबल जोन</value>
+    <comment>Config</comment>
+  </data>
+  <data name="tabterminal" xml:space="preserve">
+    <value>टर्मिनल</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabTerminallist" xml:space="preserve">
+    <value>टर्मिनल सूची</value>
+    <comment>Config</comment>
+  </data>
+  <data name="tabtopsales" xml:space="preserve">
+    <value>सबसे ज्यादा बिक्री</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="txtCustomers" xml:space="preserve">
+    <value>ग्राहकों</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtKitdisply" xml:space="preserve">
+    <value>रसोई प्रदर्शन</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtLogout" xml:space="preserve">
+    <value>लोग आउट</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtReports" xml:space="preserve">
+    <value>रिपोर्ट</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtReturn" xml:space="preserve">
+    <value>वापस लौटें</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtSettings" xml:space="preserve">
+    <value>सेटिंग्स</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtsrlink" xml:space="preserve">
+    <value>बिक्री रजिस्टर</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtStock" xml:space="preserve">
+    <value>शेयर सूची</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtUsers" xml:space="preserve">
+    <value>कर्मचारी</value>
+    <comment>Home</comment>
+  </data>
+</root>

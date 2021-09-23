@@ -1,0 +1,349 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="clr-namespace:RestPOS.Keyboard" 
+        xmlns:RestPOS="clr-namespace:RestPOS" xmlns:local="clr-namespace:RestPOS.Sales_Register" x:Name="SalesRegisterForm" x:Class="RestPOS.Sales_Register.SalesRegisterPink"
+        Title="SalesRegisterPink"   Height="768" Width="1340" WindowStartupLocation="CenterScreen" WindowState="Maximized"
+        Icon="/RestPOS;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None"     Loaded="Window_Loaded" Background="#FFF1F1F1">
+
+    <Grid    Name="Maingrid"  Background="#FFF1F1F1" Margin="0,0,0,-66" >
+        <!--Top Header section  start -->
+        <Grid  Name="Toolbargrid"  Width="1024"   VerticalAlignment="Top"  Background="#FFF1F1F1" Height="40" Margin="14,0,302,0">
+            <RestPOS:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="35" Width="1000" Margin="10,2,0,0"/>
+        </Grid>
+        <!--Top Header section  END -->
+
+
+        <TabControl HorizontalAlignment="Left" x:Name="tabSalesRegister"  Height="768" Margin="25,48,0,0" VerticalAlignment="Top" Width="1024">
+            <TabItem x:Name="tabterminal"  Selector.IsSelected="True"    Header="Terminal">
+                <Grid Background="#FFF1F1F1" Margin="0,0,0,0" >
+                    <!-- Body section  start  Add to cart -->
+                    <TextBlock x:Name="lblscannerTitle" Text="Insert Barcode" HorizontalAlignment="Left" Margin="20,7,0,0" VerticalAlignment="Top"  />
+                    <TextBox HorizontalAlignment="Left" ToolTip="Please insert product barcode"    x:Name="txtbarcodescan" GotFocus="txtbarcodescan_GotFocus" Height="60" Margin="20,26,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="468" TextChanged="txtbarcodescan_TextChanged" FontWeight="Bold" FontFamily="Times New Roman" FontSize="48"  />
+
+                    <TextBlock  Name="lblsearchSRItemtitle"  Text="Search" HorizontalAlignment="Left" Margin="242,5,0,0" VerticalAlignment="Top"  />
+                    <TextBox HorizontalAlignment="Left"   x:Name="txtSearch" Height="22"   Margin="296,2,0,0" TextWrapping="Wrap" ToolTip="Search by Item Name, item bar-Code, Category" VerticalAlignment="Top" Width="192" TextChanged="txtSearch_TextChanged" FontWeight="Bold" FontFamily="Times New Roman" FontSize="14" />
+
+                    <Grid x:Name="gridOperation" HorizontalAlignment="Left" Height="331" Margin="20,91,0,0" VerticalAlignment="Top" Width="52">
+                        <Button x:Name="btnItemPlus" Content="+" Margin="0,4,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click=""/>
+                        <Button x:Name="btnItemMinus" Content="-" Margin="0,44,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold"/>
+                        <Button x:Name="btnItemGift" Content="Gift" Margin="0,84,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold"/>
+                        <Button x:Name="btnItemVoid" Content="Void" Margin="0,124,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold"/>
+                        <Button x:Name="btnItemCancel" Content="Cancel" Margin="0,164,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold"/>
+                        <Button x:Name="btnItemMove" Content="Move" Margin="0,204,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold"/>
+                        <Button x:Name="btnItemChangePrice" Content="Change&#xD;&#xA;Price" Margin="0,244,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold"/>
+                        <!--<Button Content="Change&#xD;&#xA;Price" Margin="0,244,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" HorizontalAlignment="Center"/>-->
+                    </Grid>
+
+                    <Grid HorizontalAlignment="Left" Height="349" Margin="20,73,0,0" VerticalAlignment="Top" Width="468">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="620"/>
+                        </Grid.RowDefinitions>
+
+                        <DataGrid x:Name="dgrvSalesItemList" ColumnWidth="Auto" Width="Auto"  CanUserSortColumns="False"   CanUserAddRows="False"   ItemsSource="{Binding}" Margin="57,22,0,271" HeadersVisibility="Column" FontSize="16" 
+                      FontFamily="Times New Roman" Grid.RowSpan="2" 
+                      CellEditEnding="dgrvSalesItemList_CellEditEnding" 
+                      SelectedCellsChanged="dgrvSalesItemList_SelectedCellsChanged" PreviewMouseUp="dgrvSalesItemList_PreviewMouseUp" 
+                      >
+                            <DataGrid.Columns>
+                                <!--<DataGridTextColumn x:Name="ItemName" Binding="{x:Null}"  ClipboardContentBinding="{x:Null}" Header="ItemName"/>-->
+                                <DataGridTemplateColumn    Header="Del">
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate >
+                                            <Button x:Name="DeleteRows"  ToolTip="Remove Item"    Click="DeleteRow_Click" PreviewMouseDown="DeleteRows_PreviewMouseDown" PreviewMouseUp="DeleteRows_PreviewMouseUp"  Background="#FF42F70C" Foreground="#FF8D0B0B" FontWeight="Bold"   Content="X"   />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                                <DataGridTemplateColumn Header="-" >
+                                    <DataGridTemplateColumn.CellTemplate>
+                                        <DataTemplate>
+                                            <Button  x:Name="btnMinus"  ToolTip="Decrease Item Quantity"  Click="Minus_Click" PreviewMouseDown="btnMinus_PreviewMouseDown" PreviewMouseUp="btnMinus_PreviewMouseUp"   Background="#FF42F70C" Foreground="#FF8D0B0B" FontWeight="Bold" Content="-" />
+                                        </DataTemplate>
+                                    </DataGridTemplateColumn.CellTemplate>
+                                </DataGridTemplateColumn>
+                            </DataGrid.Columns>
+
+                        </DataGrid>
+                    </Grid>
+                    <!-- Body section  END  Add to cart -->
+                    <Grid HorizontalAlignment="Left" Height="209" Margin="20,427,0,0" VerticalAlignment="Top" Width="468" Background="#FFFFFF">
+                        <!--<TextBox Name="txtcommentbox"  Visibility="Hidden"  k:TouchScreenKeyboard.TouchScreenKeyboard="False" Text="1 Salt, 1 Milk, 2 Cream "  HorizontalAlignment="Left" Height="40" Margin="445,0,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="203"/>-->
+                        <TextBlock x:Name="lblTotal" HorizontalAlignment="Left" Margin="319,11,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="#FF1D3FD8" />
+                        <TextBlock x:Name="lblTotalDisCount" HorizontalAlignment="Left" Margin="321,39,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" FontSize="16"/>
+                        <TextBlock x:Name="lblTotalVAT" HorizontalAlignment="Left" Margin="321,104,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" FontSize="16"/>
+                        <TextBlock x:Name="lblTotalItems" HorizontalAlignment="Left" Margin="327,179,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top"/>
+                        <TextBlock x:Name="lblsubtotal" HorizontalAlignment="Left" Margin="321,68,0,0" TextWrapping="Wrap" FontWeight="SemiBold"  Text="00" VerticalAlignment="Top" FontSize="16"/>
+                        <TextBlock x:Name="lblTotalPayable" HorizontalAlignment="Left" Margin="319,146,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Foreground="#FF293476"/>
+                        <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="4" Margin="22,134,0,0" Stroke="Black" VerticalAlignment="Top" Width="610"/>
+                        <TextBlock x:Name="txtVATRate" HorizontalAlignment="Left" Margin="54,106,0,0" TextWrapping="Wrap" Text="14" VerticalAlignment="Top"/>
+                        <!--<TextBox x:Name="txtDiscountRate" ToolTip="Insert Over all Discount Rate. Discount Rate Apply with Sub total" HorizontalAlignment="Left" Margin="454,34,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"   Width="66" TextChanged="txtDiscountRate_TextChanged"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="527,34,0,0" TextWrapping="Wrap" Text="%" VerticalAlignment="Top"/>
+                        <TextBlock HorizontalAlignment="Left" Margin="457,56,0,0" TextWrapping="Wrap" Text="Overall Discount:" VerticalAlignment="Top"/>
+                        <TextBlock Name="lbloveralldiscount" HorizontalAlignment="Left" Margin="551,57,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>-->
+
+                        <Label x:Name="lbltotalSRtitle" Content="Total" HorizontalAlignment="Left" Margin="14,9,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="#FF1D3FD8"/>
+                        <Label x:Name="lbldisSRtitle" Content="Discount" HorizontalAlignment="Left" Margin="14,36,0,0" VerticalAlignment="Top" FontSize="16"/>
+                        <Label x:Name="lbltaxSRtitle" Content="Tax" HorizontalAlignment="Left" Margin="14,97,0,0" VerticalAlignment="Top" FontSize="16"/>
+                        <Label x:Name="lblsubSRtitle" Content="Sub Total" HorizontalAlignment="Left" Margin="14,64,0,0"  FontWeight="SemiBold" VerticalAlignment="Top" FontSize="16"/>
+                        <Label  x:Name="lbltotalSRPaytitle"   Content="Total Payable" HorizontalAlignment="Left" Margin="14,143,0,0" VerticalAlignment="Top" FontSize="22" FontWeight="Bold" Background="{x:Null}" Foreground="#FF293476"/>
+                        <Label x:Name="lblTotalItemstypes" Content="Total Item Types" HorizontalAlignment="Left" Margin="19,177,0,0" VerticalAlignment="Top"/>
+                        <Button Name="btnholdsale" Content="Hold" ToolTip="Hold this order and Print Ticket" HorizontalAlignment="Left" Margin="390,151,0,0" VerticalAlignment="Top" Width="60"  Foreground="#FFEAEBF7" BorderBrush="#FFD6B2B2" Background="Green"  Click="btnholdsale_Click"/>
+                        <Button Name="btnDeleteholdsale" Content="Delete" ToolTip="Delete Hold order" HorizontalAlignment="Left"  Margin="388,181,0,0"   VerticalAlignment="Top" Width="60"  Foreground="#FFEAEBF7" BorderBrush="#FFD6B2B2" Background="Red"  Click="btnDeleteholdsale_Click"/>
+                    </Grid>
+                    <Button x:Name="btnDirectSale" Content="Cash Sale"   HorizontalAlignment="Left" Margin="178,638,0,0" VerticalAlignment="Top" Width="150" Height="50" FontSize="18" FontWeight="Bold" ToolTip="Direct Sale on Cash" Foreground="#FF07135F"  BorderBrush="#FFD6B2B2" Background="#FF49E231" Click="btnDirectSale_Click"/>
+                    <Button x:Name="btnReceivePayment" Content="Payment"  IsDefault="True" HorizontalAlignment="Left" Margin="338,640,0,0" VerticalAlignment="Top" Width="150" Height="50" FontSize="18"  FontWeight="Bold" ToolTip="Receive Payment" Foreground="WhiteSmoke" BorderBrush="#FFD6B2B2" Background="#EF405F8B" Click="btnReceivePayment_Click"/>
+                    <Button x:Name="btnSuspend" Content="Suspend" HorizontalAlignment="Left" Margin="19,638,0,0" VerticalAlignment="Top" Width="150" Height="50" FontSize="18" FontWeight="Bold" Foreground="#FFEAEBF7" BorderBrush="#FFD6B2B2" Background="#FFEE7F10" Click="btnSuspend_Click"/>
+
+                    <!--Items Stock Section  start -->
+                    <TabControl HorizontalAlignment="Left" x:Name="tabstockcontrol"  Height="602" Margin="493,89,-2,0" VerticalAlignment="Top" Width="527" >
+                        <TabItem x:Name="tabGridview" Selector.IsSelected="True" Header=" Items ">
+                            <Grid Background="#FFF1F1F1" Margin="0,0,7,0" >
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="205*"/>
+                                    <ColumnDefinition Width="128*"/>
+                                </Grid.ColumnDefinitions>
+                                <ListView x:Name="lstvwStocklist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ToolTip="Click for Qty increase"  Background="#4CFFFFFF"   SelectionChanged="lstvwStocklist_SelectionChanged" TouchEnter="lstvwStocklist_TouchEnter" Margin="-2,-2,0,0" Grid.ColumnSpan="2" PreviewMouseUp="lstvwStocklist_PreviewMouseUp"  >
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <DockPanel>
+                                                <Border Margin="0"   BorderBrush="BlueViolet">
+                                                    <Grid Width="117" Grid.RowSpan="2"    Background="#FAC532">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*" />
+                                                        </Grid.RowDefinitions>
+                                                        <Image   ToolTip="{Binding product_name}" Source="{Binding imagename}" Height="70" Width="70" Grid.Column="0" HorizontalAlignment="Left"/>
+                                                        <!--<TextBlock  Margin="74,7,0,0"   Text="{Binding product_id}" TextWrapping="Wrap" HorizontalAlignment="Left" />-->
+                                                        <TextBlock  Margin="2,2,0,0"  Background="BlueViolet" Foreground="AntiqueWhite"   Text="{Binding retail_price, Mode=OneWay}"  ToolTip="Price" TextWrapping="Wrap" HorizontalAlignment="Right" VerticalAlignment="Top"  Height="16"  FontWeight="Bold"   />
+                                                        <TextBlock  Margin="5,83,0,0" Foreground="#FF3A3030"  Text="{Binding product_name, Mode=OneWay}" TextWrapping="Wrap" HorizontalAlignment="Left"  FontWeight="Bold"   />
+                                                        <!--<TextBlock  Margin="74,40,0,0"    Text="Qty: " TextWrapping="Wrap" HorizontalAlignment="Left" />
+                                                        <TextBlock  Margin="104,40,0,0"    Text="{Binding product_quantity}" TextWrapping="Wrap" HorizontalAlignment="Left" FontWeight="Bold"  />                                            
+                                                        <TextBlock  Margin="104,55,0,10"    Text="{Binding retail_price}" TextWrapping="Wrap" HorizontalAlignment="Left" />-->
+
+                                                    </Grid>
+                                                </Border>
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </TabItem>
+                        <!--Items Stock Section  END  -->
+
+                        <!--- Hold transaction  start -->
+                        <TabItem x:Name="tabholdtransactions" ToolTip="Hold Transactions"  Header="Hold">
+                            <Grid Background="#FFF1F1F1" Margin="0,0,0,0" >
+                                <ListView x:Name="lstvwHoldList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" Margin="0,0,0,0"  Background="#4CFFFFFF"    SelectionChanged="lstvwHoldList_SelectionChanged" >
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <DockPanel>
+                                                <Grid Name="grdholdlist" Width="65" Height="90" Margin="5">
+
+                                                    <Canvas   x:Name="appbar_tableicon" Width="55" Height="58" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                                        <Path  Width="55" Height="58" Canvas.Left="0" Canvas.Top="0" Stretch="Fill" StrokeThickness="1" StrokeLineJoin="Round" Stroke="YellowGreen" Fill="Red" Data="M59,39H43v-2h3c0.6,0,1-0.4,1-1v-4c0-0.6-0.4-1-1-1h-4h-8c-0.6,0-1,0.4-1,1v7h-4v-7c0-0.6-0.4-1-1-1h-8h-4    c-0.6,0-1,0.4-1,1v4c0,0.6,0.4,1,1,1h3v2H1c-0.6,0-1,0.4-1,1v4c0,0.6,0.4,1,1,1h3v3v12h2V49h4v11h2V49h36v11h2V49h4v11h2V48v-3h3    c0.6,0,1-0.4,1-1v-4C60,39.4,59.6,39,59,39z M45,35h-2v-2h2V35z M35,33h6v6h-6V33z M17,35v-2h2v2H17z M21,33h6v6h-6V33z M54,47h-5    H11H6v-2h48V47z M58,43h-3H5H2v-2h18h8h6h8h16V43z"/>
+                                                    </Canvas>
+                                                    <TextBlock  Margin="0,62,0,0"  Text="{Binding sales_id}" ToolTip="Hold transaction ID" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="SemiBold"   FontSize="12"  />
+                                                    <TextBlock  Margin="0,78,0,0"  Text="{Binding tableno}" ToolTip="Table No" TextWrapping="Wrap" HorizontalAlignment="Center"  FontSize="9"  />
+
+                                                </Grid>
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </TabItem>
+                        <!-- End Hold item -->
+
+                        <!-- Sauce options Section Start -->
+                        <TabItem x:Name="tabSauceOptions"  Header="Sauce options">
+                            <Grid Background="#FFF1F1F1" Margin="0,0,0,0" >
+                                <ListView x:Name="lstvwSauceoptions" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ToolTip="{Binding saucename}"  Background="#4CFFFFFF"   SelectionChanged="lstvwSauceoptions_SelectionChanged" >
+                                    <ListView.ItemsPanel>
+                                        <ItemsPanelTemplate>
+                                            <WrapPanel/>
+                                        </ItemsPanelTemplate>
+                                    </ListView.ItemsPanel>
+                                    <ListView.ItemTemplate>
+                                        <DataTemplate>
+                                            <DockPanel>
+                                                <!--<Border Margin="3" CornerRadius="9" BorderThickness="8" BorderBrush="#EE707E6D">
+                                                    <Grid Width="117" Grid.RowSpan="2"    Background="#EF405F8B">
+                                                        <Grid.RowDefinitions>
+                                                            <RowDefinition Height="*" />
+                                                        </Grid.RowDefinitions>
+                        
+                                                    </Grid>
+                                                </Border>-->
+                                                <Grid Width="115" Height="115" Margin="3">
+                                                    <Ellipse Fill="#FF6DB4EF"/>
+                                                    <Ellipse>
+                                                        <Ellipse.Fill>
+                                                            <RadialGradientBrush>
+                                                                <GradientStop Offset="0" Color="#00000000"/>
+                                                                <GradientStop Offset="0.78" Color="#00000000"/>
+                                                                <GradientStop Offset="1" Color="#80000000"/>
+                                                            </RadialGradientBrush>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+                                                    <Ellipse Margin="10">
+                                                        <Ellipse.Fill>
+                                                            <LinearGradientBrush>
+                                                                <GradientStop Offset="0" Color="#FF3120D4"/>
+                                                                <GradientStop Offset="0.2" Color="#FF3120D4"/>
+                                                                <GradientStop Offset="0.6" Color="{Binding bgcolor}"/>
+                                                            </LinearGradientBrush>
+                                                        </Ellipse.Fill>
+                                                    </Ellipse>
+                                                    <TextBlock  Margin="0,45,0,0"  Text="{Binding saucename}" ToolTip="{Binding saucename}" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="SemiBold" Foreground="White"   FontSize="13"  />
+
+                                                </Grid>
+                                            </DockPanel>
+                                        </DataTemplate>
+                                    </ListView.ItemTemplate>
+                                </ListView>
+                            </Grid>
+                        </TabItem>
+                        <!-- Sauce options Section END -->
+                    </TabControl>
+                    <!-- Category Section Start -->
+                    <ListBox  x:Name="lstvwCategory" HorizontalAlignment="Left" Margin="493,1,-2,654" Width="527" SelectionChanged="lstvwCategory_SelectionChanged"  >
+                        <ListBox.ItemTemplate>
+                            <DataTemplate>
+                                <Border BorderThickness="0" BorderBrush="#FF707E6D">
+                                    <Grid Width="74"  Background="Green">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*" />
+                                            <RowDefinition Height="20" />
+                                        </Grid.RowDefinitions>
+                                        <!--<Image   Source="/RestPOS;component/Res/items.png" Margin="5"   Height="38" Width="80" Grid.Column="0" HorizontalAlignment="Left"></Image>-->
+                                        <TextBlock  Margin="5,15,0,0"  Text="{Binding category}" TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="#FFF7EEEE"   FontSize="16" FontFamily="Tahoma" />
+
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                        <ListBox.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <StackPanel Orientation="Horizontal"   />
+                            </ItemsPanelTemplate>
+                        </ListBox.ItemsPanel>
+                    </ListBox>
+                    <!-- Category Section END -->
+
+                    <!-- Footer section Start-->
+                    <Grid HorizontalAlignment="Left" Height="40" Margin="10,696,0,0" VerticalAlignment="Top" Width="1000">
+                        <Button x:Name="btnHomeMenuLink" Content="Home Menu" HorizontalAlignment="Right" Margin="0,7,21,0" ToolTip="Back to dashboard please complete or suspend trx"   VerticalAlignment="Top" Width="132" BorderThickness="0" Background="#FFFDFAFA" Height="24" Click="btnHomeMenuLink_Click" />
+                        <Label Name="lblmsg" Content="Double Click for Qty increase" HorizontalAlignment="Left"   VerticalAlignment="Top"  Margin="654,6,0,0"  />
+                        <Label Name="lbltaxinfoinstruction" Content="1 = Tax apply, 0 = No Tax " HorizontalAlignment="Left" Margin="7,5,0,0" VerticalAlignment="Top"  />
+                    </Grid>
+                    <!--Footer section END -->
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabPayment"  Header="Payment"  >
+                <Grid Background="#FFF1F1F1">
+
+                    <Label  x:Name="lbltotalSRtitle2"  Content="Total" HorizontalAlignment="Left" Margin="24,14,0,0" VerticalAlignment="Top" FontSize="28" FontWeight="Bold" Background="{x:Null}" Foreground="#FF293476"/>
+                    <TextBlock x:Name="lblTotalPayableTabpayment" HorizontalAlignment="Left" Margin="212,17,0,0" TextWrapping="Wrap" Text="00" VerticalAlignment="Top" FontSize="36" FontWeight="Bold" Foreground="#FF293476"/>
+                    <TextBlock Text="Pay by" Name="lblpaybytitle"  HorizontalAlignment="Left" Margin="30,67,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="CombPayby" HorizontalAlignment="Left" Margin="30,87,0,0" VerticalAlignment="Top" Width="278"    ToolTip="Please select Payment Type">
+                        <ComboBoxItem  Content="Cash" IsSelected="True"/>
+                        <ComboBoxItem Content="Debit Card"/>
+                        <ComboBoxItem Content="Credit Card"/>
+                        <ComboBoxItem Content="Interac"/>
+                        <ComboBoxItem Content="Check"/>
+                        <Separator/>
+                        <ComboBoxItem Content="Gift Card"/>
+                        <ComboBoxItem Content="PayPal"/>
+                        <ComboBoxItem Content="Skrill/MoneyBrooker"/>
+                        <ComboBoxItem Content="Payza"/>
+                        <Separator/>
+                        <ComboBoxItem Content="ApplePay"/>
+                        <ComboBoxItem Content="PayTM"/>
+                        <ComboBoxItem Content="MasterCard"/>
+                        <ComboBoxItem Content="Bank TT"/>
+                        <ComboBoxItem Content="Others"/>
+                    </ComboBox>
+
+                    <TextBlock Name="lbldisrateSRtitle" HorizontalAlignment="Left" Margin="31,116,0,0"  TextWrapping="Wrap" Text="Overall Discount Rate %: " VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtDiscountRate" Margin="30,137,0,0" FontWeight="SemiBold" ToolTip="Insert Over all Discount Rate. Discount Rate Apply with Sub total" HorizontalAlignment="Left"  Height="24"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top"   Width="278" TextChanged="txtDiscountRate_TextChanged"/>
+                    <TextBlock x:Name="lblOverallDiscount" HorizontalAlignment="Left" Margin="200,117,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+
+                    <TextBlock Name="lblchngamttitle" Text="Change Amount" HorizontalAlignment="Left" Margin="30,164,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtChangeAmount" HorizontalAlignment="Left" IsReadOnly="True"  Height="24" Margin="30,184,0,0"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="278"/>
+
+                    <TextBlock Name="lblduetitle" Text="Due" HorizontalAlignment="Left" Margin="31,211,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtDueAmount" HorizontalAlignment="Left"  IsReadOnly="True"   Height="22" Margin="30,232,0,0"   TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="278"/>
+
+                    <TextBlock Name="lblpaidamt" Text="Paid Amount" HorizontalAlignment="Left" Margin="316,28,0,0" FontWeight="SemiBold" VerticalAlignment="Top" Height="23"/>
+                    <TextBox x:Name="txtPaidAmount"    HorizontalAlignment="Left" Height="60" Margin="515,55,0,0" TextWrapping="Wrap" Background="Yellow"   VerticalAlignment="Top" Width="287" TextChanged="txtPaidAmount_TextChanged" FontWeight="Bold" FontSize="50" PreviewTextInput="txtPaidAmount_PreviewTextInput" />
+
+                    <TextBlock Name="lbldateSRtitle" Text="Date" HorizontalAlignment="Left" Margin="31,257,0,0" VerticalAlignment="Top"/>
+                    <DatePicker x:Name="dtSalesDate" HorizontalAlignment="Left"    Margin="30,277,0,0" VerticalAlignment="Top"   Width="276"   IsTodayHighlighted="True"   FontWeight="Bold"/>
+
+
+                    <TextBlock Name="lblcustomerSRtitle" Text="Customer" HorizontalAlignment="Left" Margin="31,305,0,0" VerticalAlignment="Top"/>
+                    <ComboBox x:Name="txtCustName" HorizontalAlignment="Left" Margin="30,325,0,0" VerticalAlignment="Top" Width="278"    SelectionChanged="txtCustName_SelectionChanged"/>
+                    <TextBlock  x:Name="lblCustID" HorizontalAlignment="Left" Margin="151,306,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+
+                    <TextBlock Name="lblcommentSRtitle" Text="Comment" HorizontalAlignment="Left" Margin="31,351,0,0" VerticalAlignment="Top"/>
+                    <TextBox x:Name="txtcomment" AcceptsReturn="True" VerticalScrollBarVisibility="Visible"  HorizontalAlignment="Left"    Height="97" Margin="30,371,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="278"/>
+
+                    <TextBlock Name="lbltokonnoSRtitle" Text="Token no: " HorizontalAlignment="Left" Margin="31,473,0,0" FontWeight="SemiBold" VerticalAlignment="Top"/>
+                    <TextBox HorizontalAlignment="Left" x:Name="txttokenno" Height="24"  ToolTip="Insert customer waiting token number" Margin="30,492,0,0" TextWrapping="Wrap" Text="1" VerticalAlignment="Top" Width="278"/>
+                    <TextBlock  x:Name="txtInvoice"  HorizontalAlignment="Left" Margin="31,522,0,0" FontSize="8" TextWrapping="Wrap" Text="1" VerticalAlignment="Top"/>
+
+                    <Button x:Name="btnCompleteSalesAndPrint" IsDefault="True"   HorizontalAlignment="Left" Margin="650,606,0,0"     VerticalAlignment="Top" Width="150" Height="100" FontSize="15" FontWeight="Bold" Foreground="#FF07135F" BorderBrush="#FFD6B2B2" Background="#FF49E231" Click="btnCompleteSalesAndPrint_Click" ToolTip="Complete Sale and Print">
+                        <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="appbar_printer_text" Width="76" Height="52" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                            <Path Width="44" Height="45" Canvas.Left="16" Canvas.Top="2" Stretch="Fill" Fill="#FFF" Data="F1 M 25,27L 25,17L 51,17L 51,27L 47,27L 47,21L 29,21L 29,27L 25,27 Z M 16,28L 60,28L 60,51L 52,51L 52,46L 55,46L 55,33L 21,33L 21,46L 24,46L 24,51L 16,51L 16,28 Z M 25,39L 28,39L 28,52L 35,52L 35,59L 48,59L 48,39L 51,39L 51,62L 33,62L 25,54L 25,39 Z M 46,55L 38,55L 38,52L 46,52L 46,55 Z M 46,49L 30,49L 30,46L 46,46L 46,49 Z M 46,43L 30,43L 30,40L 46,40L 46,43 Z "/>
+                        </Canvas>
+                    </Button>
+                    <Button x:Name="btnSaveOnly" Content="Save" HorizontalAlignment="Left" Margin="416,606,0,0" VerticalAlignment="Top"    Width="150" Height="100" FontSize="15" FontWeight="Bold" Foreground="#FF353847" BorderBrush="#FFD6B2B2" Background="#FFB4E8AC" Click="btnSaveOnly_Click" ToolTip="Only Save to Database "/>
+                    <Button x:Name="btnBack" Content="Back" HorizontalAlignment="Left" Margin="51,606,0,0" VerticalAlignment="Top"    Width="150" Height="100" FontSize="15" FontWeight="Bold" Foreground="Aqua"  BorderThickness="0"  Background="#FFE65333" Click="btnBack_Click" ToolTip="Back to Terminal"/>
+                    <Button x:Name="btnCurrentAmount" Content="00" HorizontalAlignment="Left" Margin="416,54,0,0" VerticalAlignment="Top"    Width="92" Height="73" FontSize="17" FontWeight="SemiBold" Background="White"  BorderBrush="Aqua"   Click="btnCurrentAmount_Click" ToolTip="Receieve Total Amount"/>
+
+                    <local:CurrencyShortcuts x:Name="currency_ShortcutsContorl" HorizontalAlignment="Left" Margin="413,127,0,0" VerticalAlignment="Top" Height="455" Width="495"/>
+
+                    <Expander Name="expndtabler" Header="Select Table" HorizontalAlignment="Left" Margin="949,286,0,0" VerticalAlignment="Top" Height="88" Width="54" BorderThickness="0" IsExpanded="True"  >
+                        <ListView x:Name="lstvwTableList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ToolTip="Table Layout"  Background="#4CFFFFFF"    SelectionChanged="lstvwTableList_SelectionChanged" Margin="-3,0,3,0" >
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel/>
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <DockPanel>
+                                        <Grid Name="grdtable" Width="60" Height="70" Margin="5">
+
+                                            <Canvas ToolTip="{Binding tablename}"  x:Name="appbar_tableicon" Width="40" Height="40"   Margin="0,-15,0,5"  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+                                                <Path  Width="40" Height="46" Canvas.Left="0" Canvas.Top="0" Stretch="Fill" StrokeThickness="1" StrokeLineJoin="Round" Stroke="YellowGreen" Fill="{Binding fillcolor}" Data=" M 9 6 C 6.8027056 6 5 7.8027056 5 10 C 5 12.197294 6.8027056 14 9 14 C 11.197294 14 13 12.197294 13 10 C 13 7.8027056 11.197294 6 9 6 z M 41 6 C 38.802706 6 37 7.8027056 37 10 C 37 12.197294 38.802706 14 41 14 C 43.197294 14 45 12.197294 45 10 C 45 7.8027056 43.197294 6 41 6 z M 9 8 C 10.116414 8 11 8.8835859 11 10 C 11 11.116414 10.116414 12 9 12 C 7.8835859 12 7 11.116414 7 10 C 7 8.8835859 7.8835859 8 9 8 z M 41 8 C 42.116414 8 43 8.8835859 43 10 C 43 11.116414 42.116414 12 41 12 C 39.883586 12 39 11.116414 39 10 C 39 8.8835859 39.883586 8 41 8 z M 9 15 C 6.8026661 15 5 16.802666 5 19 A 1.0001 1.0001 0 0 0 5 19.001953 L 5.0097656 28.25 A 1.0001 1.0001 0 0 0 5.0136719 28.332031 C 5.1862319 30.39616 6.9288889 32 9 32 L 13.490234 32 L 13.339844 33 L 5.9296875 33 C 4.8967873 33 4.0628387 32.21359 4 31.183594 L 4 17 A 1.0001 1.0001 0 0 0 2.984375 15.986328 A 1.0001 1.0001 0 0 0 2 17 L 2 31.238281 A 1.0001 1.0001 0 0 0 2.0019531 31.296875 C 2.0809982 32.644084 2.8492823 33.797964 3.9433594 34.445312 L 3.0058594 42.888672 A 1.0003547 1.0003547 0 0 0 4.9941406 43.111328 L 5.8964844 34.996094 C 5.9078127 34.996191 5.9183386 35 5.9296875 35 L 13.039062 35 L 12.011719 41.851562 A 1.0001 1.0001 0 0 0 12.335938 42.748047 C 12.335938 42.748047 12.799979 43.135596 13.558594 43.431641 C 14.317209 43.727686 15.446558 44 17 44 C 18.553442 44 19.682791 43.727686 20.441406 43.431641 C 20.785681 43.29729 20.788986 43.24849 20.996094 43.121094 C 21.200228 43.249745 21.198815 43.29834 21.53125 43.429688 C 22.286985 43.728279 23.417544 44 25 44 C 26.581994 44 27.712971 43.728237 28.46875 43.429688 C 28.798858 43.299287 28.796292 43.251049 29 43.123047 C 29.20369 43.25111 29.201161 43.299269 29.53125 43.429688 C 30.286985 43.728279 31.417544 44 33 44 C 34.581994 44 35.712971 43.728237 36.46875 43.429688 C 37.224529 43.131138 37.685547 42.728516 37.685547 42.728516 A 1.0001 1.0001 0 0 0 37.988281 41.851562 L 36.960938 35 L 44.070312 35 C 44.081661 35 44.092187 34.996191 44.103516 34.996094 L 45.005859 43.111328 A 1.0003551 1.0003551 0 1 0 46.994141 42.888672 L 46.056641 34.445312 C 47.150718 33.797964 47.919004 32.644081 47.998047 31.296875 A 1.0001 1.0001 0 0 0 48 31.238281 L 48 17 A 1.0001 1.0001 0 0 0 46.984375 15.986328 A 1.0001 1.0001 0 0 0 46 17 L 46 31.183594 C 45.937161 32.21359 45.103213 33 44.070312 33 L 36.660156 33 L 36.509766 32 L 41 32 C 43.071111 32 44.813764 30.396159 44.986328 28.332031 A 1.0001 1.0001 0 0 0 44.990234 28.25 L 45 19.001953 A 1.0001 1.0001 0 0 0 45 19 C 45 16.802666 43.197334 15 41 15 C 38.815138 15 37.237423 16.809522 37.005859 18.888672 A 1.0001 1.0001 0 0 0 37 19 L 37 26 L 35.611328 26 L 34.988281 21.851562 A 1.0001 1.0001 0 0 0 34 21 L 16 21 A 1.0001 1.0001 0 0 0 15.011719 21.851562 L 14.388672 26.001953 A 1.0001 1.0001 0 0 0 14.3125 26 L 13 26 L 13 19 A 1.0001 1.0001 0 0 0 12.994141 18.888672 C 12.762618 16.809522 11.184862 15 9 15 z M 9 17 C 10.124103 17 10.85099 17.810884 11 19.097656 L 11 27 A 1.0001 1.0001 0 0 0 12 28 L 14.089844 28 L 13.789062 30 L 9 30 C 7.9542587 30 7.10154 29.215016 7.0097656 28.173828 L 7 18.998047 C 7.0010404 17.882314 7.8839921 17 9 17 z M 41 17 C 42.116666 17 43 17.883334 43 19 L 42.990234 28.173828 C 42.898494 29.215016 42.045741 30 41 30 L 36.210938 30 L 35.910156 28 L 38 28 A 1.0001 1.0001 0 0 0 39 27 L 39 19.097656 C 39.14901 17.810884 39.875897 17 41 17 z M 16.861328 23 L 33.138672 23 L 35.912109 41.478516 C 35.827699 41.520836 35.890709 41.508553 35.734375 41.570312 C 35.224404 41.77176 34.355006 42 33 42 C 31.644456 42 30.77539 41.771721 30.265625 41.570312 C 30.124546 41.514572 30.081586 41.485263 30 41.445312 L 30 38 A 1.0001 1.0001 0 0 0 28.984375 36.986328 A 1.0001 1.0001 0 0 0 28 38 L 28 41.445312 C 27.918407 41.485264 27.87551 41.514562 27.734375 41.570312 C 27.224404 41.771763 26.355006 42 25 42 C 23.644456 42 22.77539 41.771721 22.265625 41.570312 C 22.124546 41.514572 22.081586 41.485264 22 41.445312 L 22 36 A 1.0001 1.0001 0 0 0 20.984375 34.986328 A 1.0001 1.0001 0 0 0 20 36 L 20 41.435547 C 19.912763 41.47805 19.862287 41.510821 19.714844 41.568359 C 19.192209 41.772313 18.321558 42 17 42 C 15.678442 42 14.807791 41.772314 14.285156 41.568359 C 14.120768 41.504209 14.180432 41.51407 14.089844 41.46875 L 16.861328 23 z"/>
+                                            </Canvas>
+                                            <TextBlock  Name="lblcross"  Margin="0,25,0,0"  Text="{Binding booked}"   TextWrapping="Wrap" Foreground="Orange" HorizontalAlignment="Center" FontWeight="SemiBold"   FontSize="18"  />
+
+                                            <TextBlock  Margin="0,10,0,0"  Text="{Binding seatqty}" ToolTip="{Binding seat}"  TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="SemiBold"   FontSize="13"   />
+                                            <TextBlock  Margin="0,60,0,0"  Text="{Binding tablename}" ToolTip="{Binding tablename}" TextWrapping="Wrap" HorizontalAlignment="Center" FontWeight="SemiBold"   FontSize="12"  />
+                                            <TextBlock  Margin="0,75,0,0"  Text="{Binding zonenam}" ToolTip="{Binding zonenam}" TextWrapping="Wrap" HorizontalAlignment="Center"  FontSize="9"  />
+
+                                        </Grid>
+                                    </DockPanel>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </Expander>
+                    <TextBlock Name="lblTableNo" HorizontalAlignment="Left" Margin="718,37,0,0" TextWrapping="Wrap" Text="-" FontSize="10" VerticalAlignment="Top"/>
+                    <TextBlock  HorizontalAlignment="Right" Margin="0,37,10,0" TextWrapping="Wrap" Text="B = Booked" FontSize="10" VerticalAlignment="Top"/>
+                </Grid>
+            </TabItem>
+        </TabControl>
+    </Grid>
+</Window>

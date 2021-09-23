@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnAddnew" xml:space="preserve">
+    <value>Adicionar novo</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="btnBack" xml:space="preserve">
+    <value>Costas</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnBrowse" xml:space="preserve">
+    <value>Squeaky toy</value>
+    <comment>Users</comment>
+  </data>
+  <data name="btnDataSaveas" xml:space="preserve">
+    <value>Salve o backup como</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="btnDelete" xml:space="preserve">
+    <value>Remover</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="btnDirectSale" xml:space="preserve">
+    <value>Venda de dinheiro</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnExpiredItem" xml:space="preserve">
+    <value>Item expirado</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnExpiringItem" xml:space="preserve">
+    <value>Vencimento dos próximos 30 dias</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnExport" xml:space="preserve">
+    <value>Exportar para Excel</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnHomeMenuLink" xml:space="preserve">
+    <value>Fechar</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="btnLowQuantityItem" xml:space="preserve">
+    <value>Item de pequena quantidade</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnOrderReady" xml:space="preserve">
+    <value>Ordem pronta</value>
+    <comment>KD</comment>
+  </data>
+  <data name="btnPrint" xml:space="preserve">
+    <value>Impressão</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="btnReceivePayment" xml:space="preserve">
+    <value>Forma de pagamento</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnReset" xml:space="preserve">
+    <value>Restabelecer</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="btnSave" xml:space="preserve">
+    <value>Salve </value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="btnSubmit" xml:space="preserve">
+    <value>Enviar</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="btnSuspend" xml:space="preserve">
+    <value>Suspender</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnTruncate" xml:space="preserve">
+    <value>Importar</value>
+    <comment>Config - Datamanager import Data</comment>
+  </data>
+  <data name="chkTxaApply" xml:space="preserve">
+    <value>sim</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbladdresstitle" xml:space="preserve">
+    <value>Endereço</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblalltitle" xml:space="preserve">
+    <value>Todos</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblassigntitle" xml:space="preserve">
+    <value>Atribuir um local da loja</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblassingtitle" xml:space="preserve">
+    <value>Atribuir um local da loja *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblbackgrouncolortitle" xml:space="preserve">
+    <value>Cor de fundo</value>
+    <comment>sauce options</comment>
+  </data>
+  <data name="lblbgcolortitle" xml:space="preserve">
+    <value>Cor de fundo</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lblbrchnametile" xml:space="preserve">
+    <value>Nome da filial *</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblcategorytitle" xml:space="preserve">
+    <value>Categoria *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblChangetitle" xml:space="preserve">
+    <value>Mudança:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblchngamttitle" xml:space="preserve">
+    <value>Alterar o valor</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblcitytitle" xml:space="preserve">
+    <value>Cidade</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblCommenttitle" xml:space="preserve">
+    <value>Comente</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblcomnametile" xml:space="preserve">
+    <value>Nome da empresa *</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblcontacttitle" xml:space="preserve">
+    <value>Contato</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblCustomertitle" xml:space="preserve">
+    <value>Cliente</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbldatetitle" xml:space="preserve">
+    <value>Encontro</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbldescriptitle" xml:space="preserve">
+    <value>A descrição</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbldiscounttitle" xml:space="preserve">
+    <value>Desconto</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbldisctitle" xml:space="preserve">
+    <value>Taxa de desconto</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbldistile" xml:space="preserve">
+    <value>Percentagem de desconto%:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbldobtitle" xml:space="preserve">
+    <value>Data de nascimento</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblduetitle" xml:space="preserve">
+    <value>Vencimento</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblemailtitle" xml:space="preserve">
+    <value>O email</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblexpdatetitle" xml:space="preserve">
+    <value>Data de validade</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblfindreporttitle" xml:space="preserve">
+    <value>Encontre um recibo</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblfootertile" xml:space="preserve">
+    <value>Nota de rodapé: (Máx. 29 caracteres)</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblinfotofindreceipttitle" xml:space="preserve">
+    <value>Clique no topo da linha para imprimir o recibo</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblinserttitle" xml:space="preserve">
+    <value>Inserir nome da opção</value>
+    <comment>sauce options</comment>
+  </data>
+  <data name="lblinvoiceNoPNTtitle" xml:space="preserve">
+    <value>Número da fatura:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lblInvoiceNotitle" xml:space="preserve">
+    <value>Fatura vendida não</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblinvoicePNTtile" xml:space="preserve">
+    <value>Fatura:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbliskitchentitle" xml:space="preserve">
+    <value>É um artigo de cozinha?</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblistaxapplytitle" xml:space="preserve">
+    <value>O imposto se aplica? "</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblitembarcodetitle" xml:space="preserve">
+    <value>Código de barras do artigo *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblitemnametitle" xml:space="preserve">
+    <value>Nome do item *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbllanguagecodetitle" xml:space="preserve">
+    <value>Minha língua:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbllocationaddresstile" xml:space="preserve">
+    <value>Endereço de localização</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbllogidtitle" xml:space="preserve">
+    <value>Sair</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblmanfactdateitle" xml:space="preserve">
+    <value>Data de fabricação</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblmsgSR" xml:space="preserve">
+    <value>Clique duas vezes para aumentar a quantidade</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblNametitle" xml:space="preserve">
+    <value>Primeiro nome</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblNotetitle" xml:space="preserve">
+    <value>Nota:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbloveralldiscounttitle" xml:space="preserve">
+    <value>Desconto global%:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblpagetitle" xml:space="preserve">
+    <value>Devolver item</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblPaidAmounttitle" xml:space="preserve">
+    <value>Montante da folha de pagamento:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblPaidAmounttitle1" xml:space="preserve">
+    <value>Montante do retorno</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblpaidamt" xml:space="preserve">
+    <value>Montante da folha de pagamento</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblpasswordtitle" xml:space="preserve">
+    <value>Senha</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblpaybytitle" xml:space="preserve">
+    <value>Pagar por</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblpaytypetitle" xml:space="preserve">
+    <value>Tipo de remuneração:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblpeopletypetitle" xml:space="preserve">
+    <value>Tipo de pessoa</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="lblpurchasetitle" xml:space="preserve">
+    <value>Preço de compra *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblqtytitle" xml:space="preserve">
+    <value>Quantidade (Qtd) *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblreporttitle" xml:space="preserve">
+    <value>Relatórios</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblresettitle" xml:space="preserve">
+    <value>Repor a base</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lblrestoredescription" xml:space="preserve">
+    <value>Selecione seu arquivo de banco de dados de backup (arquivo .db) Antes de importar, feche seu banco de dados aberto</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lblrestoretitle" xml:space="preserve">
+    <value>Restaurar o banco de dados</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lblreturntytitle" xml:space="preserve">
+    <value>Tipo de retorno:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsalepricetitle" xml:space="preserve">
+    <value>Preço de venda *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblsalereporttitle" xml:space="preserve">
+    <value>Relatório de vendas</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblSalesbytitle" xml:space="preserve">
+    <value>Vendas por:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsalestimetitle" xml:space="preserve">
+    <value>Tempo de vendas:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblscannerSRTitle" xml:space="preserve">
+    <value>Insira um código de barras</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblscannerTitle" xml:space="preserve">
+    <value>Inserir Fatura Não</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsearchtitle" xml:space="preserve">
+    <value>Pesquisar clientes</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="lblsearchtitlestock" xml:space="preserve">
+    <value>Pesquisa</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblseattitle" xml:space="preserve">
+    <value>Número de assento disponível</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lblselectcategorytitle" xml:space="preserve">
+    <value>Escolha uma categoria</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblselectsrtypetitle" xml:space="preserve">
+    <value>Selecione o estilo de registro de vendas</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblselecttableSRtitle" xml:space="preserve">
+    <value>Tabela selecionada:</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblShopidtitle" xml:space="preserve">
+    <value>shopId:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsorttitle" xml:space="preserve">
+    <value>Ordem de classificação</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lblstockpagetitle" xml:space="preserve">
+    <value>Lista de ações</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblsubtotaltitle" xml:space="preserve">
+    <value>Subtotal</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsuppliertitle" xml:space="preserve">
+    <value>Fornecedor *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblsvrPNTtitle" xml:space="preserve">
+    <value>Servido:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltablePNTtitle" xml:space="preserve">
+    <value>Mesa:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltablezonenametitle" xml:space="preserve">
+    <value>Nome da tabela: (EX: TAB-IN10)</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lbltablezonetitle" xml:space="preserve">
+    <value>Zona de tabela</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lbltattitle" xml:space="preserve">
+    <value>Imposto</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltaxreginotile" xml:space="preserve">
+    <value>Número de registro fiscal: * (RTX029)</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbltaxtile" xml:space="preserve">
+    <value>Porcentagem de imposto%:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblticketPNTtitle" xml:space="preserve">
+    <value>Bilhete</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltimePNTtitle" xml:space="preserve">
+    <value>Tempo:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltokenPNTtitle" xml:space="preserve">
+    <value>Símbolo:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltokonnoSRtitle" xml:space="preserve">
+    <value>Token no:</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblTotalItemstypes" xml:space="preserve">
+    <value>Total de tipos de itens</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lbltotalpayabletitle" xml:space="preserve">
+    <value>Total a pagar</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltotaltitle" xml:space="preserve">
+    <value>Total</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltruncatedeslabel" xml:space="preserve">
+    <value>Os usuários da função de administrador não serão excluídos.</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lbltrxTypetitle" xml:space="preserve">
+    <value>Tipo de transação:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltypetitle" xml:space="preserve">
+    <value>Tipo</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblusertitle" xml:space="preserve">
+    <value>Lista de usuários</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblwebtitle" xml:space="preserve">
+    <value>Local na rede Internet:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblweighttitle" xml:space="preserve">
+    <value>Peso</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblzonenametitle" xml:space="preserve">
+    <value>Nome da área</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="tabCustomerslist" xml:space="preserve">
+    <value>Lista de clientes</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="tabCustomersview" xml:space="preserve">
+    <value>Adicionar novo</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="tabDataManager" xml:space="preserve">
+    <value>Gerenciador de dados</value>
+    <comment>Config</comment>
+  </data>
+  <data name="tabduereport" xml:space="preserve">
+    <value>Relatório de caducidade</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabfindreceipt" xml:space="preserve">
+    <value>Encontre um recibo</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabGridview" xml:space="preserve">
+    <value>Unid</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabImportItem" xml:space="preserve">
+    <value>Item de importação</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabItemlist" xml:space="preserve">
+    <value>Lista de ações</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabItemsAlert" xml:space="preserve">
+    <value>Alerta do artigo</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabItemsCategories" xml:space="preserve">
+    <value>adicione uma categoria</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabitemview" xml:space="preserve">
+    <value>Adicione um item</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabPayment" xml:space="preserve">
+    <value>Forma de pagamento</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabreturn" xml:space="preserve">
+    <value>Relatório de retorno</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabsalesreport" xml:space="preserve">
+    <value>Relatório de vendas</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabsauceoptions" xml:space="preserve">
+    <value>Adicione um molho</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabSauceOptionsSR" xml:space="preserve">
+    <value>Opções de molho</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabtableLayout" xml:space="preserve">
+    <value>Layout da tabela</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabTablezone" xml:space="preserve">
+    <value>Zona de tabela</value>
+    <comment>Config</comment>
+  </data>
+  <data name="tabterminal" xml:space="preserve">
+    <value>terminal</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabTerminallist" xml:space="preserve">
+    <value>Lista de terminais</value>
+    <comment>Config</comment>
+  </data>
+  <data name="tabtopsales" xml:space="preserve">
+    <value>Top Sales</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="txtCustomers" xml:space="preserve">
+    <value>clientes</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtKitdisply" xml:space="preserve">
+    <value>Exibição da cozinha</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtLogout" xml:space="preserve">
+    <value>Sair</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtReports" xml:space="preserve">
+    <value>Relatórios</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtReturn" xml:space="preserve">
+    <value>Volte</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtSettings" xml:space="preserve">
+    <value>Configurações</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtsrlink" xml:space="preserve">
+    <value>Registro de vendas</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtStock" xml:space="preserve">
+    <value>Lista de ações</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtUsers" xml:space="preserve">
+    <value>Empregado</value>
+    <comment>Home</comment>
+  </data>
+  <data name="lblcurrencysigntitle" xml:space="preserve">
+    <value>Sinal de moeda</value>
+    <comment>Config</comment>
+  </data>
+</root>

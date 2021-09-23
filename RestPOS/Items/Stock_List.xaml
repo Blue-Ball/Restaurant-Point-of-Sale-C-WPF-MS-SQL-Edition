@@ -1,0 +1,158 @@
+﻿<Window xmlns:RestPOS="clr-namespace:RestPOS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:k="clr-namespace:RestPOS.Keyboard"   Icon="/RestPOS;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None" 
+        xmlns:local="clr-namespace:RestPOS.Items"  x:Class="RestPOS.Items.Stock_List"
+        Title="Stock_List" Height="768" Width="1024" WindowState="Maximized" WindowStartupLocation="CenterScreen"  Loaded="StockformLoad"  >
+  <!--<Window.Resources>
+        <AlternationConverter x:Key="AlternationConverter"/>
+    </Window.Resources>-->
+  <Grid Background="#FFF1F1F1" >
+    <!--Top Header section -->
+    <Grid Margin="5,40,290,0" VerticalAlignment="Top"  Background="#FFF1F1F1" Height="40">
+      <RestPOS:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="40" Width="894"/>
+      <Label Content="Stock List" Name="lblstockpagetitle" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="18" Margin="334,5,758,0" VerticalAlignment="Top"/>
+    </Grid>
+    <!-- Header section start-->
+
+    <TextBlock HorizontalAlignment="Left" Name="lblsearchtitle" Margin="67,84,0,0" TextWrapping="Wrap" Text="Search" VerticalAlignment="Top"/>
+    <TextBox HorizontalAlignment="Left" x:Name="txtSearch"  k:TouchScreenKeyboard.TouchScreenKeyboard="false"    Height="23" ToolTip="Search Customer by Name, Barcode , category " Margin="67,106,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="443"  TextChanged="txtSearch_TextChanged"/>
+    <TextBlock HorizontalAlignment="Left" Name="lblselectcategorytitle" Margin="570,84,0,0" TextWrapping="Wrap" Text="Select Category" VerticalAlignment="Top"/>
+    <ComboBox HorizontalAlignment="Left" x:Name="cmboItemCategory" Margin="570,105,0,0" VerticalAlignment="Top" Width="250" SelectionChanged="cmboItemCategory_SelectionChanged"/>
+    <!-- Footer Section End -->
+    <!-- Header section END -->
+
+    <TabControl x:Name="tabcontrolItemspanel"    Height="500" Margin="65,144,65,0"  VerticalAlignment="Top">
+      <TabItem x:Name="tabItemlist" Header="Item List" FontSize="14"  >
+        <Grid  Margin="0" Background="#FFF1F1F1">
+          <ListView x:Name="lstvwStocklist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontSize="12" ToolTip="Click to Edit"  Background="#4CFFFFFF" SelectionChanged="lstvwStocklist_SelectionChanged" >
+            <ListView.ItemsPanel>
+              <ItemsPanelTemplate>
+                <WrapPanel/>
+              </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemTemplate>
+              <DataTemplate>
+                <DockPanel >
+                  <Border Margin="3" CornerRadius="0" BorderThickness="1" BorderBrush="Black">
+                    <Grid Width="183" Grid.RowSpan="2"   Background="#FFFFFF"   >
+
+                      <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                      </Grid.RowDefinitions>
+                      <Image   ToolTip="{Binding product_name}" Source="{Binding imagename}"   Margin="5,5,0,0"   Height="70" Width="68" Grid.Column="0" HorizontalAlignment="Left"/>
+                      <TextBlock  Margin="74,7,0,0"   Text="{Binding product_id}" TextWrapping="Wrap" HorizontalAlignment="Left" />
+                      <TextBlock  Margin="74,23,0,0"    Text="{Binding product_name}" TextWrapping="Wrap" HorizontalAlignment="Left"  FontWeight="Bold"  Foreground="Navy"    />
+                      <TextBlock  Margin="74,40,0,0"    Text="Qty: " TextWrapping="Wrap" HorizontalAlignment="Left" />
+                      <TextBlock  Margin="104,40,0,0"    Text="{Binding product_quantity}" TextWrapping="Wrap" HorizontalAlignment="Left" FontWeight="Bold"  />
+                      <TextBlock  Margin="74,55,0,0"    Text="Price: " TextWrapping="Wrap" HorizontalAlignment="Left" />
+                      <TextBlock  Margin="104,55,0,10"    Text="{Binding retail_price}" TextWrapping="Wrap" HorizontalAlignment="Left" />
+                    </Grid>
+                  </Border>
+                </DockPanel>
+              </DataTemplate>
+            </ListView.ItemTemplate>
+          </ListView>
+        </Grid>
+      </TabItem>
+      <TabItem  x:Name="tabitemview"  Header="Add Item" FontSize="14"   >
+        <Grid  Background="#FFF1F1F1">
+          <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="13*"/>
+            <ColumnDefinition Width="12*"/>
+            <ColumnDefinition Width="853*"/>
+          </Grid.ColumnDefinitions>
+          <TextBlock HorizontalAlignment="Left" Name="lblitembarcodetitle" Margin="2,17,0,0" TextWrapping="Wrap" Text="Item Barcode *" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="2"/>
+          <TextBox x:Name="txtItembarcode" k:TouchScreenKeyboard.TouchScreenKeyboard="False"   ToolTip="Insert Product Bar-code" HorizontalAlignment="Left"    Height="23" Margin="2,40,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="250" Grid.ColumnSpan="2" Grid.Column="2"/>
+
+          <TextBlock HorizontalAlignment="Left" Name="lblitemnametitle" Margin="2,67,0,0" TextWrapping="Wrap" Text="Item Name *" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="2"/>
+          <TextBox x:Name="txtitemName" Margin="2,90,0,0" k:TouchScreenKeyboard.TouchScreenKeyboard="False"   ToolTip="Insert Product Name"  HorizontalAlignment="Left"    Height="23" TextWrapping="Wrap"   VerticalAlignment="Top" Width="250" Grid.ColumnSpan="2" Grid.Column="2"/>
+
+          <TextBlock HorizontalAlignment="Left" Name="lbldescriptitle" Margin="2,116,0,0" TextWrapping="Wrap" Text="Description" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="2"/>
+          <TextBox x:Name="txtDescription"  Margin="2,140,0,0" k:TouchScreenKeyboard.TouchScreenKeyboard="False"    ToolTip="Insert Product Description"  HorizontalAlignment="Left"   Height="55" AcceptsReturn="True"  VerticalScrollBarVisibility="Auto"  TextWrapping="Wrap"   VerticalAlignment="Top" Width="250" Grid.ColumnSpan="2" Grid.Column="2"/>
+
+          <TextBlock HorizontalAlignment="Left" Name="lblqtytitle" Margin="2,200,0,0" TextWrapping="Wrap" Text="Quantity (Qty) *" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="2"/>
+          <TextBox x:Name="txtQty" HorizontalAlignment="Left" k:TouchScreenKeyboard.TouchScreenKeyboard="False"    ToolTip="Insert Product Quantity"  Height="23" Margin="2,224,0,0"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="250" PreviewTextInput="txtQty_PreviewTextInput" Grid.ColumnSpan="2" Grid.Column="2"/>
+
+          <TextBlock HorizontalAlignment="Left" Name="lblpurchasetitle" Margin="2,251,0,0" TextWrapping="Wrap" Text="Purchase Price *" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="2"/>
+          <TextBox x:Name="txtPurchaseprice" HorizontalAlignment="Left" k:TouchScreenKeyboard.TouchScreenKeyboard="False"   Margin="2,274,0,0"   ToolTip="Insert Purchase Price"   Height="23"   TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="250" PreviewTextInput="txtPurchaseprice_PreviewTextInput" Grid.ColumnSpan="2" Grid.Column="2"/>
+
+          <TextBlock HorizontalAlignment="Left" Name="lblsalepricetitle" Margin="2,310,0,0" TextWrapping="Wrap" Text="Sales Price *" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="2"/>
+          <TextBox x:Name="txtSalePrice" HorizontalAlignment="Left"  k:TouchScreenKeyboard.TouchScreenKeyboard="False"  Margin="2,334,0,0"   ToolTip="Insert Sales Price"  Height="23"   TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="250" PreviewTextInput="txtSalePrice_PreviewTextInput" Grid.ColumnSpan="2" Grid.Column="2"/>
+
+          <TextBlock HorizontalAlignment="Left" Name="lbldisctitle" Margin="2,368,0,0" TextWrapping="Wrap" Text="Discount Rate" VerticalAlignment="Top" Grid.ColumnSpan="2" Grid.Column="2"/>
+          <TextBox x:Name="txtDiscountRate" HorizontalAlignment="Left"  k:TouchScreenKeyboard.TouchScreenKeyboard="False"  Margin="2,392,0,0"   ToolTip="Insert Discount Rate"   Height="23"   TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="250" PreviewTextInput="txtDiscountRate_PreviewTextInput" Grid.ColumnSpan="2" Grid.Column="2"/>
+
+          <TextBlock HorizontalAlignment="Left" Name="lblcategorytitle" Margin="265,17,0,0" TextWrapping="Wrap" Text="Category *" VerticalAlignment="Top" Grid.Column="3"/>
+          <ComboBox x:Name="cmboCategory" HorizontalAlignment="Left" Margin="265,40,0,0" ToolTip="Please select Category" TabIndex="8" VerticalAlignment="Top" Width="250" Grid.Column="3"/>
+
+          <TextBlock HorizontalAlignment="Left" Name="lblsuppliertitle" Margin="265,68,0,0" TextWrapping="Wrap" Text="Supplier *" VerticalAlignment="Top" Grid.Column="3"/>
+          <ComboBox x:Name="cmboSupplier" HorizontalAlignment="Left" Margin="265,90,0,0" ToolTip="Please select Category" TabIndex="9" VerticalAlignment="Top" Width="250" Grid.Column="3"/>
+
+          <TextBlock HorizontalAlignment="Left" Name="lblassingtitle" Margin="265,118,0,0" TextWrapping="Wrap" Text="Assign Shop Location *" VerticalAlignment="Top" Grid.Column="3" />
+          <ComboBox x:Name="cmboLocation" HorizontalAlignment="Left" Margin="265,142,0,0" ToolTip="Please select Item Stock Location" TabIndex="10" VerticalAlignment="Top" Width="250" Grid.Column="3"/>
+
+          <TextBlock HorizontalAlignment="Left" Name="lblistaxapplytitle" Margin="265,170,0,0" TextWrapping="Wrap" Text="Is Tax Apply?" VerticalAlignment="Top"  FontSize="12" Grid.Column="3"/>
+          <CheckBox x:Name="chkTxaApply" Content="Yes" HorizontalAlignment="Left" ToolTip="Please Check if GST/HST/Tax Apply" Margin="265,191,0,0" TabIndex="11" VerticalAlignment="Top" Height="14" Grid.Column="3"/>
+
+          <TextBlock HorizontalAlignment="Left" Name="lbliskitchentitle" Margin="265,210,0,0" TextWrapping="Wrap" Text="Is it Kitchen Item?" VerticalAlignment="Top" FontSize="12" Grid.Column="3"/>
+          <CheckBox x:Name="chkkitchenDisplay" Content="Yes" HorizontalAlignment="Left" ToolTip="Please Check if GST/HST/Tax Apply" Margin="265,230,0,0" TabIndex="11" VerticalAlignment="Top" Grid.Column="3"/>
+
+
+          <TextBlock HorizontalAlignment="Left" Name="lblweighttitle" Margin="265,251,0,0" TextWrapping="Wrap" Text="Weight " VerticalAlignment="Top" Grid.Column="3"/>
+          <TextBox x:Name="txtWeight" HorizontalAlignment="Left"  k:TouchScreenKeyboard.TouchScreenKeyboard="False"   Margin="265,272,0,0"  ToolTip="Insert Product Weight (LB/KG/GM/Lt)" TabIndex="12" Height="23"   TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="250" Grid.Column="3"/>
+
+          <TextBlock   HorizontalAlignment="Left" Name="lblmanfactdateitle" Margin="265,312,0,0" TextWrapping="Wrap" Text="Manufacturing Date" VerticalAlignment="Top" Grid.Column="3"/>
+          <DatePicker x:Name="dtMdate" HorizontalAlignment="Left" ToolTip="Select Manufacturing Date " Margin="265,334,0,0" TabIndex="13" VerticalAlignment="Top" Width="250" Grid.Column="3"/>
+
+          <TextBlock HorizontalAlignment="Left" Name="lblexpdatetitle" Margin="265,366,0,0" TextWrapping="Wrap" Text="Expire Date " VerticalAlignment="Top" Grid.Column="3"/>
+          <DatePicker x:Name="dtExpiredate" HorizontalAlignment="Left" ToolTip="Select Expire Date " Margin="265,390,0,0" TabIndex="14" VerticalAlignment="Top" Width="250" Grid.Column="3"/>
+
+          <Image HorizontalAlignment="Left" RenderOptions.BitmapScalingMode="HighQuality"  x:Name="picItemimage"  Margin="565,40,0,0" VerticalAlignment="Top" Width="96"  Height="96" Source="/RestPOS;component/Res/items.png" Grid.Column="3"    />
+          <Button Content="Browse" x:Name="btnBrowse" HorizontalAlignment="Left" Margin="565,140,0,0" VerticalAlignment="Top"  TabIndex="15" Width="96" Background="#FF200BA6" Foreground="#FFE8DBDB" Click="btnBrowse_Click" Grid.Column="3"  />
+
+          <Button Content="Save" x:Name="btnSave" HorizontalAlignment="Left" IsDefault="True" Margin="265,429,0,0" VerticalAlignment="Top" Width="250" TabIndex="16" Background="#FFE06E0F" Foreground="#FFF0D7D7" FontWeight="Bold" Click="btnSave_Click" Grid.Column="3"/>
+          <Button Content="Delete" x:Name="btnDelete" ToolTip="Delete this item"   HorizontalAlignment="Left" Margin="4,429,0,0" VerticalAlignment="Top" Width="105" Background="#FFE82709" Foreground="#FFE8D5D5" Click="btnDelete_Click" Grid.ColumnSpan="2" Grid.Column="2"/>
+          <Button x:Name="btnAddnew" Content="Add New" ToolTip="Press this button to add new item"   HorizontalAlignment="Left" Margin="105,429,0,0" VerticalAlignment="Top" Width="134" Click="btnAddnew_Click" Grid.Column="3"/>
+
+          <TextBlock x:Name="lblItemcode"  HorizontalAlignment="Left" Margin="639,177,0,0" FontSize="8"  TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Grid.Column="3"/>
+          <TextBlock x:Name="lblimagename"  HorizontalAlignment="Left" Margin="567,167,0,0" FontSize="6" TextWrapping="Wrap" Text="-" VerticalAlignment="Top" Grid.Column="3"/>
+          <TextBlock x:Name="lblFileExtension" Text="item.png" HorizontalAlignment="Left" Margin="637,166,0,0" FontSize="6" TextWrapping="Wrap"   VerticalAlignment="Top" Grid.Column="3"/>
+        </Grid>
+      </TabItem>
+      <TabItem  x:Name="tabsauceoptions"  Header="Add Sauce option" FontSize="14"   >
+        <Grid  Background="#FFF1F1F1">
+          <local:Sauceoptions HorizontalAlignment="Left" Margin="3,2,0,0" VerticalAlignment="Top"/>
+
+        </Grid>
+      </TabItem>
+      <TabItem  x:Name="tabItemsCategories"  Header="Add Category" FontSize="14"   >
+        <Grid  Background="#FFF1F1F1">
+          <local:Category  HorizontalAlignment="Left" Margin="3,2,0,0" VerticalAlignment="Top"  />
+        </Grid>
+      </TabItem>
+      <TabItem  x:Name="tabImportItem"  Header="Import Item" FontSize="14"   >
+        <Grid  Background="#FFF1F1F1">
+          <local:Import_Items HorizontalAlignment="Left" Margin="3,2,0,0" VerticalAlignment="Top"  />
+        </Grid>
+      </TabItem>
+      <TabItem  x:Name="tabItemsAlert"  Header="Items Alert" FontSize="14"   >
+        <Grid  Background="#FFF1F1F1">
+          <local:Items_Alert HorizontalAlignment="Left" Margin="3,2,0,0" VerticalAlignment="Top"  />
+        </Grid>
+      </TabItem>
+    </TabControl>
+
+
+    <!-- Footer Section Start -->
+    <Grid HorizontalAlignment="Right" Height="40" Margin="0,649,60,0"  VerticalAlignment="Top" Width="152">
+      <!--<RestPOS:HomeStatusBar HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
+      <Button x:Name="btnHomeMenuLink" Content="Home Menu" HorizontalAlignment="Left"    VerticalAlignment="Top" Width="132" BorderThickness="0" Background="#FFFDFAFA" Height="24" Click="btnHomeMenuLink_Click" Margin="15,5,0,0" />
+    </Grid>
+
+    <TextBlock x:Name="lblItemcount" HorizontalAlignment="Left" Margin="167,655,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+    <Button Content="Print" HorizontalAlignment="Left" Margin="67,655,0,0" x:Name="btnPrint" VerticalAlignment="Top" Width="76" Click="btnPrint_Click"/>
+  </Grid>
+
+</Window>

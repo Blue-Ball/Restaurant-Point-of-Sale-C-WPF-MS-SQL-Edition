@@ -1,0 +1,98 @@
+﻿<Window x:Name="ReceiptForm" x:Class="RestPOS.Sales_Register.ReceiptPrint"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Icon="/RestPOS;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None" 
+        Title="Receipt Print" Height="730" Width="901" WindowStartupLocation="CenterScreen"   WindowState="Maximized" Loaded="ReceiptForm_Loaded"  >
+  <Grid>
+    <Grid HorizontalAlignment="Center" Height="835" VerticalAlignment="Top" Width="281" Margin="301,0,319,-105">
+      <!--Top Header Start -->
+      <Button Content="Print" Name="btnPrint" IsDefault="True" HorizontalAlignment="Left" Background="Orange" Foreground="White" Margin="15,54,0,0" FontWeight="SemiBold" FontSize="40" BorderThickness="0" VerticalAlignment="Top" Width="250" Click="btnPrint_Click" Height="50"/>
+      <Button x:Name="btnClose" Content="Close"  HorizontalAlignment="Left"  Margin="16,10,0,0" VerticalAlignment="Top"    Width="250" Height="32" FontSize="25" FontWeight="Bold" Foreground="Aqua"  BorderThickness="0"  Background="#FFE65333" Click="btnClose_Click"/>
+      <!--<TextBlock Name="lblInvoiceNo" HorizontalAlignment="Left" Margin="579,11,-225,0" TextWrapping="Wrap" Text="18" FontSize="10" VerticalAlignment="Top"/>-->
+      <!--Top Header END -->
+
+      <Grid HorizontalAlignment="Center" Name="grdPrintPanel" Height="1396" Margin="18,121,-17,-682" VerticalAlignment="Top" Width="280">
+        <!-- Header Start-->
+        <Image Name="piclogo" HorizontalAlignment="Left" Height="44" Margin="15,-3,0,0" VerticalAlignment="Top" Width="250" Source="/RestPOS;component/Res/Dsoft_Resto_top_logo_250_44-3.png" RenderOptions.BitmapScalingMode="HighQuality" ToolTip="Image size W=250 H=44px png format"/>
+        <TextBlock Name="lblCompanyName" HorizontalAlignment="Left" Margin="20,48,20,0" TextWrapping="Wrap" Text="C Sharp WPF Restaurant Inc" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Top" Width="248"/>
+        <TextBlock Name="lblAddress" HorizontalAlignment="Left" Margin="15,72,29,0" TextWrapping="Wrap" Text="3876 Rue jonson, Toronto, ON N8W 1DH CA." VerticalAlignment="Top" Width="241"/>
+        <TextBlock Name="lblContact" HorizontalAlignment="Left" Margin="80,90,107,0" TextWrapping="Wrap" Text="514 777 2335" VerticalAlignment="Top" Width="99"/>
+        <TextBlock Name="lblWebsite" HorizontalAlignment="Center" Margin="74,107,31,0" TextWrapping="Wrap" Text="www.test.com" VerticalAlignment="Top" Width="175"/>
+        <TextBlock Name="lblBranch" HorizontalAlignment="Center" Margin="103,126,60,0" TextWrapping="Wrap" Text="Toronto" VerticalAlignment="Top" Width="117"/>
+
+        <TextBlock HorizontalAlignment="Left" Name="lbltokenPNTtitle" Margin="5,150,0,0" TextWrapping="Wrap" Text="Token: " VerticalAlignment="Top"/>
+        <TextBlock Name="lbltoknNo" HorizontalAlignment="Left" Margin="80,151,0,0" TextWrapping="Wrap" FontWeight="SemiBold" Text="01 " VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Name="lblinvoicePNTtile" Margin="5,165,0,0" TextWrapping="Wrap" Text="Invoice: " VerticalAlignment="Top"/>
+        <TextBlock Name="lblInvoNo" HorizontalAlignment="Left" Margin="80,165,0,0" TextWrapping="Wrap" Text="18 " VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Name="lblsvrPNTtitle" Margin="155,151,0,0" TextWrapping="Wrap" Text="Served:" VerticalAlignment="Top"/>
+        <TextBlock Name="lblservedby" HorizontalAlignment="Left" Margin="215,151,0,0" TextWrapping="Wrap" Text="admin" VerticalAlignment="Top"/>
+        <TextBlock Name="lblPrintDate" HorizontalAlignment="Left" Margin="5,183,102,0" TextWrapping="Wrap" Text="2017-12-12 12:12:45 PM" VerticalAlignment="Top" Width="138"  />
+
+        <!-- Header END-->
+
+        <!-- Body Start-->
+        <TextBlock HorizontalAlignment="Left" Margin="208,190,0,0" TextWrapping="Wrap"  FontSize="9" Text="*TX: TAX Apply" VerticalAlignment="Top"/>
+        <DataGrid Name="dtgriditems" HorizontalAlignment="Left" Background="White" AutoGenerateColumns="False"  Width="270" Margin="8,213,0,177" CanUserSortColumns="False"  BorderThickness="0"  CanUserAddRows="False"   CanUserReorderColumns="False" CanUserResizeColumns="False"  HeadersVisibility="Column"  GridLinesVisibility="None" >
+          <DataGrid.Columns>
+            <DataGridTextColumn Header="Items"     IsReadOnly="True" Binding="{Binding Items}" Width="170"   >
+              <DataGridTextColumn.HeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                  <Setter Property="HorizontalContentAlignment" Value="Center" />
+                  <Setter Property="Background"  Value="#7A7A76"/>
+                  <Setter Property="Foreground"  Value="#FFFFFF"/>
+                </Style>
+              </DataGridTextColumn.HeaderStyle>
+            </DataGridTextColumn>
+            <!--<DataGridTextColumn Header="Price" IsReadOnly="True"  Binding="{Binding Price}" Width="55">
+                            <DataGridTextColumn.HeaderStyle>
+                                <Style TargetType="DataGridColumnHeader">
+                                    <Setter Property="HorizontalContentAlignment" Value="Center" />
+                                    <Setter Property="Background"  Value="#7A7A76"/>
+                                    <Setter Property="Foreground"  Value="#FFFFFF"/>
+                                </Style>
+                            </DataGridTextColumn.HeaderStyle>
+                            <DataGridTextColumn.ElementStyle>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="HorizontalAlignment" Value="Center" />
+                                </Style>
+                            </DataGridTextColumn.ElementStyle>
+                        </DataGridTextColumn>-->
+            <DataGridTextColumn Header="Qty" IsReadOnly="True"  Binding="{Binding Qty}" Width="40">
+              <DataGridTextColumn.HeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                  <Setter Property="HorizontalContentAlignment" Value="Center" />
+                  <Setter Property="Background"  Value="#7A7A76"/>
+                  <Setter Property="Foreground"  Value="#FFFFFF"/>
+                </Style>
+              </DataGridTextColumn.HeaderStyle>
+              <DataGridTextColumn.ElementStyle>
+                <Style TargetType="{x:Type TextBlock}">
+                  <Setter Property="HorizontalAlignment" Value="Center" />
+                </Style>
+              </DataGridTextColumn.ElementStyle>
+            </DataGridTextColumn>
+            <DataGridTextColumn Header="Total" IsReadOnly="True"  Binding="{Binding Total}" Width="60">
+              <DataGridTextColumn.HeaderStyle>
+                <Style TargetType="DataGridColumnHeader">
+                  <Setter Property="HorizontalContentAlignment" Value="Left" />
+                  <Setter Property="Background"  Value="#7A7A76"/>
+                  <Setter Property="Foreground"  Value="#FFFFFF"/>
+                </Style>
+              </DataGridTextColumn.HeaderStyle>
+              <DataGridTextColumn.ElementStyle>
+                <Style TargetType="{x:Type TextBlock}">
+                  <Setter Property="HorizontalAlignment" Value="Left" />
+                </Style>
+              </DataGridTextColumn.ElementStyle>
+            </DataGridTextColumn>
+          </DataGrid.Columns>
+
+        </DataGrid>
+
+        <!-- Body END-->
+      </Grid>
+    </Grid>
+
+
+  </Grid>
+</Window>

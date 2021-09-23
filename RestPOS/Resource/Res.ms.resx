@@ -1,0 +1,708 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="btnAddnew" xml:space="preserve">
+    <value>Tambah baru</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="btnBack" xml:space="preserve">
+    <value>Kembali</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnBrowse" xml:space="preserve">
+    <value>Semak imbas</value>
+    <comment>Users</comment>
+  </data>
+  <data name="btnDataSaveas" xml:space="preserve">
+    <value>Simpan sandaran sebagai</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="btnDelete" xml:space="preserve">
+    <value>Keluarkan</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="btnDirectSale" xml:space="preserve">
+    <value>Jualan tunai</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnExpiredItem" xml:space="preserve">
+    <value>Item yang sudah tamat tempoh</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnExpiringItem" xml:space="preserve">
+    <value>Tamat dalam 30 hari akan datang</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnExport" xml:space="preserve">
+    <value>Eksport ke Excel</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnHomeMenuLink" xml:space="preserve">
+    <value>Tutup</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="btnLowQuantityItem" xml:space="preserve">
+    <value>Item kuantiti yang rendah</value>
+    <comment>Item alert</comment>
+  </data>
+  <data name="btnOrderReady" xml:space="preserve">
+    <value>Bersedia Pesanan</value>
+    <comment>KD</comment>
+  </data>
+  <data name="btnPrint" xml:space="preserve">
+    <value>Tayangan</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="btnReceivePayment" xml:space="preserve">
+    <value>Pembayaran</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnReset" xml:space="preserve">
+    <value>Tetapkan semula</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="btnSave" xml:space="preserve">
+    <value>Simpan</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="btnSubmit" xml:space="preserve">
+    <value>Hantar</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="btnSuspend" xml:space="preserve">
+    <value>Tangguhkan</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="btnTruncate" xml:space="preserve">
+    <value>Import</value>
+    <comment>Config - Datamanager import Data</comment>
+  </data>
+  <data name="chkTxaApply" xml:space="preserve">
+    <value>Ya</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbladdresstitle" xml:space="preserve">
+    <value>Alamat</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblalltitle" xml:space="preserve">
+    <value>Semua</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblassigntitle" xml:space="preserve">
+    <value>Berikan lokasi kedai</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblassingtitle" xml:space="preserve">
+    <value>Tetapkan lokasi kedai *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblbackgrouncolortitle" xml:space="preserve">
+    <value>Warna latar belakang</value>
+    <comment>sauce options</comment>
+  </data>
+  <data name="lblbgcolortitle" xml:space="preserve">
+    <value>Warna latar belakang</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lblbrchnametile" xml:space="preserve">
+    <value>Nama cawangan *</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblcategorytitle" xml:space="preserve">
+    <value>Kategori *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblChangetitle" xml:space="preserve">
+    <value>Ubah:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblchngamttitle" xml:space="preserve">
+    <value>Tukar jumlah</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblcitytitle" xml:space="preserve">
+    <value>City</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblCommenttitle" xml:space="preserve">
+    <value>Komen</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblcomnametile" xml:space="preserve">
+    <value>Nama syarikat *</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblcontacttitle" xml:space="preserve">
+    <value>Hubungi</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblcurrencysigntitle" xml:space="preserve">
+    <value>Tanda mata wang</value>
+    <comment>Config</comment>
+  </data>
+  <data name="lblCustomertitle" xml:space="preserve">
+    <value>Pelanggan</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbldatetitle" xml:space="preserve">
+    <value>Tarikh</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbldescriptitle" xml:space="preserve">
+    <value>Penerangan</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbldiscounttitle" xml:space="preserve">
+    <value>Diskaun</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbldisctitle" xml:space="preserve">
+    <value>Kadar diskaun</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbldistile" xml:space="preserve">
+    <value>% Diskaun%:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbldobtitle" xml:space="preserve">
+    <value>Tarikh lahir</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblduetitle" xml:space="preserve">
+    <value>Kerana</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblemailtitle" xml:space="preserve">
+    <value>E-mel</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblexpdatetitle" xml:space="preserve">
+    <value>Tarikh luput</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblfindreporttitle" xml:space="preserve">
+    <value>Dapatkan resit</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblfootertile" xml:space="preserve">
+    <value>Nota kaki: (Maks 29 huruf)</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblinfotofindreceipttitle" xml:space="preserve">
+    <value>Klik di bahagian atas talian untuk mencetak resit</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblinserttitle" xml:space="preserve">
+    <value>Masukkan nama pilihan</value>
+    <comment>sauce options</comment>
+  </data>
+  <data name="lblinvoiceNoPNTtitle" xml:space="preserve">
+    <value>Invois No:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lblInvoiceNotitle" xml:space="preserve">
+    <value>Invois yang dijual No</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblinvoicePNTtile" xml:space="preserve">
+    <value>Invois:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbliskitchentitle" xml:space="preserve">
+    <value>Adakah artikel dapur?</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblistaxapplytitle" xml:space="preserve">
+    <value>Adakah cukai dikenakan? "</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblitembarcodetitle" xml:space="preserve">
+    <value>Barcode artikel *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblitemnametitle" xml:space="preserve">
+    <value>Nama barang *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lbllanguagecodetitle" xml:space="preserve">
+    <value>Bahasa Terminal ini</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbllocationaddresstile" xml:space="preserve">
+    <value>Alamat lokasi</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbllogidtitle" xml:space="preserve">
+    <value>Log keluar</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblmanfactdateitle" xml:space="preserve">
+    <value>Tarikh dikilangkan</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblmsgSR" xml:space="preserve">
+    <value>Klik dua kali untuk meningkatkan kuantiti</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblNametitle" xml:space="preserve">
+    <value>Nama pertama</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblNotetitle" xml:space="preserve">
+    <value>Nota:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbloveralldiscounttitle" xml:space="preserve">
+    <value>Diskaun keseluruhan%:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblpagetitle" xml:space="preserve">
+    <value>Pulangkan barang</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblPaidAmounttitle" xml:space="preserve">
+    <value>Jumlah gaji:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblPaidAmounttitle1" xml:space="preserve">
+    <value>Pulangan Amaun</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblpaidamt" xml:space="preserve">
+    <value>Jumlah gaji</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblpasswordtitle" xml:space="preserve">
+    <value>Kata laluan</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblpaybytitle" xml:space="preserve">
+    <value>Bayar oleh</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblpaytypetitle" xml:space="preserve">
+    <value>Jenis gaji:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblpeopletypetitle" xml:space="preserve">
+    <value>Jenis orang</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="lblpurchasetitle" xml:space="preserve">
+    <value>Harga beli *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblqtytitle" xml:space="preserve">
+    <value>Kuantiti (Qty) *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblreporttitle" xml:space="preserve">
+    <value>Laporan</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblresettitle" xml:space="preserve">
+    <value>Tetapkan semula asas</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lblrestoredescription" xml:space="preserve">
+    <value>Pilih fail pangkalan data sandaran anda (fail .db) Sebelum mengimport pastikan anda menutup pangkalan data Terbuka anda</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lblrestoretitle" xml:space="preserve">
+    <value>Pulihkan pangkalan data</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lblreturntytitle" xml:space="preserve">
+    <value>Jenis pengembalian:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsalepricetitle" xml:space="preserve">
+    <value>Harga jualan *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblsalereporttitle" xml:space="preserve">
+    <value>Laporan jualan</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="lblSalesbytitle" xml:space="preserve">
+    <value>Jualan oleh:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsalestimetitle" xml:space="preserve">
+    <value>Masa jualan:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblscannerSRTitle" xml:space="preserve">
+    <value>Masukkan kod bar item</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblscannerTitle" xml:space="preserve">
+    <value>Masukkan Invois No</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsearchtitle" xml:space="preserve">
+    <value>Cari pelanggan</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="lblsearchtitlestock" xml:space="preserve">
+    <value>Penyelidikan</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblseattitle" xml:space="preserve">
+    <value>Nombor tempat duduk disediakan</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lblselectcategorytitle" xml:space="preserve">
+    <value>Pilih Kategori</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblselectsrtypetitle" xml:space="preserve">
+    <value>Pilih Gaya Daftar Jualan</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblselecttableSRtitle" xml:space="preserve">
+    <value>Jadual yang dipilih:</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblShopidtitle" xml:space="preserve">
+    <value>ID Kedai:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsorttitle" xml:space="preserve">
+    <value>Aturan susunan</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lblstockpagetitle" xml:space="preserve">
+    <value>Senarai stok</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblsubtotaltitle" xml:space="preserve">
+    <value>jumlah kecil</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lblsuppliertitle" xml:space="preserve">
+    <value>Penyedia *</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblsvrPNTtitle" xml:space="preserve">
+    <value>Berkhidmat:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltablePNTtitle" xml:space="preserve">
+    <value>Jadual:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltablezonenametitle" xml:space="preserve">
+    <value>Nama jadual: (EX: TAB-IN10)</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lbltablezonetitle" xml:space="preserve">
+    <value>Zon Meja</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="lbltattitle" xml:space="preserve">
+    <value>Cukai</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltaxreginotile" xml:space="preserve">
+    <value>Nombor Pendaftaran Cukai: * (RTX029)</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lbltaxtile" xml:space="preserve">
+    <value>Peratusan cukai%:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblticketPNTtitle" xml:space="preserve">
+    <value>Tiket</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltimePNTtitle" xml:space="preserve">
+    <value>Masa:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltokenPNTtitle" xml:space="preserve">
+    <value>Token:</value>
+    <comment>Receipt</comment>
+  </data>
+  <data name="lbltokonnoSRtitle" xml:space="preserve">
+    <value>Token tidak:</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lblTotalItemstypes" xml:space="preserve">
+    <value>Jumlah jenis barangan</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="lbltotalpayabletitle" xml:space="preserve">
+    <value>Jumlah untuk membayar</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltotaltitle" xml:space="preserve">
+    <value>Jumlah</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltruncatedeslabel" xml:space="preserve">
+    <value>Pengguna peranan pentadbir tidak akan dihapuskan.</value>
+    <comment>Config - Datamanager</comment>
+  </data>
+  <data name="lbltrxTypetitle" xml:space="preserve">
+    <value>Jenis urus niaga:</value>
+    <comment>Return form</comment>
+  </data>
+  <data name="lbltypetitle" xml:space="preserve">
+    <value>Taipkan</value>
+    <comment>Customers add new</comment>
+  </data>
+  <data name="lblusertitle" xml:space="preserve">
+    <value>Senarai pengguna</value>
+    <comment>Users</comment>
+  </data>
+  <data name="lblwebtitle" xml:space="preserve">
+    <value>Laman web:</value>
+    <comment>Config add new</comment>
+  </data>
+  <data name="lblweighttitle" xml:space="preserve">
+    <value>Berat badan</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="lblzonenametitle" xml:space="preserve">
+    <value>Nama kawasan</value>
+    <comment>Config - Table Zone</comment>
+  </data>
+  <data name="tabCustomerslist" xml:space="preserve">
+    <value>Senarai pelanggan</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="tabCustomersview" xml:space="preserve">
+    <value>Tambah baru</value>
+    <comment>Customers</comment>
+  </data>
+  <data name="tabDataManager" xml:space="preserve">
+    <value>Pengurus Data</value>
+    <comment>Config</comment>
+  </data>
+  <data name="tabduereport" xml:space="preserve">
+    <value>Laporan tamat tempoh</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabfindreceipt" xml:space="preserve">
+    <value>Dapatkan resit</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabGridview" xml:space="preserve">
+    <value>Item</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabImportItem" xml:space="preserve">
+    <value>Item Import</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabItemlist" xml:space="preserve">
+    <value>Senarai saham</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabItemsAlert" xml:space="preserve">
+    <value>Amaran artikel</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabItemsCategories" xml:space="preserve">
+    <value>tambah kategori</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabitemview" xml:space="preserve">
+    <value>Tambah item</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabPayment" xml:space="preserve">
+    <value>Pembayaran</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabreturn" xml:space="preserve">
+    <value>Pulangkan laporan</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabsalesreport" xml:space="preserve">
+    <value>Laporan jualan</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="tabsauceoptions" xml:space="preserve">
+    <value>Tambah sos</value>
+    <comment>Stocks item</comment>
+  </data>
+  <data name="tabSauceOptionsSR" xml:space="preserve">
+    <value>Pilihan sos</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabtableLayout" xml:space="preserve">
+    <value>Susunatur jadual</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabTablezone" xml:space="preserve">
+    <value>Zon Meja</value>
+    <comment>Config</comment>
+  </data>
+  <data name="tabterminal" xml:space="preserve">
+    <value>Terminal</value>
+    <comment>Sales Register</comment>
+  </data>
+  <data name="tabTerminallist" xml:space="preserve">
+    <value>Senarai Terminal</value>
+    <comment>Config</comment>
+  </data>
+  <data name="tabtopsales" xml:space="preserve">
+    <value>Jualan Terbaik</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="txtCustomers" xml:space="preserve">
+    <value>Pelanggan</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtKitdisply" xml:space="preserve">
+    <value>Paparan dapur</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtLogout" xml:space="preserve">
+    <value>Log keluar</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtReports" xml:space="preserve">
+    <value>Laporan</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtReturn" xml:space="preserve">
+    <value>Kembali</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtSettings" xml:space="preserve">
+    <value>Tetapan</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtsrlink" xml:space="preserve">
+    <value>Daftar Jualan</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtStock" xml:space="preserve">
+    <value>Senarai Saham</value>
+    <comment>Home</comment>
+  </data>
+  <data name="txtUsers" xml:space="preserve">
+    <value>Pekerja</value>
+    <comment>Home</comment>
+  </data>
+</root>

@@ -1,0 +1,138 @@
+﻿<Window xmlns:User_mgt="clr-namespace:RestPOS.User_mgt"  x:Class="RestPOS.User_mgt.User_list"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"  xmlns:RestPOS="clr-namespace:RestPOS"  Name="UsersList"      
+        Title="Employees" Height="730" Width="1190" WindowState="Maximized"  
+        Icon="/RestPOS;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None" 
+        WindowStartupLocation="CenterScreen" Loaded="UsersList_Loaded" >
+    <Grid Background="#FFF1F1F1" >
+        <!--Top Header section  start-->
+        <Grid   Width="1180" Margin="0,40,0,0" VerticalAlignment="Top"  Background="#FFF1F1F1" Height="40">
+            <RestPOS:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="40" Width="1180"/>
+            <Label Name="lblusertitle" Content="Users" HorizontalAlignment="Left" FontWeight="SemiBold" FontSize="17" Foreground="DarkViolet" Margin="553,5,0,0" VerticalAlignment="Top"/>
+        </Grid>
+        <!--Top Header section END-->
+
+
+        <!--Top body section start -->
+        <TabControl x:Name="tabcontrolUserspanel"   Height="555" Margin="65,90,65,0"  VerticalAlignment="Top">
+            <TabItem x:Name="tabUsersList" Header="Users" FontSize="14"  >
+                <Grid  Margin="0" Background="#FFF1F1F1">
+                    <ListView x:Name="lstvwUserslist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" FontSize="12" ToolTip="Click to Edit"  Background="#4CFFFFFF"  SelectionChanged="lstvwUserslist_SelectionChanged" MouseDoubleClick="lstvwUserslist_MouseDoubleClick" >
+                        <ListView.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ListView.ItemsPanel>
+                        <ListView.ItemTemplate>
+                            <DataTemplate>
+                                <DockPanel >
+                                    <Border Margin="3" CornerRadius="5" BorderThickness="1" BorderBrush="ForestGreen">
+                                        <Grid Width="183" Grid.RowSpan="2"   Background="#FFF1E6E6">
+
+                                            <Grid.RowDefinitions>
+                                                <RowDefinition Height="*" />
+                                            </Grid.RowDefinitions>
+                                            <Border   CornerRadius="10" BorderThickness="3" BorderBrush="WhiteSmoke">
+                                                <Grid Width="175"   Height="125"   Background="#FF54DEEC"  VerticalAlignment="Top"   >
+                                                    <Image x:Name="gridimage"  ToolTip="{Binding name}" Source="{Binding Path=userimagepath}"    VerticalAlignment="Top"    Width="115"  Height="120"  HorizontalAlignment="Center"></Image>
+                                                </Grid>
+                                            </Border>
+                                            <TextBlock  Margin="15,130,0,0"   Text="ID: " TextWrapping="Wrap" HorizontalAlignment="Left" />
+                                            <TextBlock  Margin="35,130,0,0"   Text="{Binding id}" TextWrapping="Wrap" HorizontalAlignment="Left" />
+                                            <TextBlock  Margin="15,150,0,0"    Text="{Binding name}" TextWrapping="Wrap" HorizontalAlignment="Left"  FontWeight="Bold"  Foreground="DarkViolet"    ></TextBlock>
+                                            <TextBlock  Margin="15,170,0,0"    Text="Mobile: " TextWrapping="Wrap" HorizontalAlignment="Left" ></TextBlock>
+                                            <TextBlock  Margin="62,170,0,0"    Text="{Binding contact}" TextWrapping="Wrap" HorizontalAlignment="Left" FontWeight="Bold"  ></TextBlock>
+                                            <TextBlock  Margin="15,190,0,0"    Text="Position: " TextWrapping="Wrap" HorizontalAlignment="Left" ></TextBlock>
+                                            <TextBlock  Margin="62,190,0,0"    Text="{Binding position}" TextWrapping="Wrap" HorizontalAlignment="Left" ></TextBlock>
+                                            <TextBlock  Margin="15,210,0,15"    Text="{Binding email}" TextWrapping="Wrap" HorizontalAlignment="Left" ></TextBlock>
+                                        </Grid>
+                                    </Border>
+                                </DockPanel>
+                            </DataTemplate>
+                        </ListView.ItemTemplate>
+                    </ListView>
+                </Grid>
+            </TabItem>
+            <TabItem  x:Name="tabUsersDetails"  Header="Add New" FontSize="14"   >
+                <Grid  Background="#FFF1F1F1">
+                    <Image Name="picUserimage" HorizontalAlignment="Left" Stretch="Fill" Height="200" Margin="30,50,0,0" VerticalAlignment="Top" Width="200" Source="/RestPOS;component/Res/user.png"/>
+                    <TextBlock Name="lbluserid" HorizontalAlignment="Left" Margin="311,56,0,0" FontSize="9" TextWrapping="Wrap" Text="-" VerticalAlignment="Top"/>
+                    <TextBlock Name="lblmsg" HorizontalAlignment="Left" Margin="540,416,0,0" FontWeight="SemiBold" Foreground="Red" TextWrapping="Wrap" Text="-" VerticalAlignment="Top"/>
+                    <Button Content="Browse" Name="btnBrowse" HorizontalAlignment="Left" Margin="30,260,0,0"  VerticalAlignment="Top"    Width="200" Background="#FF200BA6" Foreground="#FFE8DBDB" Click="btnBrowse_Click"  />
+
+                    <TextBlock Name="lblnametitle" Text="Name" HorizontalAlignment="Left" Margin="260,50,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="txtUserFullName" HorizontalAlignment="Left" Height="23" Margin="260,78,0,0" TextWrapping="Wrap" ToolTip="Insert User Full Name"  VerticalAlignment="Top" Width="250"/>
+
+                    <TextBlock Name="lblfnametitle" Text="Father Name" HorizontalAlignment="Left" Margin="260,110,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="txtFatherName" HorizontalAlignment="Left" Height="23" Margin="260,140,0,0" TextWrapping="Wrap" ToolTip="Insert Father Name"  VerticalAlignment="Top" Width="250"/>
+
+                    <TextBlock  Name="lbladdresstitle" Text="Address" HorizontalAlignment="Left" Margin="260,170,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="txtAddress" HorizontalAlignment="Left" Height="93" Margin="260,200,0,0" TextWrapping="Wrap" ToolTip="Insert Address" AcceptsReturn="True"  VerticalScrollBarVisibility="Auto"   VerticalAlignment="Top" Width="250"/>
+
+                    <TextBlock  Name="lblcontacttitle" Text="Contact No" HorizontalAlignment="Left" Margin="260,300,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="txtContact" HorizontalAlignment="Left" Height="23" Margin="260,325,0,0" TextWrapping="Wrap" ToolTip="Insert Father Name"  VerticalAlignment="Top" Width="250"/>
+
+                    <TextBlock  Name="lbldobtitle" Text="Date of Birth" HorizontalAlignment="Left" Margin="260,355,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="dtDOB" HorizontalAlignment="Left" MaxLength="10"  Height="23" Margin="260,380,0,0" TextWrapping="Wrap" ToolTip="Insert Date of birth Ex: 1991-09-23"  VerticalAlignment="Top" Width="250"/>
+
+                    <TextBlock  Name="lbllogidtitle" Text="Login ID" HorizontalAlignment="Left" Margin="540,50,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="txtUsername" HorizontalAlignment="Left" Height="23" Margin="540,78,0,0" TextWrapping="Wrap" ToolTip="Insert System Login ID"  VerticalAlignment="Top" Width="250"/>
+
+                    <TextBlock  Name="lblpasswordtitle" Text="Password" HorizontalAlignment="Left" Margin="540,110,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="textUserPass" HorizontalAlignment="Left" Height="23" Margin="540,140,0,0" TextWrapping="Wrap" ToolTip="Insert Password"  VerticalAlignment="Top" Width="250"/>
+
+                    <TextBlock  Name="lblemailtitle" Text="Email" HorizontalAlignment="Left" Margin="540,170,0,0" VerticalAlignment="Top"/>
+                    <TextBox Name="txtEmailaddress" HorizontalAlignment="Left" Height="23" Margin="540,200,0,0" TextWrapping="Wrap" ToolTip="Insert Email Address"  VerticalAlignment="Top" Width="250"/>
+
+                    <TextBlock HorizontalAlignment="Left" Name="lbluserttypetitle" Margin="540,230,0,0" TextWrapping="Wrap" Text="User type" VerticalAlignment="Top"/>
+                    <RadioButton Content="Admin" HorizontalAlignment="Left" Margin="612,235,0,0"  Name="rdbtnAdmin" ToolTip="Admin Role- Admin can accsess all " VerticalAlignment="Top"/>
+                    <RadioButton Content="Manager" HorizontalAlignment="Left" Margin="710,236,0,0" Name="rdbtnManager" ToolTip="Manager Role" VerticalAlignment="Top"/>
+                    <RadioButton Content="SalesMan" IsChecked="True" HorizontalAlignment="Left" Margin="612,256,0,0" Name="rdbtnSalesMan" ToolTip="Sales Man" VerticalAlignment="Top"/>
+                    <RadioButton Content="Block" HorizontalAlignment="Left" Margin="710,256,0,0" Name="rdbtnblock" ToolTip="Block" VerticalAlignment="Top"/>
+
+                    <TextBlock Name="lblassigntitle" HorizontalAlignment="Left" Margin="542,300,0,0" TextWrapping="Wrap" Text="Assign Location" VerticalAlignment="Top"/>
+                    <ComboBox HorizontalAlignment="Left" Margin="542,325,0,0" Name="cmboShopid" VerticalAlignment="Top" ToolTip="Assign Terminal Location of this user" Width="250"/>
+
+                    <TextBlock Text="-" HorizontalAlignment="Left" Margin="30,310,0,0" Name="lblimagename" FontSize="8" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Name="lblFileExtension" Margin="30,332,0,0" TextWrapping="Wrap" FontSize="8"  Text="user.png" VerticalAlignment="Top"/>
+                    <TextBlock HorizontalAlignment="Left" Margin="28,289,0,0" TextWrapping="Wrap" Text="image size 200 * 200" FontSize="9" VerticalAlignment="Top"/>
+
+                    <Button Content="Save" HorizontalAlignment="Left" Margin="543,380,0,0" Name="btnSave" Click="btnSave_Click" IsDefault="True"   VerticalAlignment="Top" Width="250"/>
+                    <Button Content="Delete"  Name="btnDelete" Background="Red" ToolTip="Delete User" Foreground="White" HorizontalAlignment="Left" Margin="261,410,0,0" VerticalAlignment="Top" Width="107"  Click="btnDelete_Click"/>
+                    <Button Content="Add new" Name="btnAddnew" HorizontalAlignment="Left" Margin="375,410,0,0" VerticalAlignment="Top" Width="135" Click="btnAddnew_Click"/>
+
+
+
+                    <Grid HorizontalAlignment="Left" Height="478" Margin="819,47,0,0" VerticalAlignment="Top" Width="234">
+                        <TextBlock Name="lblselectsrtypetitle" HorizontalAlignment="Left" Margin="5,2,0,0" TextWrapping="Wrap" Text="Select Sales Register Style" VerticalAlignment="Top"/>
+                        <RadioButton Name="rdbtnSRdefault" Content="Sales Register" HorizontalAlignment="Left" Margin="2,37,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                        <Image HorizontalAlignment="Left" Height="61" Margin="2,57,0,0" VerticalAlignment="Top" Width="232" Source="/RestPOS;component/Res/ico-32-24/SRDefault.jpg"/>
+                        <RadioButton Name="rdbtnSRpink" Content="Sales Register Pink" HorizontalAlignment="Left" Margin="2,130,0,0" VerticalAlignment="Top"/>
+                        <Image HorizontalAlignment="Left" Height="61" Margin="2,150,0,0" VerticalAlignment="Top" Width="232" Source="/RestPOS;component/Res/ico-32-24/SRPINK.jpg"/>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            <TabItem  x:Name="tabworklogs" Visibility="Hidden"  Header="Work Sheet" FontSize="14"   >
+                <Grid  Background="#FFF1F1F1">
+                    <User_mgt:WorkRecords HorizontalAlignment="Left" Margin="13,7,0,0" VerticalAlignment="Top" />
+
+
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <!--Top body section END-->
+
+
+        <!-- Footer section start-->
+
+        <TextBox HorizontalAlignment="Left" Margin="67,655,0,0" Name="txtSearch" Height="23" ToolTip="Search Customer by Name, Barcode , category "  TextWrapping="Wrap"   VerticalAlignment="Top" Width="443"  TextChanged="txtSearch_TextChanged"/>
+        <TextBlock Name="lblUserscount" HorizontalAlignment="Left" Margin="521,661,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Right" Height="40" Margin="0,649,60,0"  VerticalAlignment="Top"  Width="152">
+            <!--<RestPOS:HomeStatusBar HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
+            <Button x:Name="btnHomeMenuLink" Content="Home Menu" HorizontalAlignment="Left"    VerticalAlignment="Top" Width="132" BorderThickness="0" Background="#FFFDFAFA" Height="24" Click="btnHomeMenuLink_Click" Margin="15,5,0,0" />
+        </Grid>
+
+        <!-- Footer Section End -->
+    </Grid>
+</Window>

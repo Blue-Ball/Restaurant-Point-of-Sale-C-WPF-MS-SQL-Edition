@@ -1,0 +1,42 @@
+﻿<Window x:Class="RestPOS.Sales_Register.InvoiceView" Name="invoiceviewForm"
+        xmlns:RestPOS="clr-namespace:RestPOS"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+        Icon="/RestPOS;component/Res/icon2.png"  
+        WindowStartupLocation="CenterScreen"   WindowState="Maximized" 
+        xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
+        Title="Invoice View" Height="670" Width="1190"   Loaded="invoiceviewFormLoad" >
+    <Grid Background="#FFF1F1F1" >      
+        <TabControl Name="tabcontrolInvoiceview"  Height="Auto"  VerticalAlignment="Top">
+            <TabItem Name="tabInvoiceView" Header="Invoice">
+                <Grid Background="#FFE5E5E5">
+                    <WindowsFormsHost Name="winformhostINVO" HorizontalAlignment="Left"  Height="611" VerticalAlignment="Top" Width="900">
+                        <rv:ReportViewer x:Name="reportViewer1" BackColor="White"   />
+                    </WindowsFormsHost>
+                </Grid>
+            </TabItem>
+            <TabItem Name="tabInvoiceReceipt" Header="Invoice (Receipt format)">
+                <Grid Background="#FFE5E5E5">
+                    <WindowsFormsHost  Name="winformhostINVORPT" HorizontalAlignment="Left"  Height="611" VerticalAlignment="Top" Width="500">
+                        <rv:ReportViewer x:Name="reportViewerINVORPT" BackColor="White"   />
+                    </WindowsFormsHost>
+                </Grid>
+            </TabItem>
+            <TabItem Name="tabreceiptView" Header="Receipt">
+                <Grid Background="#FFE5E5E5">
+                    <WindowsFormsHost  Name="winformhostRPT" HorizontalAlignment="Left"  Height="611" VerticalAlignment="Top" Width="500">
+                        <rv:ReportViewer x:Name="reportViewerRPT" BackColor="White"   />
+                    </WindowsFormsHost>
+                </Grid>
+            </TabItem>
+            <TabItem Name="tabticketview" Header="Ticket">
+                <Grid Background="#FFE5E5E5">
+                    <WindowsFormsHost  Name="winformhostTK" HorizontalAlignment="Left"  Height="611" VerticalAlignment="Top" Width="480">
+                        <rv:ReportViewer x:Name="reportViewerTicket" BackColor="White"   />
+                    </WindowsFormsHost>
+                </Grid>
+            </TabItem>
+        </TabControl>     
+        <Viewbox HorizontalAlignment="Left" Height="100" Margin="224,563,0,0" VerticalAlignment="Top" Width="100"/>
+    </Grid>
+</Window>

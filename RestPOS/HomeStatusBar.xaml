@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="RestPOS.HomeStatusBar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="40" Width="127">
+    <Grid>
+        <Button x:Name="btnHomeMenuLink" Content="Home Menu" HorizontalAlignment="Left" Margin="5,8,0,0" VerticalAlignment="Top" Width="121" BorderThickness="0" Background="#FFFDFAFA" Height="24" Click="btnHomeMenuLink_Click_1"  />
+        <!--<TextBlock x:Name="lblUser" HorizontalAlignment="Left" Margin="48,13,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>-->
+ 
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="RestPOS.Sales_Register.CurrencyShortcuts"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="364" Width="399">
+
+    <Grid HorizontalAlignment="Left" Width="399" Margin="0,0,0,3">
+        <!-- Currency Coin / Note Start-->
+        <Button Content="1"  FontSize="20" Background="White" x:Name="btnCoin1" BorderBrush="Aqua"  HorizontalAlignment="Left" Margin="3,3,0,0" VerticalAlignment="Top" Width="92" Height="46" ToolTip="One coin" Click="btnCoin1_Click"    />
+        <Button Content="2"  FontSize="20" Background="White" x:Name="btnCoin2" BorderBrush="Aqua" HorizontalAlignment="Left" Margin="3,53,0,0" VerticalAlignment="Top" Width="92" Height="46" ToolTip="Coin Two" Click="btnCoin2_Click"    />
+        <Button Content="5"  FontSize="20" Background="White" x:Name="btnNote5" BorderBrush="Aqua" HorizontalAlignment="Left" Margin="3,103,0,0" VerticalAlignment="Top" Width="92" Height="46" ToolTip="Paper Money Five " Click="btnNote5_Click"    />
+        <Button Content="10"  FontSize="20" Background="White" x:Name="btnNote10" BorderBrush="Aqua"  HorizontalAlignment="Left" Margin="3,153,0,0" VerticalAlignment="Top" Width="92" Height="46" ToolTip="Paper Money TEN " Click="btnNote10_Click"    />
+        <Button Content="20"  FontSize="20" Background="White" x:Name="btnNote20" BorderBrush="Aqua" HorizontalAlignment="Left" Margin="3,203,0,0" VerticalAlignment="Top" Width="92" Height="46"  ToolTip="Paper Money Twenty " Click="btnNote20_Click"   />
+        <Button Content="50"  FontSize="20" Background="White" x:Name="btnNote50" BorderBrush="Aqua" HorizontalAlignment="Left" Margin="3,253,0,0" VerticalAlignment="Top" Width="92" Height="46"  ToolTip="Paper Money FIFTY " Click="btnNote50_Click"   />
+        <Button Content="100"  FontSize="20" Background="White" x:Name="btnNote100" BorderBrush="Aqua" HorizontalAlignment="Left" Margin="3,303,0,0" VerticalAlignment="Top" Width="92" Height="58" ToolTip="Paper Money 100" Click="btnNote100_Click"     />
+        <!--Currency Coin END-->
+
+        <Button Content="1"  FontSize="30" Background="#FF949EE0"  Foreground="White" x:Name="btnNum1"  HorizontalAlignment="Left" Margin="100,3,0,0" VerticalAlignment="Top" Width="92" Height="65" BorderThickness="0" ToolTip="Number One" Click="btnNum1_Click"    />
+        <Button Content="2"  FontSize="30" Background="#FF949EE0"  Foreground="White" x:Name="btnNum2"  HorizontalAlignment="Left" Margin="200,3,0,0" VerticalAlignment="Top" Width="92" Height="65" BorderThickness="0" Click="btnNum2_Click"  />
+        <Button Content="3"  FontSize="30" Background="#FF949EE0"  Foreground="White" x:Name="btnNum3"  HorizontalAlignment="Left" Margin="300,3,0,0" VerticalAlignment="Top" Width="92" Height="65" BorderThickness="0" Click="btnNum3_Click"/>
+
+        <Button Content="4"  FontSize="30" Background="#FF949EE0"  Foreground="White" x:Name="btnNum4" HorizontalAlignment="Left" Margin="100,76,0,0" VerticalAlignment="Top" Width="92" Height="65" BorderThickness="0" Click="btnNum4_Click"/>
+        <Button Content="5"  FontSize="30" Background="#FF949EE0"  Foreground="White" x:Name="btnNum5"  HorizontalAlignment="Left" Margin="200,76,0,0" VerticalAlignment="Top" Width="92" Height="65" BorderThickness="0" Click="btnNum5_Click"/>
+        <Button Content="6"  FontSize="30" Background="#FF949EE0"  Foreground="White" x:Name="btnNum6"  HorizontalAlignment="Left" Margin="300,76,0,0" VerticalAlignment="Top" Width="92" Height="65" BorderThickness="0" Click="btnNum6_Click"/>
+
+        <Button Content="7"  FontSize="30"  Background="#FF949EE0"  Foreground="White" x:Name="btnNum7"  HorizontalAlignment="Left" Margin="100,149,0,0" VerticalAlignment="Top" Width="92" Height="65" BorderThickness="0" Click="btnNum7_Click"/>
+        <Button Content="8"  FontSize="30"  Background="#FF949EE0"  Foreground="White"  x:Name="btnNum8" HorizontalAlignment="Left" Margin="200,149,0,0" VerticalAlignment="Top" Width="92" Height="65" BorderThickness="0" Click="btnNum8_Click"/>
+        <Button Content="9"  FontSize="30"  Background="#FF949EE0"  Foreground="White" x:Name="btnNum9"  HorizontalAlignment="Left" Margin="300,149,0,0" VerticalAlignment="Top" Width="92" Height="65" BorderThickness="0" Click="btnNum9_Click"/>
+
+        <Button Content="."  FontSize="30"    Background="#FF949EE0"  Foreground="White" x:Name="btnDecimal"  HorizontalAlignment="Left" Margin="100,222,0,0" VerticalAlignment="Top" Width="92" Height="65" BorderThickness="0" ToolTip="Decimal (.)" Click="btnDecimal_Click" />
+        <Button Content="0"  FontSize="30"    Background="#FF949EE0"  Foreground="White" x:Name="btnNum0"  HorizontalAlignment="Left" Margin="200,222,0,0" VerticalAlignment="Top" Width="92" Height="65" BorderThickness="0" Click="btnNum0_Click"/>
+        <Button Content="Clear"  FontSize="20"    Background="#FF949EE0"  Foreground="White" x:Name="btnClear"  HorizontalAlignment="Left" Margin="300,222,0,0" VerticalAlignment="Top" Width="92" Height="65" BorderThickness="0" ToolTip="Clear" Click="btnClear_Click"/>
+
+        <Button    FontSize="30"  Background="#FF949EE0"  Foreground="White" x:Name="btnBackSpace"   HorizontalAlignment="Left" Margin="100,295,0,0"  VerticalAlignment="Top" Width="292" Height="65" BorderThickness="0"  ToolTip="BackSpace" Click="btnBackSpace_Click"   >
+            <StackPanel> 
+                <Canvas xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" x:Name="appbar_clear_reflect_horizontal" Width="76" Height="65" Clip="F1 M 0,0L 76,0L 76,76L 0,76L 0,0">
+                    <Path Width="40.4497" Height="28" Canvas.Left="16.5503" Canvas.Top="20" Stretch="Fill" Fill="#FFFFFF" Data="F1 M 47.5282,42.9497L 42.5784,38L 47.5282,33.0502L 44.9497,30.4718L 40,35.4216L 35.0502,30.4718L 32.4718,33.0502L 37.4216,38L 32.4718,42.9497L 35.0502,45.5282L 40,40.5784L 44.9497,45.5282L 47.5282,42.9497 Z M 18.0147,41.5355L 26.9646,50.4854C 28.0683,51.589 29,52 31,52L 52,52C 54.7614,52 57,49.7614 57,47L 57,29C 57,26.2386 54.7614,24 52,24L 31,24C 29,24 28.0683,24.4113 26.9646,25.5149L 18.0147,34.4645C 16.0621,36.4171 16.0621,39.5829 18.0147,41.5355 Z M 31,49C 30,49 29.6048,48.8828 29.086,48.3641L 20.1361,39.4142C 19.355,38.6332 19.355,37.3669 20.1361,36.5858L 29.086,27.6362C 29.6048,27.1175 30,27 31,27.0001L 52,27.0001C 53.1046,27.0001 54,27.8955 54,29.0001L 54,47.0001C 54,48.1046 53.1046,49.0001 52,49.0001L 31,49 Z " RenderTransformOrigin="0.445,-0.143"/>
+                </Canvas>
+            </StackPanel>
+        </Button>
+    </Grid>
+
+</UserControl>

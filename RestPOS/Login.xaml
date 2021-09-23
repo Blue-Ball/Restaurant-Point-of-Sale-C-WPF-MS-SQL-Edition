@@ -1,0 +1,52 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:RestPOS" x:Class="RestPOS.Login"
+        xmlns:k="clr-namespace:RestPOS.Keyboard"  Icon="Res/icon.png"
+        Title="Login" Height="676.923" Width="1024" WindowState="Maximized"  AllowsTransparency="True" WindowStyle="None">
+
+
+    <Grid Name="MainGrid" Loaded="MainGrid_Loaded">
+        <!-- Top Header  Start-->
+        <Grid   Width="1024"  Name="Toolbargrid"  VerticalAlignment="Top"    Height="40">
+            <!--<local:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="40" Width="1180"/>-->
+        </Grid>
+        <!-- Top Header END -->
+
+        <TextBlock HorizontalAlignment="Left" Name="lblusertitle" Margin="671,187,0,0" TextWrapping="Wrap" Text="Enter User name" VerticalAlignment="Top"/>
+        <TextBox  Name="txtUserName"  FontSize="20" HorizontalAlignment="Left" Height="35" Margin="672,206,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="294" ToolTip="Insert user name"  />
+
+        <TextBlock HorizontalAlignment="Left" Name="lblpasstitle" Margin="674,247,0,0" TextWrapping="Wrap" Text="Enter Password" VerticalAlignment="Top"/>
+        <PasswordBox  Name="txtPassword"   FontSize="20" HorizontalAlignment="Left" Height="35" Margin="673,266,0,0"     VerticalAlignment="Top" Width="294" ToolTip="Insert Password" />
+        <Button Content="Login" Name="btnSignin"  IsDefault="True" FontSize="18" Background="Green" Foreground="White" HorizontalAlignment="Left" Margin="674,343,0,0" VerticalAlignment="Top" Width="160" Height="56"    BorderThickness="0" Click="btnSignin_Click">
+            <Button.BorderBrush>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black" Offset="0"/>
+                    <GradientStop Color="#FFDE7272" Offset="1"/>
+                </LinearGradientBrush>
+            </Button.BorderBrush>
+        </Button>
+        <Button Content="Reset" Name="btnReset"  FontSize="18" Background="DarkOrange" Foreground="Black" HorizontalAlignment="Left" Margin="849,343,0,0" VerticalAlignment="Top" Width="128" Height="56" BorderThickness="0" Click="btnReset_Click"/>
+        <Button Name="btnLogin" Visibility="Visible"     Content="Demo Login"   Background="AliceBlue"  HorizontalAlignment="Left" Margin="676,518,0,0"  VerticalAlignment="Top" Width="294" Height="26" BorderThickness="0"  Click="btnLogin_Click" />
+
+
+        <Button Name="btnLogOut"    FontSize="30" Background="AliceBlue" ToolTip="System Shutdown"  HorizontalAlignment="Left" Margin="677,433,0,0"  VerticalAlignment="Top" Width="294" Height="75"  BorderThickness="0"  Click="btnLogout_Click" >
+            <StackPanel>
+                <Image Source="Res/ico-32-24/appbar.power.png" Height="74" Width="90"  />
+
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btnReports"  HorizontalAlignment="Left" Margin="44,106,0,0" VerticalAlignment="Top" Width="520" Height="520"    Background="Transparent" FontFamily="Segoe UI" FontSize="24" BorderThickness="0" >
+            <StackPanel >
+                <Path Canvas.Left="1" Canvas.Top="1" Stretch="Fill" StrokeThickness="1" StrokeLineJoin="Bevel"   Fill="Beige" 
+            		    Data="M 25 0 C 11.163659 0 0 11.163659 0 25 C 0 38.836341 11.163659 50 25 50 C 38.836341 50 50 38.836341 50 25 C 50 11.163659 38.836341 0 25 0 z M 25 2 C 37.763659 2 48 12.236341 48 25 C 48 37.763659 37.763659 48 25 48 C 12.236341 48 2 37.763659 2 25 C 2 12.236341 12.236341 2 25 2 z M 19.8125 6 C 19.207003 6 18.679081 6.052168 18.1875 6.09375 A 1.0001 1.0001 0 0 0 18.15625 6.09375 A 1.0001 1.0001 0 0 0 17.78125 6.09375 A 1.0001 1.0001 0 0 0 17.6875 6.125 A 1.0001 1.0001 0 0 0 17.59375 6.15625 C 16.733759 6.263074 16.037915 6.3963804 15.53125 6.5625 C 15.090049 6.7071562 14.757054 6.839719 14.53125 6.96875 C 14.305446 7.097781 14.125 7.25 14.125 7.25 L 13.875 7.5 L 13.8125 7.84375 C 13.8125 7.84375 13 12.893333 13 18 C 13 21.055952 14.346819 22.717329 15.5625 23.59375 C 16.17034 24.031961 16.713611 24.333833 17 24.5625 C 17.286389 24.791167 17.3125 24.775758 17.3125 25 C 17.3125 25.90303 16.983957 27.645112 16.65625 29.75 C 16.328543 31.854888 16 34.365033 16 37 C 16 39.661111 16.42263 41.345855 17.1875 42.46875 C 17.95237 43.591645 19.119231 44 20 44 C 20.957692 44 22.06766 43.484781 22.8125 42.34375 C 23.55734 41.202719 24 39.518056 24 37 C 24 34.509722 23.671054 32.015062 23.34375 29.875 C 23.016446 27.734938 22.6875 25.90303 22.6875 25 C 22.6875 24.775758 22.71611 24.783668 23 24.5625 C 23.283887 24.341332 23.826386 24.058465 24.4375 23.625 C 25.659729 22.75807 27 21.101462 27 18 C 27 14.518182 26.09375 7.875 26.09375 7.875 L 26.03125 7.4375 L 25.6875 7.1875 C 25.6875 7.1875 25.126917 6.8116731 24.1875 6.53125 C 23.711679 6.3892138 23.1099 6.2543529 22.375 6.15625 A 1.0001 1.0001 0 0 0 21.78125 6.09375 C 21.195 6.0367015 20.562557 6 19.8125 6 z M 29.84375 6 A 1.0001 1.0001 0 0 0 29 7 L 29 36 C 29 38.434722 29.106626 40.229883 29.46875 41.5625 C 29.649812 42.228809 29.8924 42.791709 30.3125 43.25 C 30.7326 43.708291 31.380556 44 32 44 C 32.819444 44 33.45886 43.422433 33.8125 42.84375 C 34.16614 42.265067 34.361067 41.592555 34.53125 40.84375 C 34.871616 39.34614 35 37.555556 35 36 C 35 31.833333 34 29.714093 34 28.40625 C 34 27.301078 34.678506 25.703286 35.4375 23.84375 C 36.196494 21.984214 37 19.833523 37 17.40625 C 37 15.990865 36.748657 13.880095 35.8125 11.75 C 34.876343 9.6199046 33.217408 7.4564499 30.4375 6.09375 A 1.0001 1.0001 0 0 0 29.84375 6 z M 19.8125 8 C 20.244546 8 20.635804 8.0079605 21 8.03125 L 21 17 A 1.0001 1.0001 0 1 0 23 17 L 23 8.3125 C 23.232344 8.364501 23.449391 8.4163295 23.625 8.46875 C 24.052433 8.596342 24.036904 8.5954017 24.15625 8.65625 C 24.242268 9.3162831 25 15.049963 25 18 C 25 20.598538 24.209021 21.34193 23.28125 22 C 22.817364 22.329035 22.272363 22.593043 21.75 23 C 21.227637 23.406957 20.6875 24.124242 20.6875 25 C 20.6875 26.29697 21.052304 28.077562 21.375 30.1875 C 21.697696 32.297438 22 34.690278 22 37 C 22 39.281944 21.58641 40.591031 21.15625 41.25 C 20.72609 41.908969 20.342308 42 20 42 C 19.580769 42 19.25388 41.945855 18.84375 41.34375 C 18.43362 40.741645 18 39.438889 18 37 C 18 34.534967 18.302707 32.132612 18.625 30.0625 C 18.947293 27.992388 19.3125 26.29697 19.3125 25 C 19.3125 24.124242 18.769861 23.383833 18.25 22.96875 C 17.730139 22.553667 17.21716 22.305539 16.75 21.96875 C 15.815681 21.295171 15 20.544048 15 18 C 15 13.477911 15.61671 9.2923003 15.71875 8.625 C 15.831752 8.5697239 15.933145 8.5106493 16.15625 8.4375 C 16.368801 8.367811 16.669053 8.2831757 17 8.21875 L 17 17 A 1.0001 1.0001 0 1 0 19 17 L 19 8.03125 C 19.260544 8.0208099 19.516802 8 19.8125 8 z M 31 9 C 32.359626 10.045035 33.415805 11.233244 34 12.5625 C 34.788843 14.357405 35 16.221635 35 17.40625 C 35 19.378977 34.303506 21.278286 33.5625 23.09375 C 32.821494 24.909214 32 26.611422 32 28.40625 C 32 30.498407 33 32.166667 33 36 C 33 37.444444 32.878384 39.15386 32.59375 40.40625 C 32.451433 41.032445 32.255735 41.547433 32.09375 41.8125 C 32.012757 41.945034 31.98062 41.986258 31.96875 42 C 31.881385 42.000577 31.864834 41.997434 31.78125 41.90625 C 31.68573 41.802041 31.537688 41.514941 31.40625 41.03125 C 31.143374 40.063867 31 38.365278 31 36 L 31 9 z" Margin="34.5,12,59.5,41" RenderTransformOrigin="0.5,0.5" Height="250" Width="250">
+                </Path>
+            </StackPanel>
+        </Button>
+        <Label Content="PosCube" HorizontalAlignment="Left" FontSize="35"   Foreground="Orange" VerticalAlignment="Top" FontFamily="Chiller" Margin="242,525,0,0"  />
+        <RadioButton Name="rdbtnEnglish" Content="English" HorizontalAlignment="Left" Margin="700,312,0,0" VerticalAlignment="Top" ToolTip="System default language" IsChecked="True" />
+        <RadioButton Name="rdbtnLang2ndoptions" Content="My language" HorizontalAlignment="Left" Margin="847,312,0,0" ToolTip="Your Native Language"  VerticalAlignment="Top"/>
+
+    </Grid>
+</Window>

@@ -1,0 +1,48 @@
+﻿<Window x:Class="RestPOS.Reports.DueReceive"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:k="clr-namespace:RestPOS.Keyboard" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+            Icon="/RestPOS;component/Res/icon2.png"    WindowStyle="None"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  WindowStartupLocation="CenterScreen" WindowState="Maximized"
+             mc:Ignorable="d" Width="823" Height="472"  >
+    <Grid>
+
+        <TextBlock HorizontalAlignment="Left" Margin="230,57,0,0" TextWrapping="Wrap" Text="Due Receive" FontWeight="SemiBold" FontSize="14" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="65,73,0,0" TextWrapping="Wrap" Text="======================================================" VerticalAlignment="Top"/>
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="139,101,0,0" TextWrapping="Wrap" Text="Invoice No:" VerticalAlignment="Top"/>
+        <TextBlock Name="lblInvoiceNo" HorizontalAlignment="Left" Margin="209,101,0,0" TextWrapping="Wrap"  FontWeight="SemiBold"   VerticalAlignment="Top"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="139,126,0,0" TextWrapping="Wrap" Text="Customer id:" VerticalAlignment="Top"/>
+        <TextBlock Name="lbcontact" HorizontalAlignment="Left" Margin="215,126,0,0" TextWrapping="Wrap"  Text="-"  VerticalAlignment="Top"/>
+
+
+        <TextBlock Text="Receive Date" HorizontalAlignment="Left"  Margin="139,182,0,0" VerticalAlignment="Top"/>
+        <DatePicker x:Name="dtReceiveDate" HorizontalAlignment="Left"  Margin="139,202,0,0" VerticalAlignment="Top"   Width="276"   IsTodayHighlighted="True"   FontWeight="Bold" ToolTip="Select Date"/>
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="139,158,0,0" TextWrapping="Wrap" Text="Sales date:" VerticalAlignment="Top"/>
+        <TextBlock Name="lblSalesdate" HorizontalAlignment="Left" Margin="204,158,0,0" TextWrapping="Wrap"  Text="-" VerticalAlignment="Top"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="139,230,0,0" TextWrapping="Wrap" Text="Total Amount: " VerticalAlignment="Top"/>
+        <TextBlock Name="lbtotalamt" HorizontalAlignment="Left" Margin="235,230,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="139,257,0,0" TextWrapping="Wrap" Text="Paid Amount: " VerticalAlignment="Top"/>
+        <TextBlock Name="lbpaidamt" HorizontalAlignment="Left" Margin="235,257,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+
+        <TextBlock HorizontalAlignment="Left" Margin="139,284,0,0" TextWrapping="Wrap" Text="Due Amount: " VerticalAlignment="Top"/>
+        <TextBlock Name="lbDueAmount" HorizontalAlignment="Left" Margin="235,284,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top"/>
+
+
+        <TextBlock HorizontalAlignment="Left" Margin="139,318,0,0" TextWrapping="Wrap" Text="Receive Amount:" VerticalAlignment="Top"/>
+        <TextBox Name="txtReceive"  k:TouchScreenKeyboard.TouchScreenKeyboard="true"   HorizontalAlignment="Left" Height="23" Margin="235,318,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="200"/>
+        
+        <Button Name="btnSave" Content="Save" IsDefault="True" HorizontalAlignment="Left" Margin="235,349,0,0" VerticalAlignment="Top" Width="200" Click="btnSave_Click" Height="36"/>
+        <Button x:Name="btnClose" Content="Close" HorizontalAlignment="Left"  Margin="235,400,0,0" VerticalAlignment="Top"    Width="200" Height="32" FontSize="15" FontWeight="Bold" Foreground="Aqua"  BorderThickness="0"  Background="#FFE65333" Click="btnClose_Click"  />
+
+
+
+    </Grid>
+</Window>

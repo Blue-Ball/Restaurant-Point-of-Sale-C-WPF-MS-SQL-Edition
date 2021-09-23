@@ -1,0 +1,60 @@
+﻿<UserControl x:Name="TableZone_form" x:Class="RestPOS.Settings.TableZone"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:k="clr-namespace:RestPOS.Keyboard"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="507" Width="1000.561" Loaded="TableZone_form_Loaded"  >
+    <Grid >
+        <Grid HorizontalAlignment="Left"   Margin="68,330,0,0" Width="932" VerticalAlignment="Top" Height="Auto">
+            <DataGrid Name="datagridTableZone" HorizontalAlignment="Left" ColumnWidth="*"    CanUserAddRows="False" IsReadOnly="True"   GridLinesVisibility="Horizontal" HeadersVisibility="Column"  VerticalAlignment="Top" SelectedCellsChanged="datagridTableZone_SelectedCellsChanged">
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn    Header="Del">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate >
+                                <Button x:Name="grdvwbtnDeleteRows"  ToolTip="Remove Option"    Click="grdvwbtnDeleteRows_Click"   Background="Red" Foreground="WhiteSmoke" FontWeight="Bold"   Content="X"   />
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+        </Grid>
+        <TextBlock HorizontalAlignment="Left" Name="lbltablezonetitle"  Margin="68,13,0,0" TextWrapping="Wrap" Text="Table Zone" FontSize="18" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Name="lblID" Margin="67,236,0,0" TextWrapping="Wrap" Text="-" FontSize="8" VerticalAlignment="Top"/>
+
+        <TextBlock HorizontalAlignment="Left" Name="lbltablezonenametitle"   Margin="68,53,0,0" TextWrapping="Wrap" Text="Table name: ( EX: TAB-IN10 )" VerticalAlignment="Top"/>
+        <TextBox Name="txtTableName"  k:TouchScreenKeyboard.TouchScreenKeyboard="true"  HorizontalAlignment="Left" Height="21" Margin="68,72,0,0" TextWrapping="Wrap"   VerticalAlignment="Top" Width="200"/>
+
+        <TextBlock HorizontalAlignment="Left" Name="lblzonenametitle"   Margin="68,95,0,0" TextWrapping="Wrap" Text="Zone name" VerticalAlignment="Top"/>
+        <TextBox Name="txtzonename"  Margin="68,115,0,0" k:TouchScreenKeyboard.TouchScreenKeyboard="true"  HorizontalAlignment="Left" Height="21"  TextWrapping="Wrap"   VerticalAlignment="Top" Width="200"/>
+
+
+        <TextBlock HorizontalAlignment="Left"  Name="lblseattitle"  Margin="68,138,0,0" TextWrapping="Wrap" Text="Available Seat number" VerticalAlignment="Top"/>
+        <TextBox Name="txtseatqty"  Margin="68,157,0,0" k:TouchScreenKeyboard.TouchScreenKeyboard="true"  HorizontalAlignment="Left" Height="21" Text="2"   TextWrapping="Wrap"   VerticalAlignment="Top" Width="200" ToolTip="How many seat available for this table"/>
+
+        <TextBlock HorizontalAlignment="Left" Name="lblsorttitle"   Margin="68,180,0,0" TextWrapping="Wrap" Text="Sorting order" VerticalAlignment="Top"/>
+        <TextBox Name="txtsortingorder"  Margin="68,200,0,0" k:TouchScreenKeyboard.TouchScreenKeyboard="true"  HorizontalAlignment="Left" Height="21" Text="0"   TextWrapping="Wrap"   VerticalAlignment="Top" Width="200" ToolTip="Table sorting order into sales register window"/>
+
+        <TextBlock HorizontalAlignment="Left" Name="lblbgcolortitle"   Margin="285,53,0,0" TextWrapping="Wrap" Text="Background Color" VerticalAlignment="Top"/>
+        <Grid HorizontalAlignment="Left" Height="230" Margin="285,72,0,0" VerticalAlignment="Top" Width="715">
+            <ListBox HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Margin="0,0,0,27" ScrollViewer.HorizontalScrollBarVisibility="Disabled" x:Name="colorList" SelectionChanged="colorList_SelectionChanged">
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel IsItemsHost="True" Orientation="Horizontal"/>
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Rectangle Fill="{Binding Name}" Width="20" Height="20" Stroke="#FF211E1E" OpacityMask="Black" StrokeThickness="1" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+            <Rectangle x:Name="rtlfill" Fill="#FF3120D4" HorizontalAlignment="Left" Height="26" Margin="0,206,0,0" Stroke="Black" VerticalAlignment="Top" Width="715" RenderTransformOrigin="0.533,0.6"/>
+        </Grid>
+
+
+        <Button Name="btnSave" IsDefault="True" Content="Save" HorizontalAlignment="Left" Margin="68,279,0,0" VerticalAlignment="Top" Width="200" Click="btnSave_Click"/>
+        <Button Name="btnAddNew" IsDefault="True" Content="Addnew" HorizontalAlignment="Left" Margin="68,249,0,0" VerticalAlignment="Top" Width="200" Click="btnAddnew_Click"/>
+        <TextBlock Name="lblMsg" HorizontalAlignment="Left" Margin="68,305,0,0" Foreground="Red" TextWrapping="Wrap" Text="-" VerticalAlignment="Top"/>
+    </Grid>
+</UserControl>

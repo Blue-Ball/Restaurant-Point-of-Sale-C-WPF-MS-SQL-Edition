@@ -1,0 +1,16 @@
+﻿<UserControl x:Class="RestPOS.User_mgt.WorkRecords"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="Auto" Width="Auto" Name="WorkRecords_Form" Loaded="WorkRecords_Form_Loaded" >
+    <Grid Background="#FFF1F1F1" >
+        <DatePicker x:Name="dtStartdate" HorizontalAlignment="Left"     Margin="10,42,0,0" VerticalAlignment="Top" Width="136"   IsTodayHighlighted="True" ToolTip="Start Date"  BorderThickness="0" SelectedDateChanged="dtENDdate_SelectedDateChanged"/>
+        <DatePicker x:Name="dtENDdate" HorizontalAlignment="Left"     Margin="147,42,0,0" VerticalAlignment="Top" Width="136"   IsTodayHighlighted="True" ToolTip="END Date"   BorderThickness="0" SelectedDateChanged="dtENDdate_SelectedDateChanged"/>
+        <Button Content="Last 30 days" x:Name="btn30days" HorizontalAlignment="Left" Margin="300,43,0,0" VerticalAlignment="Top" Width="100" Click="btn30days_Click"/>
+        <Button Name="btnExport" Content="Export to Excel" HorizontalAlignment="Left" Margin="412,43,0,0" VerticalAlignment="Top" Width="111" Click="btnExport_Click"/>
+
+        <DataGrid Name="dtgrdWorkingHoursList"  HorizontalAlignment="Left" ColumnWidth="*"   CanUserAddRows="False"   IsReadOnly="True"  Margin="0,77,0,0" GridLinesVisibility="Horizontal" HeadersVisibility="Column"  VerticalAlignment="Top"  />
+       
+    </Grid>
+</UserControl>

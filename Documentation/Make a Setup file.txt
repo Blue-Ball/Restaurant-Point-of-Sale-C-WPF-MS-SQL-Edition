@@ -1,0 +1,24 @@
+
+
+Follow below link to make exe file
+How to create a setup file in Visual Studio 
+https://www.youtube.com/watch?v=4ca8HPnY8hE
+
+
+Once you create setup.exe file 
+Please don't install into C:Drive, because C drive has no write permission.
+
+OR
+
+Manual Process
+===================
+If you need for client  
+Please Copy whole Debug Folder from  \bin\  and make a shortcut of RestPOS.exe  file  -- not this one (RestPOS.exe.config)
+paste to desktop or anywhere where do you want.  
+ 
+and make zip file 
+ 
+Do not create an installer file/project in same project. 
+Do not install a setup.exe into C drive 
+
+

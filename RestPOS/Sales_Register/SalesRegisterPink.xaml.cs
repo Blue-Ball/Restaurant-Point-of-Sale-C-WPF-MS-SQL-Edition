@@ -82,6 +82,21 @@ namespace RestPOS.Sales_Register
       lstvwSauceoptions.ItemsSource = dtsauceoptions.DefaultView;
     }
 
+    public void ReLayoutPanels()
+    {
+        if(dgrvSalesItemList.Items.Count > 0)
+        {
+            dgrvSalesItemList.Margin = new Thickness(70, dgrvSalesItemList.Margin.Top, dgrvSalesItemList.Margin.Right, dgrvSalesItemList.Margin.Bottom);
+            gridOperation.Visibility = Visibility.Visible;
+        }
+        else
+        {
+            dgrvSalesItemList.Margin = new Thickness(0, dgrvSalesItemList.Margin.Top, dgrvSalesItemList.Margin.Right, dgrvSalesItemList.Margin.Bottom);
+            gridOperation.Visibility = Visibility.Hidden;
+
+        }
+        }
+
     private void Window_Loaded(object sender, RoutedEventArgs e)
     {
       try
@@ -146,6 +161,7 @@ namespace RestPOS.Sales_Register
         ResulationHW();
         switch_language();
         txtbarcodescan.Focus();
+        ReLayoutPanels();
       }
       catch
       {
@@ -417,19 +433,21 @@ namespace RestPOS.Sales_Register
       lblTotalPayableTabpayment.Text = payable.ToString();
       btnCurrentAmount.Content = payable.ToString();
 
-      ///////Pole shows Price value  | if you have pole device please UnComment   below code
-      //System.IO.Ports.SerialPort sp = new System.IO.Ports.SerialPort();
-      //sp.PortName = "COM1";  ////Insert your pole Device Port Name E.g. COM4  -- you can find  from pole device manual  
-      //sp.BaudRate = 9600;     // Pole Bound Rate 
-      //sp.Parity = System.IO.Ports.Parity.None;
-      //sp.DataBits = 8;   // Data Bits
-      //sp.StopBits = System.IO.Ports.StopBits.One;
-      //sp.Open();
-      //sp.WriteLine(lblTotalPayable.Text);
+        ///////Pole shows Price value  | if you have pole device please UnComment   below code
+        //System.IO.Ports.SerialPort sp = new System.IO.Ports.SerialPort();
+        //sp.PortName = "COM1";  ////Insert your pole Device Port Name E.g. COM4  -- you can find  from pole device manual  
+        //sp.BaudRate = 9600;     // Pole Bound Rate 
+        //sp.Parity = System.IO.Ports.Parity.None;
+        //sp.DataBits = 8;   // Data Bits
+        //sp.StopBits = System.IO.Ports.StopBits.One;
+        //sp.Open();
+        //sp.WriteLine(lblTotalPayable.Text);
 
-      //sp.Close();
-      //sp.Dispose();
-      //sp = null;
+        //sp.Close();
+        //sp.Dispose();
+        //sp = null;
+
+        ReLayoutPanels();
     }
 
     #region //// Sales transaction Hold Resume
@@ -522,8 +540,21 @@ namespace RestPOS.Sales_Register
     {
       if (lblTotalPayable.Text == "00" || lblTotalPayable.Text == "0" || lblTotalPayable.Text == string.Empty)
       {
-        growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Sorry ! You don't have enough product in Item cart    Please Add to cart", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
-      }
+            // growlNotifications.AddNotification(new Notification { Title = "Alert Message1", Message = "Sorry ! You don't have enough product in Item cart    Please Add to cart", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
+            System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show("Product not found\nDo you want to add product list?", "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.Visibility = Visibility.Hidden;
+                Items.Stock_List go = new Items.Stock_List();
+                go.SetFromSalesFlag(this, true, txtbarcodescan.Text);
+                go.Show();
+            }
+            else if (dialogResult == System.Windows.Forms.DialogResult.No)
+            {
+                txtbarcodescan.Text = "";
+                txtbarcodescan.Focus();
+            }
+        }
       else
       {
         try
@@ -599,8 +630,21 @@ namespace RestPOS.Sales_Register
     {
       if (lblTotalPayable.Text == "00" || lblTotalPayable.Text == "0" || lblTotalPayable.Text == string.Empty)
       {
-        growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Sorry ! You don't have enough product in Item cart    Please Add to cart", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
-      }
+            // growlNotifications.AddNotification(new Notification { Title = "Alert Message2", Message = "Sorry ! You don't have enough product in Item cart    Please Add to cart", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
+            System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show("Product not found\nDo you want to add product list?", "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
+            if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+            {
+                this.Visibility = Visibility.Hidden;
+                Items.Stock_List go = new Items.Stock_List();
+                go.SetFromSalesFlag(this, true, txtbarcodescan.Text);
+                go.Show();
+            }
+            else if (dialogResult == System.Windows.Forms.DialogResult.No)
+            {
+                txtbarcodescan.Text = "";
+                txtbarcodescan.Focus();
+            }
+        }
       else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
       {
         MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
@@ -649,8 +693,21 @@ namespace RestPOS.Sales_Register
     {
       if (lblTotalPayable.Text == "00" || lblTotalPayable.Text == "0" || lblTotalPayable.Text == string.Empty)
       {
-        growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Sorry ! You don't have enough product in Item cart    Please Add to cart", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
-      }
+                // growlNotifications.AddNotification(new Notification { Title = "Alert Message3", Message = "Sorry ! You don't have enough product in Item cart    Please Add to cart", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
+                System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show("Product not found\nDo you want to add product list?", "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
+                if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+                {
+                    this.Visibility = Visibility.Hidden;
+                    Items.Stock_List go = new Items.Stock_List();
+                    go.SetFromSalesFlag(this, true, txtbarcodescan.Text);
+                    go.Show();
+                }
+                else if (dialogResult == System.Windows.Forms.DialogResult.No)
+                {
+                    txtbarcodescan.Text = "";
+                    txtbarcodescan.Focus();
+                }
+            }
       else
       {
         txtPaidAmount.Focus();
@@ -698,7 +755,7 @@ namespace RestPOS.Sales_Register
         DataRowView dataRow = (DataRowView)dgrvSalesItemList.SelectedItem;
         int i = dgrvSalesItemList.CurrentCell.Column.DisplayIndex;
         for (i = 0; i < dgrvSalesItemList.SelectedItems.Count; i++)
-          txtbarcodescan.Focus();
+          //txtbarcodescan.Focus();
         {
           if (e.Column.SortMemberPath.Equals("Qty"))
           {
@@ -741,17 +798,17 @@ namespace RestPOS.Sales_Register
     //Open Sauce Options tab
     private void dgrvSalesItemList_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
     {
-      try
-      {
-        if (bNoSelectChange) return;
-        tabSauceOptions.Visibility = Visibility.Visible;
-        tabstockcontrol.SelectedItem = tabSauceOptions;
-        sauceoptionsDatabind();
-      }
-      catch
-      {
+      //try
+      //{
+      //  if (bNoSelectChange) return;
+      //  tabSauceOptions.Visibility = Visibility.Visible;
+      //  tabstockcontrol.SelectedItem = tabSauceOptions;
+      //  sauceoptionsDatabind();
+      //}
+      //catch
+      //{
 
-      }
+      //}
       txtbarcodescan.Focus();
     }
 
@@ -1438,6 +1495,128 @@ namespace RestPOS.Sales_Register
                 txtbarcodescan.Focus();
             }
             nLastSelectedSalesRow = ((DataGrid)sender).SelectedIndex;
+        }
+
+        private void btnItemPlus_Click(object sender, RoutedEventArgs e)
+        {
+            // addtocartitem
+            //t.Rows.Add(ItemsName, Rprice, i, Total, Itemid, Disamt, Taxamt, Dis, Taxapply, kitchendisplay, options);
+
+            int n = dgrvSalesItemList.SelectedIndex;
+            if (n < 0)
+            {
+                txtbarcodescan.Focus();
+                return;
+            }
+
+            double Taxrate = Convert.ToDouble(vatdisvalue.vat);
+
+            double Rprice = Convert.ToDouble(t.Rows[n][1]);
+            double Taxapply = Convert.ToDouble(t.Rows[n][8]);
+
+            int QtyInc = Convert.ToInt32(t.Rows[n][2]);
+            t.Rows[n][2] = (QtyInc + 1);  //Qty Increase
+            t.Rows[n][3] = Rprice * (QtyInc + 1);   // Total price
+                                                    //  dgrvSalesItemList.Rows[n].Cells[4].Value = Itemid;                     
+
+            double qty = Convert.ToDouble(t.Rows[n][2]);
+            double disrate = Convert.ToDouble(t.Rows[n][7]);
+
+            if (disrate != 0)  // if discount has
+            {
+                double DisamtInc = (((Rprice * qty) * disrate) / 100.00);      // Total Discount amount of this item
+                t.Rows[n][5] = DisamtInc; // Discount total amount
+            }
+
+            if (Taxapply != 0)   // If apply  tax 
+            {
+                // Total Tax amount  of this item  (Rprice - disamount) * taxRate / 100
+                double TaxamtInc = ((((Rprice * qty) - (((Rprice * qty) * disrate) / 100.00)) * Taxrate) / 100.00);
+                t.Rows[n][6] = TaxamtInc; // Total Tax amount
+            }
+
+            txtbarcodescan.Text = "";
+            txtbarcodescan.Focus();
+            DiscountCalculation();
+            vatcal();
+            lblmsg.Visibility = Visibility.Visible;
+            btnholdsale.Visibility = Visibility.Visible;
+        }
+
+        private void btnItemMinus_Click(object sender, RoutedEventArgs e)
+        {
+            // addtocartitem
+            //t.Rows.Add(ItemsName, Rprice, i, Total, Itemid, Disamt, Taxamt, Dis, Taxapply, kitchendisplay, options);
+
+            int n = dgrvSalesItemList.SelectedIndex;
+            if (n < 0)
+            {
+                txtbarcodescan.Focus();
+                return;
+            }
+
+            DataRowView dataRow = (DataRowView)dgrvSalesItemList.SelectedItem;
+
+            if (Convert.ToDouble(dataRow.Row[2].ToString()) <= 1)
+            {
+                txtbarcodescan.Focus();
+                return;
+            }
+
+            double Qty = Convert.ToDouble(dataRow.Row.ItemArray[2].ToString()) - 1;
+            dataRow.Row[2] = Qty;  // Qty Decrease 
+
+            double CurrentQty = Convert.ToDouble(dataRow.Row[2]);
+            double Price = Convert.ToDouble(dataRow.Row[1].ToString());
+            double disrate = Convert.ToDouble(dataRow.Row[7].ToString());
+            double Taxrate = Convert.ToDouble(vatdisvalue.vat);
+
+            //// show total price   Qty  * Rprice
+            dataRow.Row[3] = Price * CurrentQty;   // Total Price
+
+            if (disrate != 0)
+            {
+                double Disamt = (((Price * CurrentQty) * disrate) / 100.00);      // Total Discount amount of this item
+                dataRow.Row[5] = Disamt;
+            }
+
+            if (Convert.ToDouble(dataRow.Row[8].ToString()) != 0)
+            {
+                double Taxamt = ((((Price * CurrentQty) - (((Price * CurrentQty) * disrate) / 100.00)) * Taxrate) / 100.00); // Total Tax amount  of this item
+                dataRow.Row[6] = Taxamt;
+            }
+
+            DiscountCalculation();
+            vatcal();
+           
+            txtbarcodescan.Focus();
+        }
+        private void btnItemCancel_Click(object sender, RoutedEventArgs e)
+        {
+            int n = dgrvSalesItemList.SelectedIndex;
+            if (n < 0)
+            {
+                txtbarcodescan.Focus();
+                return;
+            }
+
+            DataRowView drv = (DataRowView)dgrvSalesItemList.SelectedItem;
+            drv.Row.Delete();
+            DiscountCalculation();
+            vatcal();
+
+            dgrvSalesItemList.SelectedIndex = n <= dgrvSalesItemList.Items.Count-1 ? n : dgrvSalesItemList.Items.Count - 1;
+            txtbarcodescan.Focus();
+        }
+
+        private void btnItemChangePrice_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(sender.ToString());
+        }
+
+        private void currency_ShortcutsContorl_Loaded(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

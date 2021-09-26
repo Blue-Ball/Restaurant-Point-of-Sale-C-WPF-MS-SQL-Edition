@@ -24,38 +24,34 @@
                     <TextBlock  Name="lblsearchSRItemtitle"  Text="Search" HorizontalAlignment="Left" Margin="242,5,0,0" VerticalAlignment="Top"  />
                     <TextBox HorizontalAlignment="Left"   x:Name="txtSearch" Height="22"   Margin="296,2,0,0" TextWrapping="Wrap" ToolTip="Search by Item Name, item bar-Code, Category" VerticalAlignment="Top" Width="192" TextChanged="txtSearch_TextChanged" FontWeight="Bold" FontFamily="Times New Roman" FontSize="14" />
 
-                    <Grid x:Name="gridOperation" HorizontalAlignment="Left" Height="331" Margin="20,91,0,0" VerticalAlignment="Top" Width="52">
-                        <Button x:Name="btnItemPlus" Content="+" Margin="0,4,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click=""/>
-                        <Button x:Name="btnItemMinus" Content="-" Margin="0,44,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold"/>
-                        <Button x:Name="btnItemGift" Content="Gift" Margin="0,84,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold"/>
-                        <Button x:Name="btnItemVoid" Content="Void" Margin="0,124,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold"/>
-                        <Button x:Name="btnItemCancel" Content="Cancel" Margin="0,164,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold"/>
-                        <Button x:Name="btnItemMove" Content="Move" Margin="0,204,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold"/>
-                        <Button x:Name="btnItemChangePrice" Content="Change&#xD;&#xA;Price" Margin="0,244,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold"/>
+                    <Grid x:Name="gridOperation" HorizontalAlignment="Left" Height="331" Margin="19,91,0,0" VerticalAlignment="Top" Width="66">
+                        <Button x:Name="btnItemPlus" Content="+" Margin="0,4,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click="btnItemPlus_Click"/>
+                        <Button x:Name="btnItemMinus" Content="-" Margin="0,44,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click="btnItemMinus_Click"/>
+                        <Button x:Name="btnItemCancel" Content="Cancel" Margin="0,84,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click="btnItemCancel_Click"/>
+                        <Button x:Name="btnItemChangePrice" Content="Change&#xD;&#xA;Price" Margin="0,124,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click="btnItemChangePrice_Click"/>
                         <!--<Button Content="Change&#xD;&#xA;Price" Margin="0,244,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" HorizontalAlignment="Center"/>-->
                     </Grid>
-
                     <Grid HorizontalAlignment="Left" Height="349" Margin="20,73,0,0" VerticalAlignment="Top" Width="468">
                         <Grid.RowDefinitions>
                             <RowDefinition/>
                             <RowDefinition Height="620"/>
                         </Grid.RowDefinitions>
 
-                        <DataGrid x:Name="dgrvSalesItemList" ColumnWidth="Auto" Width="Auto"  CanUserSortColumns="False"   CanUserAddRows="False"   ItemsSource="{Binding}" Margin="57,22,0,271" HeadersVisibility="Column" FontSize="16" 
+                        <DataGrid x:Name="dgrvSalesItemList" ColumnWidth="Auto"  CanUserSortColumns="False"   CanUserAddRows="False"   ItemsSource="{Binding}" Margin="69,22,0,271" HeadersVisibility="Column" FontSize="16" 
                       FontFamily="Times New Roman" Grid.RowSpan="2" 
                       CellEditEnding="dgrvSalesItemList_CellEditEnding" 
                       SelectedCellsChanged="dgrvSalesItemList_SelectedCellsChanged" PreviewMouseUp="dgrvSalesItemList_PreviewMouseUp" 
                       >
                             <DataGrid.Columns>
                                 <!--<DataGridTextColumn x:Name="ItemName" Binding="{x:Null}"  ClipboardContentBinding="{x:Null}" Header="ItemName"/>-->
-                                <DataGridTemplateColumn    Header="Del">
+                                <DataGridTemplateColumn    Header="Del" Visibility="Hidden">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate >
                                             <Button x:Name="DeleteRows"  ToolTip="Remove Item"    Click="DeleteRow_Click" PreviewMouseDown="DeleteRows_PreviewMouseDown" PreviewMouseUp="DeleteRows_PreviewMouseUp"  Background="#FF42F70C" Foreground="#FF8D0B0B" FontWeight="Bold"   Content="X"   />
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                                <DataGridTemplateColumn Header="-" >
+                                <DataGridTemplateColumn Header="-" Visibility="Hidden">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate>
                                             <Button  x:Name="btnMinus"  ToolTip="Decrease Item Quantity"  Click="Minus_Click" PreviewMouseDown="btnMinus_PreviewMouseDown" PreviewMouseUp="btnMinus_PreviewMouseUp"   Background="#FF42F70C" Foreground="#FF8D0B0B" FontWeight="Bold" Content="-" />
@@ -100,10 +96,11 @@
                         <TabItem x:Name="tabGridview" Selector.IsSelected="True" Header=" Items ">
                             <Grid Background="#FFF1F1F1" Margin="0,0,7,0" >
                                 <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="111*"/>
                                     <ColumnDefinition Width="205*"/>
-                                    <ColumnDefinition Width="128*"/>
+                                    <ColumnDefinition Width="198*"/>
                                 </Grid.ColumnDefinitions>
-                                <ListView x:Name="lstvwStocklist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ToolTip="Click for Qty increase"  Background="#4CFFFFFF"   SelectionChanged="lstvwStocklist_SelectionChanged" TouchEnter="lstvwStocklist_TouchEnter" Margin="-2,-2,0,0" Grid.ColumnSpan="2" PreviewMouseUp="lstvwStocklist_PreviewMouseUp"  >
+                                <ListView x:Name="lstvwStocklist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ToolTip="Click for Qty increase"  Background="#4CFFFFFF"   SelectionChanged="lstvwStocklist_SelectionChanged" TouchEnter="lstvwStocklist_TouchEnter" Margin="-2,-2,0,0" Grid.ColumnSpan="3" PreviewMouseUp="lstvwStocklist_PreviewMouseUp"  >
                                     <ListView.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <WrapPanel/>
@@ -165,8 +162,9 @@
                         <!-- End Hold item -->
 
                         <!-- Sauce options Section Start -->
-                        <TabItem x:Name="tabSauceOptions"  Header="Sauce options">
+                        <TabItem x:Name="tabSauceOptions"  Header="Sauce options" Visibility="Hidden">
                             <Grid Background="#FFF1F1F1" Margin="0,0,0,0" >
+
                                 <ListView x:Name="lstvwSauceoptions" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ToolTip="{Binding saucename}"  Background="#4CFFFFFF"   SelectionChanged="lstvwSauceoptions_SelectionChanged" >
                                     <ListView.ItemsPanel>
                                         <ItemsPanelTemplate>

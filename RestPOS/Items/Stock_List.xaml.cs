@@ -19,13 +19,34 @@ namespace RestPOS.Items
   {
     ResourceManager res_man;
     CultureInfo cul;
+    public bool m_bFromSales;
+        public Window m_prevWindow;
 
     OpenFileDialog openFileDialog1 = new OpenFileDialog();
     public Stock_List()
     {
+            
       InitializeComponent();
+            btnSaveAndReturn.Visibility = Visibility.Hidden;
+            m_prevWindow = null;
+        }
 
-    }
+        public void SetFromSalesFlag(Window prevWindow, bool bFlag, string strCode)
+        {
+            m_bFromSales = bFlag;
+            if(m_bFromSales)
+            {
+                btnSaveAndReturn.Visibility = Visibility.Visible;
+                tabitemview.Visibility = Visibility.Visible;
+                tabcontrolItemspanel.SelectedIndex = 1;
+                txtItembarcode.Text = strCode;
+                m_prevWindow = prevWindow;
+            }
+            else
+            {
+                btnSaveAndReturn.Visibility = Visibility.Hidden;
+            }
+        }
 
 
     #region Databind
@@ -628,5 +649,10 @@ namespace RestPOS.Items
 
     }
 
-  }
+        private void btnSaveAndReturn_Click(object sender, RoutedEventArgs e)
+        {
+            this.Visibility = Visibility.Hidden;
+            m_prevWindow.Visibility = Visibility.Visible;
+        }
+    }
 }

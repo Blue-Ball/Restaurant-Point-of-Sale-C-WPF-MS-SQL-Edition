@@ -9,6 +9,7 @@ using System.Windows.Controls;
 //using System.Windows.Forms;
 using System.Windows.Input;
 using System.Windows.Media;
+using WPFCustomMessageBox;
 
 namespace RestPOS.Sales_Register
 {
@@ -401,7 +402,8 @@ namespace RestPOS.Sales_Register
       payable = Math.Round(payable, 2);
       lblTotalPayable.Text = payable.ToString();
       lblTotalPayableTabpayment.Text = payable.ToString();
-      btnCurrentAmount.Content = payable.ToString();
+    txtTotalAmount.Text = payable.ToString();
+            btnCurrentAmount.Content = payable.ToString();
 
       tabterminal.Header = "Terminal (" + dgrvSalesItemList.Items.Count.ToString() + ")";
       // tabPayment.Header = "Payment (" + lblTotalPayable.Text.ToString() + ")";
@@ -431,6 +433,7 @@ namespace RestPOS.Sales_Register
       payable = Math.Round(payable, 2);
       lblTotalPayable.Text = payable.ToString();
       lblTotalPayableTabpayment.Text = payable.ToString();
+            txtTotalAmount.Text = payable.ToString();
       btnCurrentAmount.Content = payable.ToString();
 
         ///////Pole shows Price value  | if you have pole device please UnComment   below code
@@ -630,20 +633,7 @@ namespace RestPOS.Sales_Register
     {
       if (lblTotalPayable.Text == "00" || lblTotalPayable.Text == "0" || lblTotalPayable.Text == string.Empty)
       {
-            // growlNotifications.AddNotification(new Notification { Title = "Alert Message2", Message = "Sorry ! You don't have enough product in Item cart    Please Add to cart", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
-            System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show("Product not found\nDo you want to add product list?", "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
-            if (dialogResult == System.Windows.Forms.DialogResult.Yes)
-            {
-                this.Visibility = Visibility.Hidden;
-                Items.Stock_List go = new Items.Stock_List();
-                go.SetFromSalesFlag(this, true, txtbarcodescan.Text);
-                go.Show();
-            }
-            else if (dialogResult == System.Windows.Forms.DialogResult.No)
-            {
-                txtbarcodescan.Text = "";
-                txtbarcodescan.Focus();
-            }
+            growlNotifications.AddNotification(new Notification { Title = "Alert Message2", Message = "Sorry ! You don't have enough product in Item cart    Please Add to cart", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
         }
       else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
       {
@@ -651,38 +641,75 @@ namespace RestPOS.Sales_Register
       }
       else
       {
-        try
+        string strMessage = "Print?";
+        // System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show(strMessage, "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
+        MessageBoxResult dialogResult = CustomMessageBox.ShowYesNo(strMessage, "PosCube", "Yes", "No");
+        if (dialogResult == MessageBoxResult.Yes)
         {
-          ////Save payment info into sales_payment table
-          payment_item(lblTotalPayable.Text, "0", "0", "Cash", DateTime.Now.ToString("yyyy-MM-dd").ToString(), "8101", "Guest");
+            try
+            {
+                ////Save payment info into sales_payment table
+                payment_item(lblTotalPayable.Text, "0", "0", "Cash", DateTime.Now.ToString("yyyy-MM-dd").ToString(), "8101", "Guest");
 
-          ///// save sales items one by one  
-          sales_item(DateTime.Now.ToString("yyyy-MM-dd").ToString());
+                ///// save sales items one by one  
+                sales_item(DateTime.Now.ToString("yyyy-MM-dd").ToString());
 
-          //// TokennoInsert
-          tokennoInsert();
+                //// TokennoInsert
+                tokennoInsert();
 
-          // // Change Hold Status to normal
-          if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
+                // // Change Hold Status to normal
+                if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
 
-          //// Booked Table 
-          updatetablebooked();
+                //// Booked Table 
+                updatetablebooked();
 
-          ///// // Open Print Invoice
-          this.Visibility = Visibility.Hidden;
-          parameter.autoprint = "1";
-          Sales_Register.ReceiptPrint go = new Sales_Register.ReceiptPrint(txtInvoice.Text);
-          go.ShowDialog();
+                ///// // Open Print Invoice
+                // this.Visibility = Visibility.Hidden;
+                parameter.autoprint = "1";
+                Sales_Register.ReceiptPrint go = new Sales_Register.ReceiptPrint(txtInvoice.Text);
+                go.ShowDialog();
+                this.Visibility = Visibility.Hidden;
 
-          tabPayment.Visibility = Visibility.Hidden;
-          t.Rows.Clear();
-          DiscountCalculation();
-          vatcal();
+                tabPayment.Visibility = Visibility.Hidden;
+                t.Rows.Clear();
+                DiscountCalculation();
+                vatcal();
 
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+            }
         }
-        catch (Exception exp)
+        else if (dialogResult == MessageBoxResult.No)
         {
-          MessageBox.Show(exp.Message);
+            try
+            {
+                ////Save payment info into sales_payment table
+                payment_item(lblTotalPayable.Text, "0", "0", "Cash", DateTime.Now.ToString("yyyy-MM-dd").ToString(), "8101", "Guest");
+
+                ///// save sales items one by one  
+                sales_item(DateTime.Now.ToString("yyyy-MM-dd").ToString());
+
+                //// TokennoInsert
+                tokennoInsert();
+
+                // // Change Hold Status to normal
+                if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
+
+                //// Booked Table 
+                updatetablebooked();
+
+                tabPayment.Visibility = Visibility.Hidden;
+                t.Rows.Clear();
+                DiscountCalculation();
+                vatcal();
+
+            }
+            catch (Exception exp)
+            {
+                MessageBox.Show(exp.Message);
+            }
         }
       }
       txtbarcodescan.Focus();
@@ -694,15 +721,16 @@ namespace RestPOS.Sales_Register
       if (lblTotalPayable.Text == "00" || lblTotalPayable.Text == "0" || lblTotalPayable.Text == string.Empty)
       {
                 // growlNotifications.AddNotification(new Notification { Title = "Alert Message3", Message = "Sorry ! You don't have enough product in Item cart    Please Add to cart", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
-                System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show("Product not found\nDo you want to add product list?", "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
-                if (dialogResult == System.Windows.Forms.DialogResult.Yes)
+                MessageBoxResult dialogResult = CustomMessageBox.ShowYesNo("Product not found\nDo you want to add product list?", "PosCube", "Yes", "No");
+                // System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show("Product not found\nDo you want to add product list?", "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
+                if (dialogResult == MessageBoxResult.Yes)
                 {
                     this.Visibility = Visibility.Hidden;
                     Items.Stock_List go = new Items.Stock_List();
                     go.SetFromSalesFlag(this, true, txtbarcodescan.Text);
                     go.Show();
                 }
-                else if (dialogResult == System.Windows.Forms.DialogResult.No)
+                else if (dialogResult == MessageBoxResult.No)
                 {
                     txtbarcodescan.Text = "";
                     txtbarcodescan.Focus();
@@ -1187,7 +1215,7 @@ namespace RestPOS.Sales_Register
       {
         try
         {
-          if (Convert.ToDouble(txtPaidAmount.Text) >= Convert.ToDouble(lblTotalPayable.Text))
+          if (!txtPaidAmount.Text.Equals("") && Convert.ToDouble(txtPaidAmount.Text) >= Convert.ToDouble(lblTotalPayable.Text))
           {
             double changeAmt = Convert.ToDouble(txtPaidAmount.Text) - Convert.ToDouble(lblTotalPayable.Text);
             changeAmt = Math.Round(changeAmt, 2);
@@ -1206,7 +1234,7 @@ namespace RestPOS.Sales_Register
         catch //(Exception exp)
         {
             Console.WriteLine("error3");
-            txtPaidAmount.Text = "0";
+            txtPaidAmount.Text = "";
                     //btnCompleteSalesAndPrint.Focus();
                     // MessageBox.Show(exp.Message);
           txtbarcodescan.Focus();
@@ -1268,6 +1296,7 @@ namespace RestPOS.Sales_Register
           payable = Math.Round(payable, 2);
           lblTotalPayable.Text = payable.ToString();
           lblTotalPayableTabpayment.Text = payable.ToString();
+                    txtTotalAmount.Text = payable.ToString();
           btnCurrentAmount.Content = payable.ToString();
 
           txtPaidAmount.Text = payable.ToString();
@@ -1354,6 +1383,9 @@ namespace RestPOS.Sales_Register
       try
       {
         txtPaidAmount.Text += Numvalue;
+        if (Convert.ToDouble(txtPaidAmount.Text) == 0.0)
+            txtPaidAmount.Text = "";
+                txtPaidAmount.CaretIndex = txtPaidAmount.Text.Length;
         txtPaidAmount.Focus();
       }
       catch
@@ -1617,6 +1649,229 @@ namespace RestPOS.Sales_Register
         private void currency_ShortcutsContorl_Loaded(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        private void btnPayCash_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtPaidAmount.Text == "00" || txtPaidAmount.Text == "0" || txtPaidAmount.Text == string.Empty)
+            {
+                //  MessageBox.Show("Please insert paid amount", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
+                growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Please insert paid amount", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
+                txtPaidAmount.Focus();
+            }
+            else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
+            {
+                MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
+                txtbarcodescan.Focus();
+            }
+            else
+            {
+                string strMessage = string.Format("Change: {0} ?\nPrint?", txtChangeAmount.Text);
+                // System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show(strMessage, "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
+                MessageBoxResult dialogResult = CustomMessageBox.ShowYesNo(strMessage, "PosCube", "Yes", "No");
+                if (dialogResult == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        //if (MessageBox.Show("Do you want to Complete this transaction?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        {
+                            ////Save payment info into sales_payment table
+                            payment_item(lblTotalPayable.Text, txtChangeAmount.Text, txtDueAmount.Text, "Cash", dtSalesDate.Text, lblCustID.Text, txtcomment.Text);
+
+                            ///// save sales items one by one  
+                            sales_item(dtSalesDate.Text);
+
+                            //// TokennoInsert
+                            tokennoInsert();
+
+                            // // Change Hold Status to normal
+                            if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
+
+                            //// Booked Table 
+                            updatetablebooked();
+
+                            ///// // Open Print Invoice
+                            // this.Visibility = Visibility.Hidden;
+                            parameter.autoprint = "1";
+                            Sales_Register.ReceiptPrint go = new Sales_Register.ReceiptPrint(txtInvoice.Text);
+                            go.ShowDialog();
+                            this.Visibility = Visibility.Hidden;
+
+                            tabPayment.Visibility = Visibility.Hidden;
+                            t.Rows.Clear();
+                            DiscountCalculation();
+                            vatcal();
+                            //txtbarcodescan.Focus();
+                        }
+
+                    }
+                    catch (Exception exp)
+                    {
+                        MessageBox.Show(exp.Message);
+                    }
+                }
+                else if (dialogResult == MessageBoxResult.No)
+                {
+                    try
+                    {
+                        //if (MessageBox.Show("Do you want to Complete this transaction?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        {
+                            ////Save payment info into sales_payment table
+                            payment_item(lblTotalPayable.Text, txtChangeAmount.Text, txtDueAmount.Text, "Cash", dtSalesDate.Text, lblCustID.Text, txtcomment.Text);
+
+                            ///// save sales items one by one  
+                            sales_item(dtSalesDate.Text);
+
+                            //// TokennoInsert
+                            tokennoInsert();
+
+                            // // Change Hold Status to normal
+                            if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
+
+                            //// Booked Table 
+                            updatetablebooked();
+
+                            tabPayment.Visibility = Visibility.Hidden;
+                            t.Rows.Clear();
+                            DiscountCalculation();
+                            vatcal();
+                            //txtbarcodescan.Focus();
+
+                            tabSalesRegister.SelectedItem = tabterminal;
+                            txtPaidAmount.Text = "";
+                        }
+
+                    }
+                    catch (Exception exp)
+                    {
+                        MessageBox.Show(exp.Message);
+                    }
+                }
+            }
+        }
+
+        private void btnPayCreditCard_Click(object sender, RoutedEventArgs e)
+        {
+            if (txtPaidAmount.Text == "00" || txtPaidAmount.Text == "0" || txtPaidAmount.Text == string.Empty)
+            {
+                //  MessageBox.Show("Please insert paid amount", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
+                growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Please insert paid amount", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
+                txtPaidAmount.Focus();
+            }
+            else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
+            {
+                MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
+                txtbarcodescan.Focus();
+            }
+            else
+            {
+
+                String strMessage = string.Format("Change: {0} ?\nPrint?", txtChangeAmount.Text);
+                //System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show(strMessage, "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
+                MessageBoxResult dialogResult = CustomMessageBox.ShowYesNo(strMessage, "PosCube", "Yes", "No");
+                if (dialogResult == MessageBoxResult.Yes)
+                {
+                    try
+                    {
+                        //if (MessageBox.Show("Do you want to Complete this transaction?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        {
+                            ////Save payment info into sales_payment table
+                            payment_item(lblTotalPayable.Text, txtChangeAmount.Text, txtDueAmount.Text, "Credit Card", dtSalesDate.Text, lblCustID.Text, txtcomment.Text);
+
+                            ///// save sales items one by one  
+                            sales_item(dtSalesDate.Text);
+
+                            //// TokennoInsert
+                            tokennoInsert();
+
+                            // // Change Hold Status to normal
+                            if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
+
+                            //// Booked Table 
+                            updatetablebooked();
+
+                            ///// // Open Print Invoice
+                            // this.Visibility = Visibility.Hidden;
+                            parameter.autoprint = "1";
+                            Sales_Register.ReceiptPrint go = new Sales_Register.ReceiptPrint(txtInvoice.Text);
+                            go.ShowDialog();
+                            this.Visibility = Visibility.Hidden;
+
+                            tabPayment.Visibility = Visibility.Hidden;
+                            t.Rows.Clear();
+                            DiscountCalculation();
+                            vatcal();
+                            //txtbarcodescan.Focus();
+                        }
+
+                    }
+                    catch (Exception exp)
+                    {
+                        MessageBox.Show(exp.Message);
+                    }
+                }
+                else if (dialogResult == MessageBoxResult.No)
+                {
+                    try
+                    {
+                        //if (MessageBox.Show("Do you want to Complete this transaction?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        {
+                            ////Save payment info into sales_payment table
+                            payment_item(lblTotalPayable.Text, txtChangeAmount.Text, txtDueAmount.Text, "Credit Card", dtSalesDate.Text, lblCustID.Text, txtcomment.Text);
+
+                            ///// save sales items one by one  
+                            sales_item(dtSalesDate.Text);
+
+                            //// TokennoInsert
+                            tokennoInsert();
+
+                            // // Change Hold Status to normal
+                            if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
+
+                            //// Booked Table 
+                            updatetablebooked();
+
+                            tabPayment.Visibility = Visibility.Hidden;
+                            t.Rows.Clear();
+                            DiscountCalculation();
+                            vatcal();
+                            //txtbarcodescan.Focus();
+
+                            tabSalesRegister.SelectedItem = tabterminal;
+                            txtPaidAmount.Text = "";
+                        }
+
+                    }
+                    catch (Exception exp)
+                    {
+                        MessageBox.Show(exp.Message);
+                    }
+                }
+            }
+        }
+
+        private void txtbarcodescan_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                if(!txtbarcodescan.Text.Equals(""))
+                {
+                    // System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show("Product not found\nDo you want to add product list?", "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
+                    MessageBoxResult dialogResult = CustomMessageBox.ShowYesNo("Product not found\nDo you want to add product list?", "PosCube", "Yes", "No");
+                    if (dialogResult == MessageBoxResult.Yes)
+                    {
+                        this.Visibility = Visibility.Hidden;
+                        Items.Stock_List go = new Items.Stock_List();
+                        go.SetFromSalesFlag(this, true, txtbarcodescan.Text);
+                        go.Show();
+                    }
+                    else if (dialogResult == MessageBoxResult.No)
+                    {
+                        txtbarcodescan.Text = "";
+                        txtbarcodescan.Focus();
+                    }
+                }
+            }
         }
     }
 }

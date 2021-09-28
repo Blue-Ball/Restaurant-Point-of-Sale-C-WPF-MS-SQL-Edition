@@ -229,7 +229,10 @@ namespace RestPOS.Sales_Register
       catch
       {
       }
-    }
+            this.Visibility = Visibility.Hidden;
+            Autoprint();
+            btnClose_Click(null, null);
+        }
 
     public void Autoprint()
     {

@@ -94,6 +94,11 @@
     <Compile Include="Customer\CustomerList.xaml.cs">
       <DependentUpon>CustomerList.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CustomMessageBox\CustomMessageBox.cs" />
+    <Compile Include="CustomMessageBox\CustomMessageBoxWindow.xaml.cs">
+      <DependentUpon>CustomMessageBoxWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CustomMessageBox\Util.cs" />
     <Compile Include="DataAccess_MSSQLServer.cs" />
     <Compile Include="Help\HelpIndex.xaml.cs">
       <DependentUpon>HelpIndex.xaml</DependentUpon>
@@ -204,6 +209,10 @@
     <Page Include="Customer\CustomerList.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CustomMessageBox\CustomMessageBoxWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
     <Page Include="Help\HelpIndex.xaml">
       <SubType>Designer</SubType>

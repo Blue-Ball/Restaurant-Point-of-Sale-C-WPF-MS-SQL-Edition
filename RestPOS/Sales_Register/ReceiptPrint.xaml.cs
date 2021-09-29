@@ -1,7 +1,10 @@
 ﻿using System;
 using System.Data;
+using System.Drawing.Printing;
 using System.Globalization;
 using System.IO;
+using System.Linq;
+using System.Printing;
 using System.Resources;
 using System.Windows;
 using System.Windows.Media.Imaging;
@@ -237,16 +240,24 @@ namespace RestPOS.Sales_Register
     public void Autoprint()
     {
       dtgriditems.Items.Refresh();
-      System.Windows.Controls.PrintDialog Printdlg = new System.Windows.Controls.PrintDialog();
-      if ((bool)Printdlg.ShowDialog().GetValueOrDefault())
-      {
-        // Size pageSize = new Size(Printdlg.PrintableAreaWidth, Printdlg.PrintableAreaHeight);
-        Size pageSize = new Size(280, Printdlg.PrintableAreaHeight);
+        PrinterSettings settings = new PrinterSettings();
+
+        System.Windows.Controls.PrintDialog Printdlg = new System.Windows.Controls.PrintDialog();
+        var printers = new LocalPrintServer().GetPrintQueues();
+        var selectedPrinter = printers.FirstOrDefault(p => p.Name == settings.PrinterName); //Replacement 
+        //if ((bool)Printdlg.ShowDialog().GetValueOrDefault())
+        if (selectedPrinter != null)
+        {
+            Printdlg.PrintQueue = selectedPrinter;
+
+            // Size pageSize = new Size(Printdlg.PrintableAreaWidth, Printdlg.PrintableAreaHeight);
+            Size pageSize = new Size(280, Printdlg.PrintableAreaHeight);
         System.Drawing.Printing.PaperSize pkCustomSize1 = new System.Drawing.Printing.PaperSize("First custom size", 280, 1200);
         // sizing of the element.
         grdPrintPanel.Measure(pageSize);
         grdPrintPanel.Arrange(new Rect(0, 0, pageSize.Width, pageSize.Height));
         Printdlg.MaxPage = 10;
+        grdPrintPanel.UpdateLayout();
         Printdlg.PrintVisual(grdPrintPanel, "POS_Print_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss"));
       }
     }

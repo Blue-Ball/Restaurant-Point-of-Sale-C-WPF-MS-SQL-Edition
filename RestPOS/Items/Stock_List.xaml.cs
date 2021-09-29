@@ -651,8 +651,172 @@ namespace RestPOS.Items
 
         private void btnSaveAndReturn_Click(object sender, RoutedEventArgs e)
         {
-            this.Visibility = Visibility.Hidden;
-            m_prevWindow.Visibility = Visibility.Visible;
+            if (txtItembarcode.Text == "")
+            {
+                MessageBox.Show("Please Insert Product Code/ Item Bar-code");
+                txtItembarcode.Focus();
+            }
+            else if (txtitemName.Text == "")
+            {
+                MessageBox.Show("Please Insert  Product Name");
+                txtitemName.Focus();
+            }
+            else if (txtDiscountRate.Text == "")
+            {
+                txtDiscountRate.Text = "0";
+                txtDiscountRate.Focus();
+            }
+            else if (txtQty.Text == "")
+            {
+                MessageBox.Show("Please Insert Product Quantity");
+                txtQty.Focus();
+            }
+            else if (txtPurchaseprice.Text == "")
+            {
+                MessageBox.Show("Please Insert Product Cost Price / Buy price / purchase Price");
+                txtPurchaseprice.Focus();
+            }
+
+            else if (txtSalePrice.Text == "")
+            {
+                MessageBox.Show("Please Insert Product  Sales Price");
+                txtSalePrice.Focus();
+            }
+            else if (cmboCategory.Text == "")
+            {
+                MessageBox.Show("Please Insert Product Category");
+                cmboCategory.Focus();
+            }
+            else if (cmboLocation.Text == "")
+            {
+                MessageBox.Show("Please Select Branch name ");
+                cmboLocation.Focus();
+            }
+            else if (cmboSupplier.Text == "")
+            {
+                MessageBox.Show("Please Select Supplier Name");
+                cmboSupplier.Focus();
+            }
+            else
+            {
+                try
+                {
+                    string pid = txtItembarcode.Text;
+                    string pname = txtitemName.Text;
+                    double quan = Convert.ToDouble(txtQty.Text);
+                    double cprice = Convert.ToDouble(txtPurchaseprice.Text);
+                    double sprice = Convert.ToDouble(txtSalePrice.Text);
+
+                    double ctotalpri = quan * cprice;
+                    double rtotalpri = quan * sprice;
+                    double discount = Convert.ToDouble(txtDiscountRate.Text);
+
+                    int taxapply;
+                    if (chkTxaApply.IsChecked == true)
+                    {
+                        taxapply = 1;  //1 = Tax apply
+                    }
+                    else
+                    {
+                        taxapply = 0; // 0 = Tax not apply
+                    }
+
+                    int kitchenDisplaythisitem;
+                    if (chkkitchenDisplay.IsChecked == true)
+                    {
+                        kitchenDisplaythisitem = 3; // 3 = It's show display on kitchen display
+                    }
+                    else
+                    {
+                        kitchenDisplaythisitem = 1; // 1 = it's not show on ditcken display.
+                    }
+
+                    //New Insert / New Entry
+                    if (lblItemcode.Text == "-")
+                    {
+                        string imageName = openFileDialog1.FileName;
+                        if (lblFileExtension.Text == "item.png")
+                        {
+                            string sql1 = " insert into purchase (product_id, product_name, product_quantity, cost_price, retail_price, total_cost_price, total_retail_price, " +
+                                      " category, supplier, discount, taxapply, Shopid, status, description, weight, mdate, edate ) " +
+                                       "  Values ( '" + pid + "', '" + pname + "', '" + quan + "', '" + cprice + "', '" + sprice + "', '" + ctotalpri + "', " +
+                                       " '" + rtotalpri + "', '" + cmboCategory.Text + "', '" + cmboSupplier.Text + "', '" + discount + "',  " +
+                                       " '" + taxapply + "', '" + cmboLocation.SelectedValue + "', '" + kitchenDisplaythisitem + "', '" + txtDescription.Text + "',  " +
+                                       "  '" + txtWeight.Text + "', '" + dtMdate.Text + "', '" + dtExpiredate.Text + "' ) ";
+                            DataAccess.ExecuteSQL(sql1);
+                        }
+                        else
+                        {
+                            string sql1 = " insert into purchase (imagename, product_id, product_name, product_quantity, cost_price, retail_price, total_cost_price, total_retail_price, " +
+                                      " category, supplier, discount, taxapply, Shopid, status, description, weight, mdate, edate) " +
+                                       " SELECT BulkColumn, '" + pid + "', '" + pname + "', '" + quan + "', '" + cprice + "', '" + sprice + "', '" + ctotalpri + "', " +
+                                       " '" + rtotalpri + "', '" + cmboCategory.Text + "', '" + cmboSupplier.Text + "', '" + discount + "', " +
+                                       "  '" + taxapply + "', '" + cmboLocation.SelectedValue + "', '" + kitchenDisplaythisitem + "', '" + txtDescription.Text + "', " +
+                                       "  '" + txtWeight.Text + "', '" + dtMdate.Text + "', '" + dtExpiredate.Text + "' " +
+                                       " FROM OPENROWSET ( BULK '" + imageName + "', Single_Blob) as img ";
+                            DataAccess.ExecuteSQL(sql1);
+                        }
+
+                        MessageBox.Show("Item hase been saved Successfully", "Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                        tabcontrolItemspanel.SelectedItem = tabItemlist;
+                        StockitemDatabind("");
+
+
+                    }
+                    else  //Update
+                    {
+
+                        string imageName;
+                        if (lblFileExtension.Text == "item.png")
+                        {
+                            string sql = " UPDATE purchase set product_name = '" + txtitemName.Text + "', product_quantity= '" + txtQty.Text + "', " +
+                                        " cost_price = '" + txtPurchaseprice.Text + "', retail_price= '" + txtSalePrice.Text + "', total_cost_price = '" + ctotalpri + "', " +
+                                        " total_retail_price= '" + rtotalpri + "', category = '" + cmboCategory.Text + "', supplier = '" + cmboSupplier.Text + "', " +
+                                        " discount   = '" + discount + "', taxapply = '" + taxapply + "', Shopid = '" + cmboLocation.SelectedValue + "', " +
+                                        " status =  '" + kitchenDisplaythisitem + "', description = '" + txtDescription.Text + "', weight =  '" + txtWeight.Text + "', " +
+                                        " mdate = '" + dtMdate.Text + "', edate =  '" + dtExpiredate.Text + "' " +
+                                        " where product_id = '" + lblItemcode.Text + "' ";
+                            DataAccess.ExecuteSQL(sql);
+                        }
+                        else
+                        {
+                            imageName = " ( SELECT BulkColumn FROM OPENROWSET ( BULK  '" + openFileDialog1.FileName + "', SINGLE_BLOB) as img ) ";
+                            string sql = " UPDATE purchase set  imagename = " + imageName + ", product_name = '" + txtitemName.Text + "', product_quantity= '" + txtQty.Text + "', " +
+                                     " cost_price = '" + txtPurchaseprice.Text + "', retail_price= '" + txtSalePrice.Text + "', total_cost_price = '" + ctotalpri + "', " +
+                                     " total_retail_price= '" + rtotalpri + "', category = '" + cmboCategory.Text + "', supplier = '" + cmboSupplier.Text + "', " +
+                                     " discount   = '" + discount + "' , taxapply = '" + taxapply + "', Shopid = '" + cmboLocation.SelectedValue + "',  " +
+                                     " status =  '" + kitchenDisplaythisitem + "', description = '" + txtDescription.Text + "', weight =  '" + txtWeight.Text + "',  " +
+                                     " mdate = '" + dtMdate.Text + "', edate =  '" + dtExpiredate.Text + "' " +
+                                     " where product_id = '" + lblItemcode.Text + "' ";
+                            DataAccess.ExecuteSQL(sql);
+                        }
+
+
+
+                        //  /////// picture upload  /////////////////      
+                        //  //if (openFileDialog1.FileName != string.Empty)
+                        //  //{
+                        //  //    string destinatiopath = System.AppDomain.CurrentDomain.BaseDirectory + @"\ITEMIMAGE\";
+                        //  //    string iName = openFileDialog1.SafeFileName;
+                        //  //    string filepath = openFileDialog1.FileName;
+                        //  //    System.IO.File.Copy(filepath, destinatiopath + imageName);
+                        //  //}
+                        ////  
+                        tabcontrolItemspanel.SelectedItem = tabItemlist;
+                        MessageBox.Show("Successfully Data Updated!", "Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                        StockitemDatabind("");
+                        lstvwStocklist.Items.Refresh();
+
+                    }
+
+                    this.Visibility = Visibility.Hidden;
+                    m_prevWindow.Visibility = Visibility.Visible;
+                }
+                catch //(Exception exp)
+                {
+                    // MessageBox.Show("Sorry\r\n" + exp.Message);
+                }
+            }
         }
     }
 }

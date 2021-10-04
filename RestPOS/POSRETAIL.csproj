@@ -173,6 +173,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetInvoice.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Sales_Register\EnterAmountPopup.xaml.cs">
+      <DependentUpon>EnterAmountPopup.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Sales_Register\InvoiceView.xaml.cs">
       <DependentUpon>InvoiceView.xaml</DependentUpon>
     </Compile>
@@ -302,6 +305,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Sales_Register\CurrencyShortcuts.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Sales_Register\EnterAmountPopup.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

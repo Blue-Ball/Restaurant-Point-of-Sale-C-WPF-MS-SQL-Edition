@@ -1641,11 +1641,6 @@ namespace RestPOS.Sales_Register
             txtbarcodescan.Focus();
         }
 
-        private void btnItemChangePrice_Click(object sender, RoutedEventArgs e)
-        {
-            Console.WriteLine(sender.ToString());
-        }
-
         private void currency_ShortcutsContorl_Loaded(object sender, RoutedEventArgs e)
         {
 
@@ -1872,6 +1867,27 @@ namespace RestPOS.Sales_Register
                     }
                 }
             }
+        }
+
+        private void btnItemQty_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnItemChangePrice_Click(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(sender.ToString());
+        }
+
+        private void btnItemWeight_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void btnDiscount_Click(object sender, RoutedEventArgs e)
+        {
+            EnterAmountPopup popUp = new EnterAmountPopup();
+            popUp.ShowDialog();
         }
     }
 }

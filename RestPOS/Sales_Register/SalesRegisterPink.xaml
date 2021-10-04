@@ -28,8 +28,9 @@
                         <Button x:Name="btnItemPlus" Content="+" Margin="0,4,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click="btnItemPlus_Click"/>
                         <Button x:Name="btnItemMinus" Content="-" Margin="0,44,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click="btnItemMinus_Click"/>
                         <Button x:Name="btnItemCancel" Content="Cancel" Margin="0,84,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click="btnItemCancel_Click"/>
-                        <Button x:Name="btnItemChangePrice" Content="Change&#xD;&#xA;Price" Margin="0,124,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click="btnItemChangePrice_Click"/>
-                        <!--<Button Content="Change&#xD;&#xA;Price" Margin="0,244,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" HorizontalAlignment="Center"/>-->
+                        <Button x:Name="btnItemQty" Content="Qty" Margin="0,124,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click="btnItemQty_Click"/>
+                        <Button x:Name="btnItemChangePrice" Content="Change&#xD;&#xA;Price" Margin="0,164,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click="btnItemChangePrice_Click"/>
+                        <Button x:Name="btnItemWeight" Content="Weight" Margin="0,204,0,0" VerticalAlignment="Top" Height="35" FontWeight="Bold" Click="btnItemWeight_Click"/>
                     </Grid>
                     <Grid HorizontalAlignment="Left" Height="349" Margin="20,73,0,0" VerticalAlignment="Top" Width="468">
                         <Grid.RowDefinitions>
@@ -321,7 +322,7 @@
 
                     <local:CurrencyShortcuts x:Name="currency_ShortcutsContorl" HorizontalAlignment="Left" Margin="0,95,0,0" VerticalAlignment="Top" Height="457" Width="402" Grid.Column="2"/>
 
-                    <Expander Name="expndtabler" Header="Select Table" HorizontalAlignment="Left" Margin="912,286,0,0" VerticalAlignment="Top" Height="88" Width="54" BorderThickness="0" IsExpanded="True" Grid.Column="2"  >
+                    <Expander Name="expndtabler" Header="Select Table" HorizontalAlignment="Left" Margin="912,286,0,0" VerticalAlignment="Top" Height="88" Width="54" BorderThickness="0" IsExpanded="True" Grid.Column="2" Visibility="Hidden">
                         <ListView x:Name="lstvwTableList" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ToolTip="Table Layout"  Background="#4CFFFFFF"    SelectionChanged="lstvwTableList_SelectionChanged" Margin="-3,0,3,0" >
                             <ListView.ItemsPanel>
                                 <ItemsPanelTemplate>
@@ -351,7 +352,8 @@
                     <TextBlock Name="lblTableNo" HorizontalAlignment="Left" Margin="681,37,0,0" TextWrapping="Wrap" Text="-" FontSize="10" VerticalAlignment="Top" Grid.Column="2"/>
                     <TextBlock  HorizontalAlignment="Right" Margin="0,37,10,0" TextWrapping="Wrap" Text="B = Booked" FontSize="10" VerticalAlignment="Top" Grid.Column="2"/>
                     <Button x:Name="btnPayCash" Content="Cash" HorizontalAlignment="Left" Margin="402,103,0,0" VerticalAlignment="Top"    Width="150" Height="100" FontSize="30" FontWeight="Bold" Foreground="#FF353847" BorderBrush="#FFD6B2B2" Background="#FFB4E8AC" Click="btnPayCash_Click" Grid.Column="2"/>
-                    <Button x:Name="btnPayCreditCard" Content="Credit&#x0a;Card" HorizontalAlignment="Left" Margin="402,213,0,0" VerticalAlignment="Top"    Width="150" Height="100" FontSize="30" FontWeight="Bold" Foreground="#FF353847" BorderBrush="#FFD6B2B2" Background="#FFB4E8AC" Click="btnPayCreditCard_Click" Grid.Column="2"/>
+                    <Button x:Name="btnPayCreditCard" Content="Credit&#x0a;Card" HorizontalAlignment="Left" Margin="402,216,0,0" VerticalAlignment="Top"    Width="150" Height="100" FontSize="30" FontWeight="Bold" Foreground="#FF353847" BorderBrush="#FFD6B2B2" Background="#FFB4E8AC" Click="btnPayCreditCard_Click" Grid.Column="2"/>
+                    <Button x:Name="btnDiscount" Content="Discount" HorizontalAlignment="Left" Margin="402,326,0,0" VerticalAlignment="Top"    Width="150" Height="100" FontSize="30" FontWeight="Bold" Foreground="#FF353847" BorderBrush="#FFD6B2B2" Background="#FFB4E8AC" Click="btnDiscount_Click" Grid.Column="2"/>
                 </Grid>
             </TabItem>
         </TabControl>

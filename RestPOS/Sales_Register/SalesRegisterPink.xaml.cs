@@ -199,8 +199,8 @@ namespace RestPOS.Sales_Register
               " WHEN taxapply = 1 THEN   (((retail_price * " + itemqty + " )  - (((retail_price * " + itemqty + " ) * discount) / 100.00))  * " + Taxrate + " ) / 100.00   " +
               " ELSE '0.00'  " +
               " END 'taxamt' , product_id as ID , discount , taxapply, status " +
-              " FROM  purchase  where product_id = '" + product_id + "'  and product_quantity >= 1 ";
-      DataAccess.ExecuteSQL(sql);
+              " FROM  purchase  where product_id = '" + product_id + "'  and product_quantity > 0 ";
+            DataAccess.ExecuteSQL(sql);
       DataTable dt = DataAccess.GetDataTable(sql);
 
       string ItemsName = dt.Rows[0].ItemArray[0].ToString();

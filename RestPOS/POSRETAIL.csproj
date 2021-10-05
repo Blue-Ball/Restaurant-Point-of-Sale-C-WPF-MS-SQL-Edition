@@ -439,7 +439,6 @@
       <SubType>Designer</SubType>
     </None>
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
     <Resource Include="Res\icon.png" />
   </ItemGroup>
@@ -596,6 +595,13 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Res\ico-32-24\SRPINK.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\ico-32-24\backspace_117337.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Res\ico-32-24\accept.png" />
+    <Resource Include="Res\ico-32-24\reject.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

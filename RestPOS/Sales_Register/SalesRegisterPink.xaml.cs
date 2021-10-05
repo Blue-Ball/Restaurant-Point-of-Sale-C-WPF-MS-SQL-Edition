@@ -43,7 +43,8 @@ namespace RestPOS.Sales_Register
       t.Columns.Add(new DataColumn("Tax"));
       t.Columns.Add(new DataColumn("KD"));
       t.Columns.Add(new DataColumn("Options"));
-      dgrvSalesItemList.DataContext = t.DefaultView;
+        t.Columns.Add(new DataColumn("Weight"));
+        dgrvSalesItemList.DataContext = t.DefaultView;
 
       formFunctionPointer += new functioncall(Replicate); // Coin and papernotes
       currency_ShortcutsContorl.CoinandNotesFunctionPointer = formFunctionPointer;
@@ -88,6 +89,7 @@ namespace RestPOS.Sales_Register
         if(dgrvSalesItemList.Items.Count > 0)
         {
             dgrvSalesItemList.Margin = new Thickness(70, dgrvSalesItemList.Margin.Top, dgrvSalesItemList.Margin.Right, dgrvSalesItemList.Margin.Bottom);
+                
             gridOperation.Visibility = Visibility.Visible;
         }
         else
@@ -122,7 +124,7 @@ namespace RestPOS.Sales_Register
         dgrvSalesItemList.Columns[3].Width = 65;
         dgrvSalesItemList.Columns[4].Width = 60;
         dgrvSalesItemList.Columns[5].Width = 60;
-        dgrvSalesItemList.Columns[12].Width = 175; //dgrvSalesItemList.ActualWidth - 491.5;
+        // dgrvSalesItemList.Columns[12].Width = 175; //dgrvSalesItemList.ActualWidth - 491.5;
 
 
         ////Hide fields
@@ -130,11 +132,13 @@ namespace RestPOS.Sales_Register
         dgrvSalesItemList.Columns[7].Visibility = Visibility.Hidden; // Disamt          
         dgrvSalesItemList.Columns[8].Visibility = Visibility.Hidden;   // taxamt         
         dgrvSalesItemList.Columns[9].Visibility = Visibility.Hidden;   // Discount rate   
-        dgrvSalesItemList.Columns[11].Visibility = Visibility.Hidden;   // kitdisplay    
+
+        dgrvSalesItemList.Columns[10].Visibility = Visibility.Hidden;   // Option  
+        dgrvSalesItemList.Columns[11].Visibility = Visibility.Hidden;   // Weight
 
 
-        t.Columns[0].ReadOnly = true;
-        t.Columns[1].ReadOnly = true;
+                t.Columns[0].ReadOnly = true;
+        t.Columns[1].ReadOnly = false;
         t.Columns[2].ReadOnly = false;
         t.Columns[3].ReadOnly = false;
         t.Columns[4].ReadOnly = true;
@@ -198,7 +202,7 @@ namespace RestPOS.Sales_Register
               " CASE     " +
               " WHEN taxapply = 1 THEN   (((retail_price * " + itemqty + " )  - (((retail_price * " + itemqty + " ) * discount) / 100.00))  * " + Taxrate + " ) / 100.00   " +
               " ELSE '0.00'  " +
-              " END 'taxamt' , product_id as ID , discount , taxapply, status " +
+              " END 'taxamt' , product_id as ID , discount , taxapply, status, weight " +
               " FROM  purchase  where product_id = '" + product_id + "'  and product_quantity > 0 ";
             DataAccess.ExecuteSQL(sql);
       DataTable dt = DataAccess.GetDataTable(sql);
@@ -213,19 +217,23 @@ namespace RestPOS.Sales_Register
       double Dis = Convert.ToDouble(dt.Rows[0].ItemArray[7].ToString());       //  Discount Rate
       double Taxapply = Convert.ToDouble(dt.Rows[0].ItemArray[8].ToString());       //  VAT/TAX/TPS/TVQ apply or not
       int kitchendisplay = Convert.ToInt32(dt.Rows[0].ItemArray[9].ToString());        //  kitchen display 3= show 1= not display in kitchen 
+            string Weight = dt.Rows[0].ItemArray[10].ToString();
 
       double i = itemqty;
       int n = Finditem(ItemsName);
       if (n == -1)
       {
-        t.Rows.Add(ItemsName, Rprice, i, Total, Itemid, Disamt, Taxamt, Dis, Taxapply, kitchendisplay, options);
+        t.Rows.Add(ItemsName, Rprice, i, Total, Itemid, Disamt, Taxamt, Dis, Taxapply, kitchendisplay, options, Weight);
+        n = t.Rows.Count-1;
       }
       else
       {
+        Rprice = Convert.ToDouble(t.Rows[n][1]);
+
         int QtyInc = Convert.ToInt32(t.Rows[n][2]);
         t.Rows[n][2] = (QtyInc + 1);  //Qty Increase
         t.Rows[n][3] = Rprice * (QtyInc + 1);   // Total price
-                                                //  dgrvSalesItemList.Rows[n].Cells[4].Value = Itemid;                     
+        //  dgrvSalesItemList.Rows[n].Cells[4].Value = Itemid;                     
 
         double qty = Convert.ToDouble(t.Rows[n][2]);
         double disrate = Convert.ToDouble(t.Rows[n][7]);
@@ -252,14 +260,18 @@ namespace RestPOS.Sales_Register
       dgrvSalesItemList.Columns[3].Width = 65;
       dgrvSalesItemList.Columns[4].Width = 60;
       dgrvSalesItemList.Columns[5].Width = 60;
-      dgrvSalesItemList.Columns[12].Width = 175; //dgrvSalesItemList.ActualWidth - 491.5;175
+      //dgrvSalesItemList.Columns[12].Width = 175; //dgrvSalesItemList.ActualWidth - 491.5;175
 
       //Hide fields
       dgrvSalesItemList.Columns[6].Visibility = Visibility.Hidden; // ID              
       dgrvSalesItemList.Columns[7].Visibility = Visibility.Hidden; // Disamt          
       dgrvSalesItemList.Columns[8].Visibility = Visibility.Hidden;   // taxamt         
       dgrvSalesItemList.Columns[9].Visibility = Visibility.Hidden;   // Discount rate   
-      dgrvSalesItemList.Columns[11].Visibility = Visibility.Hidden;   // kitdisplay 
+
+        dgrvSalesItemList.Columns[10].Visibility = Visibility.Hidden;   // Option
+        dgrvSalesItemList.Columns[11].Visibility = Visibility.Hidden;   // Weight 
+
+            dgrvSalesItemList.SelectedIndex = n;
 
       txtbarcodescan.Text = "";
       txtbarcodescan.Focus();
@@ -571,8 +583,8 @@ namespace RestPOS.Sales_Register
           HolditemDatabind();
           parameter.resumesalesstatus = "2";
 
-          Sales_Register.PrintTicket go = new Sales_Register.PrintTicket();
-          go.Show();
+          //Sales_Register.PrintTicket go = new Sales_Register.PrintTicket();
+          //go.Show();
           tabstockcontrol.SelectedItem = tabholdtransactions;
           btnholdsale.Visibility = Visibility.Hidden;
           btnDeleteholdsale.Visibility = Visibility.Hidden;
@@ -1871,23 +1883,180 @@ namespace RestPOS.Sales_Register
 
         private void btnItemQty_Click(object sender, RoutedEventArgs e)
         {
+            int n = dgrvSalesItemList.SelectedIndex;
+            if (n < 0)
+            {
+                txtbarcodescan.Focus();
+                return;
+            }
 
+            DataRowView dataRow = (DataRowView)dgrvSalesItemList.SelectedItem;
+
+            EnterAmountPopup popUp = new EnterAmountPopup(0);
+            popUp.txtAmount.Text = dataRow.Row.ItemArray[2].ToString();
+            popUp.txtAmount.CaretIndex = popUp.txtAmount.Text.Length;
+            bool bReturn = (bool)popUp.ShowDialog();
+            if(bReturn)
+            {
+                if (popUp.txtAmount.Text.Length <= 0 || Convert.ToDouble(popUp.txtAmount.Text) <= 0)
+                {
+                    txtbarcodescan.Focus();
+                    return;
+                }
+                double Qty = Convert.ToDouble(popUp.txtAmount.Text);
+                dataRow.Row[2] = Qty;
+
+                double CurrentQty = Convert.ToDouble(dataRow.Row[2]);
+                double Price = Convert.ToDouble(dataRow.Row[1].ToString());
+                double disrate = Convert.ToDouble(dataRow.Row[7].ToString());
+                double Taxrate = Convert.ToDouble(vatdisvalue.vat);
+
+                //// show total price   Qty  * Rprice
+                dataRow.Row[3] = Price * CurrentQty;   // Total Price
+
+                if (disrate != 0)
+                {
+                    double Disamt = (((Price * CurrentQty) * disrate) / 100.00);      // Total Discount amount of this item
+                    dataRow.Row[5] = Disamt;
+                }
+
+                if (Convert.ToDouble(dataRow.Row[8].ToString()) != 0)
+                {
+                    double Taxamt = ((((Price * CurrentQty) - (((Price * CurrentQty) * disrate) / 100.00)) * Taxrate) / 100.00); // Total Tax amount  of this item
+                    dataRow.Row[6] = Taxamt;
+                }
+
+                DiscountCalculation();
+                vatcal();
+
+                txtbarcodescan.Focus();
+            }
         }
 
         private void btnItemChangePrice_Click(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(sender.ToString());
+            int n = dgrvSalesItemList.SelectedIndex;
+            if (n < 0)
+            {
+                txtbarcodescan.Focus();
+                return;
+            }
+
+            DataRowView dataRow = (DataRowView)dgrvSalesItemList.SelectedItem;
+
+            EnterAmountPopup popUp = new EnterAmountPopup(1);
+            popUp.txtAmount.Text = dataRow.Row.ItemArray[1].ToString();
+            popUp.txtAmount.CaretIndex = popUp.txtAmount.Text.Length;
+            bool bReturn = (bool)popUp.ShowDialog();
+            if (bReturn)
+            {
+                if (popUp.txtAmount.Text.Length <= 0 || Convert.ToDouble(popUp.txtAmount.Text) <= 0)
+                {
+                    txtbarcodescan.Focus();
+                    return;
+                }
+
+                dataRow.Row[1] = Convert.ToDouble(popUp.txtAmount.Text);
+
+                double CurrentQty = Convert.ToDouble(dataRow.Row[2]);
+                double Price = Convert.ToDouble(dataRow.Row[1].ToString());
+                double disrate = Convert.ToDouble(dataRow.Row[7].ToString());
+                double Taxrate = Convert.ToDouble(vatdisvalue.vat);
+
+                //// show total price   Qty  * Rprice
+                dataRow.Row[3] = Price * CurrentQty;   // Total Price
+
+                if (disrate != 0)
+                {
+                    double Disamt = (((Price * CurrentQty) * disrate) / 100.00);      // Total Discount amount of this item
+                    dataRow.Row[5] = Disamt;
+                }
+
+                if (Convert.ToDouble(dataRow.Row[8].ToString()) != 0)
+                {
+                    double Taxamt = ((((Price * CurrentQty) - (((Price * CurrentQty) * disrate) / 100.00)) * Taxrate) / 100.00); // Total Tax amount  of this item
+                    dataRow.Row[6] = Taxamt;
+                }
+
+                DiscountCalculation();
+                vatcal();
+
+                txtbarcodescan.Focus();
+            }
         }
 
         private void btnItemWeight_Click(object sender, RoutedEventArgs e)
         {
+            int n = dgrvSalesItemList.SelectedIndex;
+            if (n < 0)
+            {
+                txtbarcodescan.Focus();
+                return;
+            }
 
+            DataRowView dataRow = (DataRowView)dgrvSalesItemList.SelectedItem;
+
+            EnterAmountPopup popUp = new EnterAmountPopup(2);
+            popUp.txtAmount.Text = dataRow.Row.ItemArray[1].ToString();
+            popUp.txtAmount.CaretIndex = popUp.txtAmount.Text.Length;
+            popUp.Title = "Weight = " + dataRow.Row.ItemArray[11].ToString();
+            bool bReturn = (bool)popUp.ShowDialog();
+
+            if (bReturn)
+            {
+                if (popUp.txtAmount.Text.Length <= 0 || Convert.ToDouble(popUp.txtAmount.Text) <= 0)
+                {
+                    txtbarcodescan.Focus();
+                    return;
+                }
+
+                dataRow.Row[1] = Convert.ToDouble(popUp.txtAmount.Text);
+
+                double CurrentQty = Convert.ToDouble(dataRow.Row[2]);
+                double Price = Convert.ToDouble(dataRow.Row[1].ToString());
+                double disrate = Convert.ToDouble(dataRow.Row[7].ToString());
+                double Taxrate = Convert.ToDouble(vatdisvalue.vat);
+
+                //// show total price   Qty  * Rprice
+                dataRow.Row[3] = Price * CurrentQty;   // Total Price
+
+                if (disrate != 0)
+                {
+                    double Disamt = (((Price * CurrentQty) * disrate) / 100.00);      // Total Discount amount of this item
+                    dataRow.Row[5] = Disamt;
+                }
+
+                if (Convert.ToDouble(dataRow.Row[8].ToString()) != 0)
+                {
+                    double Taxamt = ((((Price * CurrentQty) - (((Price * CurrentQty) * disrate) / 100.00)) * Taxrate) / 100.00); // Total Tax amount  of this item
+                    dataRow.Row[6] = Taxamt;
+                }
+
+                DiscountCalculation();
+                vatcal();
+
+                txtbarcodescan.Focus();
+            }
         }
 
         private void btnDiscount_Click(object sender, RoutedEventArgs e)
         {
-            EnterAmountPopup popUp = new EnterAmountPopup();
-            popUp.ShowDialog();
+            EnterAmountPopup popUp = new EnterAmountPopup(3);
+            if(Convert.ToDouble(txtDiscountRate.Text) == 0)
+            {
+                popUp.txtAmount.Text = "";
+            }
+            else
+            {
+                popUp.txtAmount.Text = txtDiscountRate.Text;
+                popUp.txtAmount.CaretIndex = popUp.txtAmount.Text.Length;
+            }
+            
+            bool bReturn = (bool)popUp.ShowDialog();
+            if(bReturn)
+            {
+                txtDiscountRate.Text = popUp.txtAmount.Text;
+            }
         }
     }
 }

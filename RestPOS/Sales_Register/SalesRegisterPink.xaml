@@ -278,10 +278,10 @@
                         <ComboBoxItem Content="Others"/>
                     </ComboBox>
 
-                    <Label Content="Discount: " Grid.Column="2" HorizontalAlignment="Left" Margin="30,552,0,0" VerticalAlignment="Top" Width="62"/>
-                    <TextBox x:Name="txtDiscountRate" Margin="101,552,0,0" FontWeight="SemiBold" ToolTip="Insert Over all Discount Rate. Discount Rate Apply with Sub total" HorizontalAlignment="Left"  Height="24"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top"   Width="92" TextChanged="txtDiscountRate_TextChanged" Grid.Column="2"/>
-                    <TextBlock x:Name="lbldisrateSRtitle" HorizontalAlignment="Left" Margin="203,557,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="2" Width="76"><Run Text="Discount "/><Run Text="%: "/></TextBlock>
-                    <TextBlock x:Name="lblOverallDiscount" HorizontalAlignment="Left" Margin="285,557,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Grid.Column="2" Width="107"/>
+                    <Label Content="Discount: " Grid.Column="2" HorizontalAlignment="Left" Margin="30,552,0,0" VerticalAlignment="Top" Width="62" Visibility="Hidden"/>
+                    <TextBox x:Name="txtDiscountRate" Margin="101,552,0,0" FontWeight="SemiBold" ToolTip="Insert Over all Discount Rate. Discount Rate Apply with Sub total" HorizontalAlignment="Left"  Height="24"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top"   Width="92" TextChanged="txtDiscountRate_TextChanged" Grid.Column="2" Visibility="Hidden"/>
+                    <TextBlock x:Name="lbldisrateSRtitle" HorizontalAlignment="Left" Margin="203,557,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="2" Width="76" Visibility="Hidden"><Run Text="Discount "/><Run Text="%: "/></TextBlock>
+                    <TextBlock x:Name="lblOverallDiscount" HorizontalAlignment="Left" Margin="285,557,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Grid.Column="2" Width="107" Visibility="Hidden"/>
 
                     <TextBlock Name="lblchngamttitle" Text="Change Amount" HorizontalAlignment="Left" Margin="-421,165,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtChangeAmount" HorizontalAlignment="Left" IsReadOnly="True"  Height="24" Margin="-421,185,0,0"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="278"/>

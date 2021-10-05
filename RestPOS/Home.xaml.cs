@@ -2,7 +2,7 @@
 using System.Globalization;
 using System.Resources;
 using System.Windows;
-namespace RestPOS
+namespace PosCube
 {
   /// <summary>
   /// Interaction logic for Home.xaml
@@ -47,7 +47,7 @@ namespace RestPOS
 
     private void switch_language()
     {
-      res_man = new ResourceManager("RestPOS.Resource.Res", typeof(Home).Assembly);
+      res_man = new ResourceManager("PosCube.Resource.Res", typeof(Home).Assembly);
       if (language.ID == "1")
       {
         cul = CultureInfo.CreateSpecificCulture(language.languagecode);

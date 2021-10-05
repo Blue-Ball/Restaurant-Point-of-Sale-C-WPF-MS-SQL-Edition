@@ -6,7 +6,7 @@ using System.Windows.Media;
 
 
 
-namespace RestPOS.Keyboard
+namespace PosCube.Keyboard
 {
 
   public class TouchScreenKeyboard : Window

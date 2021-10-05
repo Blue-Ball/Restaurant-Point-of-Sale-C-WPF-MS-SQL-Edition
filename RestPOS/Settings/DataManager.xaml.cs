@@ -6,7 +6,7 @@ using System.Resources;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace RestPOS.Settings
+namespace PosCube.Settings
 {
   /// <summary>
   /// Interaction logic for DataManager.xaml
@@ -42,8 +42,8 @@ namespace RestPOS.Settings
     {
       try
       {
-        string sql = " BACKUP DATABASE RestPOS  " +
-                       " TO DISK = '" + txtfilepathbackup.Text + "\\" + "RestPOS_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss-fff") + ".bak' ";
+        string sql = " BACKUP DATABASE PosCube  " +
+                       " TO DISK = '" + txtfilepathbackup.Text + "\\" + "PosCube_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss-fff") + ".bak' ";
         DataAccess.ExecuteSQL(sql);
         DataTable dt5 = DataAccess.GetDataTable(sql);
         MessageBox.Show("Successfully database backup has been Completed");
@@ -111,13 +111,13 @@ namespace RestPOS.Settings
 
           if (MessageBox.Show("Do you want Restore Databackup \n After Press Yes you loss your previous Database ", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
           {
-            string sql = " USE master;     ALTER DATABASE RestPOS " +
+            string sql = " USE master;     ALTER DATABASE PosCube " +
                       " SET SINGLE_USER WITH " +
                       " ROLLBACK IMMEDIATE; " +
-                      " RESTORE DATABASE RestPOS " +
+                      " RESTORE DATABASE PosCube " +
                       " FROM DISK = '" + txtfilepath.Text + "' " +
                       " WITH REPLACE; " +
-                      " ALTER DATABASE RestPOS SET MULTI_USER ";
+                      " ALTER DATABASE PosCube SET MULTI_USER ";
             DataAccess.ExecuteSQL(sql);
             DataTable dt5 = DataAccess.GetDataTable(sql);
 
@@ -134,7 +134,7 @@ namespace RestPOS.Settings
 
     private void switch_language()
     {
-      res_man = new ResourceManager("RestPOS.Resource.Res", typeof(Home).Assembly);
+      res_man = new ResourceManager("PosCube.Resource.Res", typeof(Home).Assembly);
       if (language.ID == "1")
       {
         cul = CultureInfo.CreateSpecificCulture(language.languagecode);

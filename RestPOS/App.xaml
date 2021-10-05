@@ -1,4 +1,4 @@
-﻿<Application x:Class="RestPOS.App"
+﻿<Application x:Class="PosCube.App"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"               
     StartupUri="SplashScreen.xaml">

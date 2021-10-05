@@ -1,9 +1,9 @@
-﻿<Window x:Class="RestPOS.Reports.DueReceive"
+﻿<Window x:Class="PosCube.Reports.DueReceive"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:k="clr-namespace:RestPOS.Keyboard" 
+             xmlns:k="clr-namespace:PosCube.Keyboard" 
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-            Icon="/RestPOS;component/Res/icon2.png"    WindowStyle="None"
+            Icon="/PosCube;component/Res/icon2.png"    WindowStyle="None"
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008"  WindowStartupLocation="CenterScreen" WindowState="Maximized"
              mc:Ignorable="d" Width="823" Height="472"  >
     <Grid>

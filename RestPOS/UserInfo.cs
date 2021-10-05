@@ -1,7 +1,7 @@
 ﻿using System.Data;
 
 
-namespace RestPOS
+namespace PosCube
 {
 
   /// <summary>

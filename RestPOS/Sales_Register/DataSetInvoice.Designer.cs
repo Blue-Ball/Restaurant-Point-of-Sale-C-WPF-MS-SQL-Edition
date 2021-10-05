@@ -10,7 +10,7 @@
 
 #pragma warning disable 1591
 
-namespace RestPOS.Sales_Register {
+namespace PosCube.Sales_Register {
     
     
     /// <summary>
@@ -2978,7 +2978,7 @@ namespace RestPOS.Sales_Register {
         }
     }
 }
-namespace RestPOS.Sales_Register.DataSetInvoiceTableAdapters {
+namespace PosCube.Sales_Register.DataSetInvoiceTableAdapters {
     
     
     /// <summary>
@@ -3166,7 +3166,7 @@ namespace RestPOS.Sales_Register.DataSetInvoiceTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "16.0.0.0")]
         private void InitConnection() {
             this._connection = new global::System.Data.SqlClient.SqlConnection();
-            this._connection.ConnectionString = global::RestPOS.Properties.Settings.Default.RestPOSSQLConnectionString;
+            this._connection.ConnectionString = global::PosCube.Properties.Settings.Default.PosCubeSQLConnectionString;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

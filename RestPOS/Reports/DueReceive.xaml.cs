@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Threading;
 using System.Windows;
 
-namespace RestPOS.Reports
+namespace PosCube.Reports
 {
   /// <summary>
   /// Interaction logic for DueReceive.xaml

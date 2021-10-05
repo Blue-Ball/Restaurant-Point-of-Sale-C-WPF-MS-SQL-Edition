@@ -1,8 +1,8 @@
-﻿<Window x:Class="RestPOS.Sales_Register.InvoiceView" Name="invoiceviewForm"
-        xmlns:RestPOS="clr-namespace:RestPOS"
+﻿<Window x:Class="PosCube.Sales_Register.InvoiceView" Name="invoiceviewForm"
+        xmlns:PosCube="clr-namespace:PosCube"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
-        Icon="/RestPOS;component/Res/icon2.png"  
+        Icon="/PosCube;component/Res/icon2.png"  
         WindowStartupLocation="CenterScreen"   WindowState="Maximized" 
         xmlns:rv="clr-namespace:Microsoft.Reporting.WinForms;assembly=Microsoft.ReportViewer.WinForms"
         Title="Invoice View" Height="670" Width="1190"   Loaded="invoiceviewFormLoad" >

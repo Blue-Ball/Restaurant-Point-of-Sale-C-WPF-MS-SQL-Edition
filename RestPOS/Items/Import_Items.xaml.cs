@@ -5,7 +5,7 @@ using System.Data.OleDb;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace RestPOS.Items
+namespace PosCube.Items
 {
   /// <summary>
   /// Interaction logic for Import_Items.xaml

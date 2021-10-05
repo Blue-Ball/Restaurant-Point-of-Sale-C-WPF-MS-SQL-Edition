@@ -1,7 +1,7 @@
-﻿<Window x:Class="RestPOS.Sales_Register.PrintTicket"
+﻿<Window x:Class="PosCube.Sales_Register.PrintTicket"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Name="printticketForm"
-        Icon="/RestPOS;component/Res/icon2.png"   Title="Print Ticket"  WindowStyle="ToolWindow"  Topmost="True"
+        Icon="/PosCube;component/Res/icon2.png"   Title="Print Ticket"  WindowStyle="ToolWindow"  Topmost="True"
        Height="730" Width="300" WindowStartupLocation="CenterScreen" Loaded="printticketForm_Loaded" >
     <Grid>
         <!-- Ticket Print Start-->

@@ -6,7 +6,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace RestPOS.Customer
+namespace PosCube.Customer
 {
   /// <summary>
   /// Interaction logic for CustomerList.xaml
@@ -67,7 +67,7 @@ namespace RestPOS.Customer
 
     private void switch_language()
     {
-      res_man = new ResourceManager("RestPOS.Resource.Res", typeof(Home).Assembly);
+      res_man = new ResourceManager("PosCube.Resource.Res", typeof(Home).Assembly);
       if (language.ID == "1")
       {
         cul = CultureInfo.CreateSpecificCulture(language.languagecode);

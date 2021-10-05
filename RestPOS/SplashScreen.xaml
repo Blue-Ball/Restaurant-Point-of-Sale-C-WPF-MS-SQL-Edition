@@ -1,4 +1,4 @@
-﻿<Window x:Class="RestPOS.SplashScreen"
+﻿<Window x:Class="PosCube.SplashScreen"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"   Icon="Res/icon.png"
         WindowStartupLocation="CenterScreen" WindowState="Maximized" AllowsTransparency="True" WindowStyle="None"   

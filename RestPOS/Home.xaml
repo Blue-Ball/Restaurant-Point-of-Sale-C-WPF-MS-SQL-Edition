@@ -1,4 +1,4 @@
-﻿<Window xmlns:RestPOS="clr-namespace:RestPOS"  x:Class="RestPOS.Home"
+﻿<Window xmlns:PosCube="clr-namespace:PosCube"  x:Class="PosCube.Home"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"        
         Title="Home" Height="768" Width="1024" WindowStartupLocation="CenterScreen" WindowState="Maximized"
@@ -7,7 +7,7 @@
         <Grid Width="1000" >
             <!--Top Header section  start-->
             <Grid   Width="1000" Margin="0,40,0,0" VerticalAlignment="Top"  Background="#FFF0EDED" Height="40">
-                <RestPOS:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="40" Width="1000"/>
+                <PosCube:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="40" Width="1000"/>
             </Grid>
             <!--Top Header section END-->
             <Button x:Name="btnKitdisply"   HorizontalAlignment="Right" Margin="0,94,40,0" VerticalAlignment="Top" Width="355" Height="160" Background="#FF7D89D8" Foreground="White" FontFamily="Segoe UI" FontSize="24" BorderThickness="0" Click="btnKitdisply_Click">

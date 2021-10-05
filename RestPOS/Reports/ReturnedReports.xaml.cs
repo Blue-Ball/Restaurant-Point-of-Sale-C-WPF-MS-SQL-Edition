@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace RestPOS.Reports
+namespace PosCube.Reports
 {
   /// <summary>
   /// Interaction logic for TopSales.xaml

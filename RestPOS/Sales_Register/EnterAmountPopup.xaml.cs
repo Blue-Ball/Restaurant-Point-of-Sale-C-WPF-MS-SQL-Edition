@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
 
-namespace RestPOS.Sales_Register
+namespace PosCube.Sales_Register
 {
     /// <summary>
     /// Interaction logic for EnterAmountPopup.xaml

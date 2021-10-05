@@ -3,7 +3,7 @@ using System;
 using System.Data;
 using System.Windows;
 
-namespace RestPOS.Sales_Register
+namespace PosCube.Sales_Register
 {
   /// <summary>
   /// Interaction logic for InvoiceView.xaml
@@ -38,11 +38,11 @@ namespace RestPOS.Sales_Register
 
         ReportDataSource reportDSDetail = new ReportDataSource("DataSetInvo", dt);
         this.reportViewer1.LocalReport.DataSources.Clear();
-        //   this.reportViewer1.LocalReport.ReportPath = "E:\\Data_laptop_1\\D_drive\\G_Drive\\Files_1\\dotproject\\Web\\Codecany_project\\RestPOS_MS_SQL\\RestoPOS_Source_code\\RestPOS\\Sales_Register\\InvoiceView.rdlc";
+        //   this.reportViewer1.LocalReport.ReportPath = "E:\\Data_laptop_1\\D_drive\\G_Drive\\Files_1\\dotproject\\Web\\Codecany_project\\PosCube_MS_SQL\\RestoPOS_Source_code\\PosCube\\Sales_Register\\InvoiceView.rdlc";
         this.reportViewer1.LocalReport.DataSources.Add(reportDSDetail);
 
         this.reportViewer1.LocalReport.Refresh();
-        this.reportViewer1.LocalReport.ReportEmbeddedResource = "RestPOS.Sales_Register.InvoiceView.rdlc";
+        this.reportViewer1.LocalReport.ReportEmbeddedResource = "PosCube.Sales_Register.InvoiceView.rdlc";
         this.reportViewer1.SetDisplayMode(DisplayMode.PrintLayout);
         this.reportViewer1.ZoomMode = ZoomMode.PageWidth;
         //this.reportViewer1.ZoomPercent = 80;
@@ -54,7 +54,7 @@ namespace RestPOS.Sales_Register
         this.reportViewerINVORPT.LocalReport.DataSources.Clear();
         this.reportViewerINVORPT.LocalReport.DataSources.Add(reportDSDetailINVORPT);
         this.reportViewerINVORPT.LocalReport.Refresh();
-        this.reportViewerINVORPT.LocalReport.ReportEmbeddedResource = "RestPOS.Sales_Register.InvoiceReceipt.rdlc";
+        this.reportViewerINVORPT.LocalReport.ReportEmbeddedResource = "PosCube.Sales_Register.InvoiceReceipt.rdlc";
         this.reportViewerINVORPT.SetDisplayMode(DisplayMode.PrintLayout);
         this.reportViewerINVORPT.ZoomMode = ZoomMode.PageWidth;
         this.reportViewerINVORPT.LocalReport.DisplayName = "Invoice_Receipt_View_" + UserInfo.invoiceNo + "_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss");
@@ -65,7 +65,7 @@ namespace RestPOS.Sales_Register
         this.reportViewerTicket.LocalReport.DataSources.Clear();
         this.reportViewerTicket.LocalReport.DataSources.Add(reportDSDetailTK);
         this.reportViewerTicket.LocalReport.Refresh();
-        this.reportViewerTicket.LocalReport.ReportEmbeddedResource = "RestPOS.Sales_Register.TicketRpt.rdlc";
+        this.reportViewerTicket.LocalReport.ReportEmbeddedResource = "PosCube.Sales_Register.TicketRpt.rdlc";
         this.reportViewerTicket.SetDisplayMode(DisplayMode.PrintLayout);
         this.reportViewerTicket.ZoomMode = ZoomMode.PageWidth;
         this.reportViewerTicket.LocalReport.DisplayName = "Ticket_" + UserInfo.invoiceNo + "_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss");
@@ -76,7 +76,7 @@ namespace RestPOS.Sales_Register
         this.reportViewerRPT.LocalReport.DataSources.Clear();
         this.reportViewerRPT.LocalReport.DataSources.Add(reportDSDetailRPT);
         this.reportViewerRPT.LocalReport.Refresh();
-        this.reportViewerRPT.LocalReport.ReportEmbeddedResource = "RestPOS.Sales_Register.ReceiptRpt.rdlc";
+        this.reportViewerRPT.LocalReport.ReportEmbeddedResource = "PosCube.Sales_Register.ReceiptRpt.rdlc";
         this.reportViewerRPT.SetDisplayMode(DisplayMode.PrintLayout);
         this.reportViewerRPT.ZoomMode = ZoomMode.PageWidth;
         this.reportViewerRPT.LocalReport.DisplayName = "Receipt_" + UserInfo.invoiceNo + "_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss");

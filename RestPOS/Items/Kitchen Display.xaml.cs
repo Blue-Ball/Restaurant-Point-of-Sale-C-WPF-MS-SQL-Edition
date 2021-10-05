@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
-namespace RestPOS.Items
+namespace PosCube.Items
 {
   /// <summary>
   /// Interaction logic for Kitchen_Display.xaml

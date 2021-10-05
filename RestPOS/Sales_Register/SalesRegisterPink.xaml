@@ -1,15 +1,15 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:k="clr-namespace:RestPOS.Keyboard" 
-        xmlns:RestPOS="clr-namespace:RestPOS" xmlns:local="clr-namespace:RestPOS.Sales_Register" x:Name="SalesRegisterForm" x:Class="RestPOS.Sales_Register.SalesRegisterPink"
+        xmlns:k="clr-namespace:PosCube.Keyboard" 
+        xmlns:PosCube="clr-namespace:PosCube" xmlns:local="clr-namespace:PosCube.Sales_Register" x:Name="SalesRegisterForm" x:Class="PosCube.Sales_Register.SalesRegisterPink"
         Title="SalesRegisterPink"   Height="768" Width="1340" WindowStartupLocation="CenterScreen" WindowState="Maximized"
-        Icon="/RestPOS;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None"     Loaded="Window_Loaded" Background="#FFF1F1F1">
+        Icon="/PosCube;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None"     Loaded="Window_Loaded" Background="#FFF1F1F1">
 
     <Grid    Name="Maingrid"  Background="#FFF1F1F1" Margin="0,0,0,-66" >
         <!--Top Header section  start -->
         <Grid  Name="Toolbargrid"  Width="1024"   VerticalAlignment="Top"  Background="#FFF1F1F1" Height="40" Margin="14,0,302,0">
-            <RestPOS:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="35" Width="1000" Margin="10,2,0,0"/>
+            <PosCube:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="35" Width="1000" Margin="10,2,0,0"/>
         </Grid>
         <!--Top Header section  END -->
 
@@ -224,7 +224,7 @@
                                             <RowDefinition Height="*" />
                                             <RowDefinition Height="20" />
                                         </Grid.RowDefinitions>
-                                        <!--<Image   Source="/RestPOS;component/Res/items.png" Margin="5"   Height="38" Width="80" Grid.Column="0" HorizontalAlignment="Left"></Image>-->
+                                        <!--<Image   Source="/PosCube;component/Res/items.png" Margin="5"   Height="38" Width="80" Grid.Column="0" HorizontalAlignment="Left"></Image>-->
                                         <TextBlock  Margin="5,15,0,0"  Text="{Binding category}" TextWrapping="Wrap" HorizontalAlignment="Center" Foreground="#FFF7EEEE"   FontSize="16" FontFamily="Tahoma" />
 
                                     </Grid>

@@ -1,6 +1,6 @@
 ﻿using System.Windows;
 
-namespace RestPOS
+namespace PosCube
 {
   /// <summary>
   /// Interaction logic for App.xaml

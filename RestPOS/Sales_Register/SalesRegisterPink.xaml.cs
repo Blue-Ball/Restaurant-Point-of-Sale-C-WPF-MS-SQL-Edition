@@ -11,7 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using WPFCustomMessageBox;
 
-namespace RestPOS.Sales_Register
+namespace PosCube.Sales_Register
 {
   /// <summary>
   /// Interaction logic for SalesRegisterPink.xaml
@@ -1448,7 +1448,7 @@ namespace RestPOS.Sales_Register
 
     private void switch_language()
     {
-      res_man = new ResourceManager("RestPOS.Resource.Res", typeof(Home).Assembly);
+      res_man = new ResourceManager("PosCube.Resource.Res", typeof(Home).Assembly);
       if (language.ID == "1")
       {
         cul = CultureInfo.CreateSpecificCulture(language.languagecode);

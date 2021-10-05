@@ -2,17 +2,17 @@
 using System.Data;
 using System.Data.SqlClient;
 
-namespace RestPOS
+namespace PosCube
 {
   //////MS-SQL server  Edition
   class DataAccess
   {
 
-    // Use for RestPOS.exe.config file   you can change Database server info after compile/Debug 
-    static string _ConnectionString = RestPOS.Properties.Settings.Default.RestPOSSQLConnectionString;
+    // Use for PosCube.exe.config file   you can change Database server info after compile/Debug 
+    static string _ConnectionString = PosCube.Properties.Settings.Default.PosCubeSQLConnectionString;
 
     //Its absolute Connection String for MS SQL Server 2008 - Upto
-    // static string _ConnectionString = "Data Source=DESKTOP-0L3KKLG;Initial Catalog=RestPOS; User ID=sa;Password=123";
+    // static string _ConnectionString = "Data Source=DESKTOP-0L3KKLG;Initial Catalog=PosCube; User ID=sa;Password=123";
 
     //"Data Source= (local) /or .\\SQLEXPRESS or your DB IP address or your SQL server name; for External database use only single dot  .\SQLEXPRESS or Data Source=.       --//(only dot)
     //Initial Catalog= Database Name; 
@@ -20,14 +20,14 @@ namespace RestPOS
     //Password= DB user password";
 
     //If your MSSQL server have window authentication (MSSQL server 2008 open without Password) please use this one 
-    //static string _ConnectionString = "Data Source=(local); Initial Catalog=RestPOS; "; 
+    //static string _ConnectionString = "Data Source=(local); Initial Catalog=PosCube; "; 
 
     // Connection String for  SQlite Edition
-    //static string _ConnectionString = @"Data Source=RestPOS.db;Version=3;New=False;Compress=True";
-    //Data Source=RestPOS.db;Version=3;New=False;Compress=True;
+    //static string _ConnectionString = @"Data Source=PosCube.db;Version=3;New=False;Compress=True";
+    //Data Source=PosCube.db;Version=3;New=False;Compress=True;
 
     //This is Mysql Database Access  class -- leave empty if your Mysal does not has PASSWORD       
-    // static string _ConnectionString = "server=localhost; database=RestPOS; uid=root; PASSWORD=";
+    // static string _ConnectionString = "server=localhost; database=PosCube; uid=root; PASSWORD=";
 
     static SqlConnection _Connection = null;
     public static SqlConnection Connection

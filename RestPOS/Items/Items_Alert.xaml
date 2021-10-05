@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="RestPOS.Items.Items_Alert"
+﻿<UserControl x:Class="PosCube.Items.Items_Alert"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 

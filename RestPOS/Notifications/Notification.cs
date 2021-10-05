@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 
-namespace RestPOS
+namespace PosCube
 {
   public class Notification : INotifyPropertyChanged
   {

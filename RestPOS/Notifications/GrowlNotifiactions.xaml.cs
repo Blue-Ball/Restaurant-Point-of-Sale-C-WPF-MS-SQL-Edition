@@ -3,7 +3,7 @@ using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace RestPOS
+namespace PosCube
 {
   public partial class GrowlNotifiactions
   {

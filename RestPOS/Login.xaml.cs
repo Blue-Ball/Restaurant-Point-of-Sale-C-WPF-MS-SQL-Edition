@@ -4,7 +4,7 @@ using System.Data;
 using System.Windows;
 
 
-namespace RestPOS
+namespace PosCube
 {
   /// <summary>
   /// Interaction logic for Login.xaml

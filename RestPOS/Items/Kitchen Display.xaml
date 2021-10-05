@@ -1,8 +1,8 @@
-﻿<Window xmlns:RestPOS="clr-namespace:RestPOS"  x:Class="RestPOS.Items.Kitchen_Display"
+﻿<Window xmlns:PosCube="clr-namespace:PosCube"  x:Class="PosCube.Items.Kitchen_Display"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="Kitchen Display" Height="680" Width="970" WindowStartupLocation="CenterScreen"
-        WindowState="Maximized" Icon="/RestPOS;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None"   Loaded="KitchenDisplay_Loaded" >
+        WindowState="Maximized" Icon="/PosCube;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None"   Loaded="KitchenDisplay_Loaded" >
     <Grid>
         <Grid Margin="1,10,1,52">
             <Grid.Background>
@@ -58,7 +58,7 @@
 
         <!-- Footer section Start-->
         <Grid HorizontalAlignment="Left" Height="40" Margin="5,0,0,8" VerticalAlignment="Bottom"  Width="841">
-            <!--<RestPOS:HomeStatusBar HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
+            <!--<PosCube:HomeStatusBar HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
             <Button x:Name="btnHomeMenuLink" Content="Home Menu" HorizontalAlignment="Left"    VerticalAlignment="Top" Width="132" BorderThickness="0" Background="#FFFDFAFA" Height="24" Click="btnHomeMenuLink_Click" Margin="0,5,0,0" />
             <Button Name="btnopenKD" Content="Open with New monitor " ToolTip="Open for new monitor" HorizontalAlignment="Left" Margin="200,5,0,0" VerticalAlignment="Top" BorderThickness="0" Background="#EEEDFAFA"  Width="142" Height="25" Click="btnopenKD_Click"/>
         </Grid>

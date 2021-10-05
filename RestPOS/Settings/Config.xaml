@@ -1,13 +1,13 @@
-﻿<Window xmlns:Settings="clr-namespace:RestPOS.Settings" 
+﻿<Window xmlns:Settings="clr-namespace:PosCube.Settings" 
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-      Icon="/RestPOS;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None" 
-        xmlns:RestPOS="clr-namespace:RestPOS" x:Class="RestPOS.Settings.Config" Name="ConfigForm"
+      Icon="/PosCube;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None" 
+        xmlns:PosCube="clr-namespace:PosCube" x:Class="PosCube.Settings.Config" Name="ConfigForm"
         Title="Config" Height="730" Width="1190" WindowState="Maximized" WindowStartupLocation="CenterScreen" Loaded="ConfigForm_Loaded" >
     <Grid Background="#FFF1F1F1" >
         <!--Top Header section  start-->
         <Grid   Width="1180" Margin="0,40,0,0" VerticalAlignment="Top"  Background="#FFF1F1F1" Height="40">
-            <RestPOS:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="40" Width="1180"/>
+            <PosCube:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="40" Width="1180"/>
         </Grid>
         <!--Top Header section END-->
 
@@ -52,7 +52,7 @@
                     <TextBlock HorizontalAlignment="Left" Margin="340,190,0,0"  Name="lblfootertile" TextWrapping="Wrap" Text="Footer Message: (Max 29 char)" VerticalAlignment="Top"/>
                     <TextBox Name="txtTrFootermsg"  HorizontalAlignment="Left"  Margin="340,215,0,0" ToolTip="Insert Footer Message. Receipt bottom message" Height="120" AcceptsReturn="True"  MaxLength="29"   TextWrapping="Wrap"   VerticalAlignment="Top" Width="250"/>
 
-                    <Image Name="piclogo" HorizontalAlignment="Left" Height="44" Margin="341,350,0,0" VerticalAlignment="Top" Width="250" Source="/RestPOS;component/Res/Dsoft_Resto_top_logo_250_44-3.png" RenderOptions.BitmapScalingMode="HighQuality" ToolTip="Image size W=250 H=44px png format"/>
+                    <Image Name="piclogo" HorizontalAlignment="Left" Height="44" Margin="341,350,0,0" VerticalAlignment="Top" Width="250" Source="/PosCube;component/Res/Dsoft_Resto_top_logo_250_44-3.png" RenderOptions.BitmapScalingMode="HighQuality" ToolTip="Image size W=250 H=44px png format"/>
                     <TextBlock HorizontalAlignment="Left" Margin="340,400,0,0" TextWrapping="Wrap" Text="Image size W=250 H=44px png format" VerticalAlignment="Top"/>
                     <TextBlock x:Name="lblimagename"  HorizontalAlignment="Left" Margin="340,420,0,0" FontSize="6" TextWrapping="Wrap" Text="-" VerticalAlignment="Top"/>
                     <TextBlock x:Name="lblFileExtension" Text="logo.png" HorizontalAlignment="Left" Margin="540,420,0,0" FontSize="6" TextWrapping="Wrap"   VerticalAlignment="Top"/>
@@ -168,7 +168,7 @@
 
         <!-- Footer Section Start -->
         <Grid HorizontalAlignment="Right" Height="40" Margin="0,649,60,0"  VerticalAlignment="Top" Width="152">
-            <!--<RestPOS:HomeStatusBar HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
+            <!--<PosCube:HomeStatusBar HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
             <Button x:Name="btnHomeMenuLink" Content="Home Menu" HorizontalAlignment="Left"    VerticalAlignment="Top" Width="132" BorderThickness="0" Background="#FFFDFAFA" Height="24" Click="btnHomeMenuLink_Click" Margin="15,5,0,0" />
         </Grid>
         <!-- Footer Section End -->

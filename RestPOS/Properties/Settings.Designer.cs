@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace RestPOS.Properties {
+namespace PosCube.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -26,11 +26,10 @@ namespace RestPOS.Properties {
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
-        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-0L3KKLG;Initial Catalog=RestPOS; User ID=sa;Password=password" +
-            "")]
-        public string RestPOSSQLConnectionString {
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.10.11.21;Initial Catalog=RestPOS; User ID=sa;Password=password")]
+        public string PosCubeSQLConnectionString {
             get {
-                return ((string)(this["RestPOSSQLConnectionString"]));
+                return ((string)(this["PosCubeSQLConnectionString"]));
             }
         }
     }

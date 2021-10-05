@@ -1,8 +1,8 @@
-﻿<Window xmlns:RestPOS="clr-namespace:RestPOS"
+﻿<Window xmlns:PosCube="clr-namespace:PosCube"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:k="clr-namespace:RestPOS.Keyboard"   Icon="/RestPOS;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None" 
-        xmlns:local="clr-namespace:RestPOS.Items"  x:Class="RestPOS.Items.Stock_List"
+        xmlns:k="clr-namespace:PosCube.Keyboard"   Icon="/PosCube;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None" 
+        xmlns:local="clr-namespace:PosCube.Items"  x:Class="PosCube.Items.Stock_List"
         Title="Stock_List" Height="768" Width="1024" WindowState="Maximized" WindowStartupLocation="CenterScreen"  Loaded="StockformLoad"  >
     <!--<Window.Resources>
         <AlternationConverter x:Key="AlternationConverter"/>
@@ -10,7 +10,7 @@
     <Grid Background="#FFF1F1F1" >
         <!--Top Header section -->
         <Grid Margin="5,40,290,0" VerticalAlignment="Top"  Background="#FFF1F1F1" Height="40">
-            <RestPOS:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="40" Width="894"/>
+            <PosCube:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="40" Width="894"/>
             <Label Content="Stock List" Name="lblstockpagetitle" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="18" Margin="334,5,758,0" VerticalAlignment="Top"/>
         </Grid>
         <!-- Header section start-->
@@ -109,7 +109,7 @@
                     <TextBlock HorizontalAlignment="Left" Name="lblexpdatetitle" Margin="265,366,0,0" TextWrapping="Wrap" Text="Expire Date " VerticalAlignment="Top" Grid.Column="3"/>
                     <DatePicker x:Name="dtExpiredate" HorizontalAlignment="Left" ToolTip="Select Expire Date " Margin="265,390,0,0" TabIndex="14" VerticalAlignment="Top" Width="250" Grid.Column="3"/>
 
-                    <Image HorizontalAlignment="Left" RenderOptions.BitmapScalingMode="HighQuality"  x:Name="picItemimage"  Margin="565,40,0,0" VerticalAlignment="Top" Width="96"  Height="96" Source="/RestPOS;component/Res/items.png" Grid.Column="3"    />
+                    <Image HorizontalAlignment="Left" RenderOptions.BitmapScalingMode="HighQuality"  x:Name="picItemimage"  Margin="565,40,0,0" VerticalAlignment="Top" Width="96"  Height="96" Source="/PosCube;component/Res/items.png" Grid.Column="3"    />
                     <Button Content="Browse" x:Name="btnBrowse" HorizontalAlignment="Left" Margin="565,140,0,0" VerticalAlignment="Top"  TabIndex="15" Width="96" Background="#FF200BA6" Foreground="#FFE8DBDB" Click="btnBrowse_Click" Grid.Column="3"  />
 
                     <Button Content="Save" x:Name="btnSave" HorizontalAlignment="Left" IsDefault="True" Margin="265,429,0,0" VerticalAlignment="Top" Width="250" TabIndex="16" Background="#FFE06E0F" Foreground="#FFF0D7D7" FontWeight="Bold" Click="btnSave_Click" Grid.Column="3"/>
@@ -148,7 +148,7 @@
 
         <!-- Footer Section Start -->
         <Grid HorizontalAlignment="Right" Height="40" Margin="0,649,60,0"  VerticalAlignment="Top" Width="152">
-            <!--<RestPOS:HomeStatusBar HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
+            <!--<PosCube:HomeStatusBar HorizontalAlignment="Left" VerticalAlignment="Top"/>-->
             <Button x:Name="btnHomeMenuLink" Content="Home Menu" HorizontalAlignment="Left"    VerticalAlignment="Top" Width="132" BorderThickness="0" Background="#FFFDFAFA" Height="24" Click="btnHomeMenuLink_Click" Margin="15,5,0,0" />
         </Grid>
 

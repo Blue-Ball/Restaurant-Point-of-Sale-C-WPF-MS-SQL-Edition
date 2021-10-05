@@ -5,7 +5,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace RestPOS.User_mgt
+namespace PosCube.User_mgt
 {
   /// <summary>
   /// Interaction logic for WorkRecords.xaml

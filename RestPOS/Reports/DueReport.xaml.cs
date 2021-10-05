@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
-namespace RestPOS.Reports
+namespace PosCube.Reports
 {
   /// <summary>
   /// Interaction logic for DueReport.xaml

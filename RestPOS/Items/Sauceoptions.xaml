@@ -1,7 +1,7 @@
-﻿<UserControl x:Name="Sauceoptions_form" x:Class="RestPOS.Items.Sauceoptions"
+﻿<UserControl x:Name="Sauceoptions_form" x:Class="PosCube.Items.Sauceoptions"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:k="clr-namespace:RestPOS.Keyboard"
+             xmlns:k="clr-namespace:PosCube.Keyboard"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" Height="450" Width="772.561" Loaded="Sauceoptions_form_Loaded"  >

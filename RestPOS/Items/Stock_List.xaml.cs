@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
-namespace RestPOS.Items
+namespace PosCube.Items
 {
   /// <summary>
   /// Interaction logic for Stock_List.xaml
@@ -209,7 +209,7 @@ namespace RestPOS.Items
 
     private void switch_language()
     {
-      res_man = new ResourceManager("RestPOS.Resource.Res", typeof(Home).Assembly);
+      res_man = new ResourceManager("PosCube.Resource.Res", typeof(Home).Assembly);
       if (language.ID == "1")
       {
         cul = CultureInfo.CreateSpecificCulture(language.languagecode);

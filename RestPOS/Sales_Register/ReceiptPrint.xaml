@@ -1,7 +1,7 @@
-﻿<Window x:Name="ReceiptForm" x:Class="RestPOS.Sales_Register.ReceiptPrint"
+﻿<Window x:Name="ReceiptForm" x:Class="PosCube.Sales_Register.ReceiptPrint"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Icon="/RestPOS;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None" 
+        Icon="/PosCube;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None" 
         Title="Receipt Print" Height="730" Width="901" WindowStartupLocation="CenterScreen"   WindowState="Maximized" Loaded="ReceiptForm_Loaded"  >
   <Grid>
     <Grid HorizontalAlignment="Center" Height="835" VerticalAlignment="Top" Width="281" Margin="301,0,319,-105">
@@ -13,7 +13,7 @@
 
       <Grid HorizontalAlignment="Center" Name="grdPrintPanel" Height="1396" Margin="18,121,-17,-682" VerticalAlignment="Top" Width="280">
         <!-- Header Start-->
-        <Image Name="piclogo" HorizontalAlignment="Left" Height="44" Margin="15,-3,0,0" VerticalAlignment="Top" Width="250" Source="/RestPOS;component/Res/Dsoft_Resto_top_logo_250_44-3.png" RenderOptions.BitmapScalingMode="HighQuality" ToolTip="Image size W=250 H=44px png format"/>
+        <Image Name="piclogo" HorizontalAlignment="Left" Height="44" Margin="15,-3,0,0" VerticalAlignment="Top" Width="250" Source="/PosCube;component/Res/Dsoft_Resto_top_logo_250_44-3.png" RenderOptions.BitmapScalingMode="HighQuality" ToolTip="Image size W=250 H=44px png format"/>
         <TextBlock Name="lblCompanyName" HorizontalAlignment="Left" Margin="20,48,20,0" TextWrapping="Wrap" Text="C Sharp WPF Restaurant Inc" FontSize="16" FontWeight="SemiBold" VerticalAlignment="Top" Width="248"/>
         <TextBlock Name="lblAddress" HorizontalAlignment="Left" Margin="15,72,29,0" TextWrapping="Wrap" Text="3876 Rue jonson, Toronto, ON N8W 1DH CA." VerticalAlignment="Top" Width="241"/>
         <TextBlock Name="lblContact" HorizontalAlignment="Left" Margin="80,90,107,0" TextWrapping="Wrap" Text="514 777 2335" VerticalAlignment="Top" Width="99"/>

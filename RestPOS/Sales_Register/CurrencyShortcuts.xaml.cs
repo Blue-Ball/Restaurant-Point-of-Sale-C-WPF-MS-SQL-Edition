@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 
-namespace RestPOS.Sales_Register
+namespace PosCube.Sales_Register
 {
   /// <summary>
   /// Interaction logic for CurrencyShortcuts.xaml

@@ -1,16 +1,16 @@
 ﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:k="clr-namespace:RestPOS.Keyboard" 
-        Icon="/RestPOS;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None" 
-        xmlns:RestPOS="clr-namespace:RestPOS" x:Class="RestPOS.Sales_Register.Return_product"
+        xmlns:k="clr-namespace:PosCube.Keyboard" 
+        Icon="/PosCube;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None" 
+        xmlns:PosCube="clr-namespace:PosCube" x:Class="PosCube.Sales_Register.Return_product"
         Title="Return_product" Height="710" Width="1206" WindowState="Maximized" Loaded="Return_product_Loaded" >
 
     <Grid  Background="#FFF1F1F1" >
 
         <!--Top Header section -->
         <Grid   Width="1180" Margin="0,15,0,0" VerticalAlignment="Top"  Background="#FFF1F1F1" Height="40">
-            <RestPOS:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="40" Width="1180"/>
+            <PosCube:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="40" Width="1180"/>
             <Label Name="lblpagetitle" Content="Return Item" HorizontalAlignment="Center" FontWeight="SemiBold" FontSize="17" Foreground="DarkViolet" Margin="0,5,0,0" VerticalAlignment="Top"/>
         </Grid>
         <!-- Header section start-->

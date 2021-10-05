@@ -1,6 +1,6 @@
 ﻿using System.Windows.Controls;
 
-namespace RestPOS
+namespace PosCube
 {
   /// <summary>
   /// Interaction logic for UserControl1.xaml

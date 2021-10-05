@@ -3,7 +3,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Threading;
 
-namespace RestPOS
+namespace PosCube
 {
   /// <summary>
   /// Interaction logic for HomeToolbar.xaml

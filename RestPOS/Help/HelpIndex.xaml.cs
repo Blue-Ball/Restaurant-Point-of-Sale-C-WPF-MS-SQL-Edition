@@ -1,7 +1,7 @@
 ﻿using System.Diagnostics;
 using System.Windows;
 
-namespace RestPOS.Help
+namespace PosCube.Help
 {
   /// <summary>
   /// Interaction logic for HelpIndex.xaml

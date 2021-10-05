@@ -1647,7 +1647,7 @@
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DataSetInvoice</rd:DataSetName>
-        <rd:SchemaPath>E:\Data_laptop_1\D_drive\G_Drive\Files_1\dotproject\Web\Codecany_project\RestPOS_MS_SQL\RestoPOS_Source_code\RestPOS\Sales_Register\DataSetInvoice.xsd</rd:SchemaPath>
+        <rd:SchemaPath>E:\Data_laptop_1\D_drive\G_Drive\Files_1\dotproject\Web\Codecany_project\PosCube_MS_SQL\RestoPOS_Source_code\PosCube\Sales_Register\DataSetInvoice.xsd</rd:SchemaPath>
         <rd:TableName>sales_item</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

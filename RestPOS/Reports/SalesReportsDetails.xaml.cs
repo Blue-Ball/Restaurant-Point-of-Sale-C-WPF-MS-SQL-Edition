@@ -8,7 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-namespace RestPOS.Reports
+namespace PosCube.Reports
 {
   /// <summary>
   /// Interaction logic for SalesReportsDetails.xaml
@@ -40,7 +40,7 @@ namespace RestPOS.Reports
 
     private void switch_language()
     {
-      res_man = new ResourceManager("RestPOS.Resource.Res", typeof(Home).Assembly);
+      res_man = new ResourceManager("PosCube.Resource.Res", typeof(Home).Assembly);
       if (language.ID == "1")
       {
         cul = CultureInfo.CreateSpecificCulture(language.languagecode);

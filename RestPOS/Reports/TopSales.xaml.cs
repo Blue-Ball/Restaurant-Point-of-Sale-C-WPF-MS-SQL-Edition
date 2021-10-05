@@ -3,7 +3,7 @@ using System.Data;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace RestPOS.Reports
+namespace PosCube.Reports
 {
   /// <summary>
   /// Interaction logic for TopSales.xaml

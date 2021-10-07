@@ -63,12 +63,6 @@
     <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <Private>True</Private>
     </Reference>
-    <Reference Include="Spire.Barcode, Version=5.9.4.0, Culture=neutral, PublicKeyToken=663f351905198cb3, processorArchitecture=MSIL">
-      <HintPath>..\packages\Spire.Barcode.5.9.4\lib\net40\Spire.Barcode.dll</HintPath>
-    </Reference>
-    <Reference Include="Spire.License, Version=1.4.0.40, Culture=neutral, PublicKeyToken=b1144360237c8b3f, processorArchitecture=MSIL">
-      <HintPath>..\packages\Spire.Barcode.5.9.4\lib\net40\Spire.License.dll</HintPath>
-    </Reference>
     <Reference Include="SQLite.NET">
       <HintPath>C:\Users\User\Desktop\SQLite.NET.dll</HintPath>
     </Reference>
@@ -416,7 +410,6 @@
     <EmbeddedResource Include="Sales_Register\ReceiptRpt.rdlc" />
     <EmbeddedResource Include="Sales_Register\TicketRpt.rdlc" />
     <None Include="bin\Debug\items.xls" />
-    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

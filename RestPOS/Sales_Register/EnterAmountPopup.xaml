@@ -15,7 +15,7 @@
             <ColumnDefinition/>
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
-        <TextBox Name="txtAmount" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="187" Margin="5,10,0,0" FontSize="20"/>
+        <TextBox Name="txtAmount" Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Left" Height="33" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="187" Margin="5,10,0,0" FontSize="20" MaxLines="1"/>
         <Button Name="btnBack" Grid.Row="0" Grid.Column="2" Margin="3,10,0,0" VerticalAlignment="Top" Height="33" HorizontalAlignment="Left" Width="90" FontWeight="Bold" FontSize="18" Foreground="White" Click="btnBack_Click">
             <Button.Background>
                 <RadialGradientBrush RadiusX="2" RadiusY="0.9">

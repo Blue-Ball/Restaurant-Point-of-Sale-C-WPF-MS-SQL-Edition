@@ -29,51 +29,101 @@ namespace PosCube.Sales_Register
             Topmost = true;
             m_nType = nType;
             txtAmount.Text = "";
+
+            if(nType == 0)
+            {
+                txtAmount.Text = "";
+                txtAmount.IsReadOnly = true;
+            }
+            else
+            {
+                txtAmount.Text = "0.00";
+                txtAmount.IsReadOnly = true;
+            }
+            txtAmount.CaretIndex = txtAmount.Text.Length;
             txtAmount.Focus();
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
-            if(txtAmount.Text.Length > 0)
-                txtAmount.Text = txtAmount.Text.Substring(0, txtAmount.Text.Length-1);
+            string strTxtAmount = txtAmount.Text;
+            if(m_nType == 0)
+            {
+                if(strTxtAmount.Length <= 1)
+                {
+                    txtAmount.Text = "";
+                }
+                else
+                {
+                    strTxtAmount = strTxtAmount.Substring(0, strTxtAmount.Length - 1);
+                    txtAmount.Text = int.Parse(strTxtAmount).ToString();
+                }
+            }
+            else
+            {
+                txtAmount.Text = string.Format(@"0.{0}{1}", strTxtAmount[0], strTxtAmount[2]);
+            }
             txtAmount.CaretIndex = txtAmount.Text.Length;
             txtAmount.Focus();
         }
 
         private void btn_Num_Click(object sender, RoutedEventArgs e)
         {
+            string strNumber = "0";
             switch (((Button)sender).Name)
             {
                 case "btn_0":
-                    txtAmount.Text += "0";
+                    strNumber = "0";
                     break;
                 case "btn_1":
-                    txtAmount.Text += "1";
+                    strNumber = "1";
                     break;
                 case "btn_2":
-                    txtAmount.Text += "2";
+                    strNumber = "2";
                     break;
                 case "btn_3":
-                    txtAmount.Text += "3";
+                    strNumber = "3";
                     break;
                 case "btn_4":
-                    txtAmount.Text += "4";
+                    strNumber = "4";
                     break;
                 case "btn_5":
-                    txtAmount.Text += "5";
+                    strNumber = "5";
                     break;
                 case "btn_6":
-                    txtAmount.Text += "6";
+                    strNumber = "6";
                     break;
                 case "btn_7":
-                    txtAmount.Text += "7";
+                    strNumber = "7";
                     break;
                 case "btn_8":
-                    txtAmount.Text += "8";
+                    strNumber = "8";
                     break;
                 case "btn_9":
-                    txtAmount.Text += "9";
+                    strNumber = "9";
                     break;
+            }
+
+            string strTxtAmount = txtAmount.Text;
+            if (m_nType == 0)
+            {
+                strTxtAmount += strNumber;
+                txtAmount.Text = int.Parse(strTxtAmount).ToString();
+            }
+            else
+            {
+                if(strTxtAmount.Length > 0)
+                {
+                    if (!strTxtAmount[0].Equals('0'))
+                    {
+                        strTxtAmount = "0.00";
+                    }
+                }
+                else
+                {
+                    strTxtAmount = "0.00";
+                }
+                txtAmount.Text = string.Format(@"{0}.{1}{2}", strTxtAmount[2], strTxtAmount[3], strNumber);
             }
             txtAmount.CaretIndex = txtAmount.Text.Length;
             txtAmount.Focus();
@@ -86,8 +136,7 @@ namespace PosCube.Sales_Register
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
-            txtAmount.Text = "";
-            txtAmount.Focus();
+            DialogResult = false;
         }
     }
 }

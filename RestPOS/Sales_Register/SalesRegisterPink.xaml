@@ -43,8 +43,8 @@
                       CellEditEnding="dgrvSalesItemList_CellEditEnding" 
                       SelectedCellsChanged="dgrvSalesItemList_SelectedCellsChanged" PreviewMouseUp="dgrvSalesItemList_PreviewMouseUp" 
                       >
-                            <DataGrid.Columns>
-                                <!--<DataGridTextColumn x:Name="ItemName" Binding="{x:Null}"  ClipboardContentBinding="{x:Null}" Header="ItemName"/>-->
+                            <!--<DataGrid.Columns>
+                                --><!--<DataGridTextColumn x:Name="ItemName" Binding="{x:Null}"  ClipboardContentBinding="{x:Null}" Header="ItemName"/>--><!--
                                 <DataGridTemplateColumn    Header="Del" Visibility="Hidden">
                                     <DataGridTemplateColumn.CellTemplate>
                                         <DataTemplate >
@@ -59,7 +59,7 @@
                                         </DataTemplate>
                                     </DataGridTemplateColumn.CellTemplate>
                                 </DataGridTemplateColumn>
-                            </DataGrid.Columns>
+                            </DataGrid.Columns>-->
 
                         </DataGrid>
                     </Grid>

@@ -9,7 +9,7 @@
         <Button x:Name="btnHomeMenuLink" Content="Home" HorizontalAlignment="Left" Margin="680,15,0,0" VerticalAlignment="Top" Width="66" BorderThickness="0" Background="#FFFDFAFA" Height="24" Click="btnHomeMenuLink_Click"  />
 
         <Grid HorizontalAlignment="Left" Height="Auto" Margin="50,50,20,0"   VerticalAlignment="Top" Width="Auto">
-            <TabControl Height="auto" VerticalAlignment="Top" Width="Auto" TabStripPlacement="Left">
+            <TabControl Height="auto" VerticalAlignment="Top" Width="Auto" TabStripPlacement="Top">
                 <TabControl.Resources>
                     <Style TargetType="{x:Type TabItem}">
                         <Setter Property="HeaderTemplate">
@@ -17,7 +17,7 @@
                                 <DataTemplate>
                                     <ContentPresenter Content="{TemplateBinding Content}">
                                         <ContentPresenter.LayoutTransform>
-                                            <RotateTransform Angle="270" />
+                                            <RotateTransform Angle="0" />
                                         </ContentPresenter.LayoutTransform>
                                     </ContentPresenter>
                                 </DataTemplate>
@@ -27,7 +27,7 @@
                     </Style>
                 </TabControl.Resources>
                 <TabItem Name="tabsalesreport" Header=" Sale Report " FontSize="14" Foreground="Blue">
-                    <Grid Background="#FFF1F1F1"  Margin="0,0,0,0"  Width="Auto">
+                    <Grid Background="#FFF1F1F1"  Margin="0,0,0,0"  Width="Auto" Height="Auto">
                         <Label Content="Sales Report" Name="lblsalereporttitle" HorizontalAlignment="Left" Margin="10,6,0,0" FontWeight="SemiBold" VerticalAlignment="Top"/>
                         <DataGrid  CanUserSortColumns="False"   CanUserAddRows="False"    IsReadOnly="True"  x:Name="dtgrdViewSalesReport" HorizontalAlignment="Left" Margin="10,77,0,0" VerticalAlignment="Top" Height="auto" Width="Auto"  FontSize="16" GridLinesVisibility="None" HeadersVisibility="Column"   RowHeight="25"   />
                         <DatePicker x:Name="dtStartdate" HorizontalAlignment="Left"     Margin="10,42,0,0" VerticalAlignment="Top" Width="136"   IsTodayHighlighted="True" FontSize="16" BorderThickness="0" SelectedDateChanged="dtENDdate_SelectedDateChanged"/>

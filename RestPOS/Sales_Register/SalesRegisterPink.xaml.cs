@@ -121,10 +121,10 @@ namespace PosCube.Sales_Register
         dgrvSalesItemList.Columns[0].Width = 185;
         dgrvSalesItemList.Columns[1].Width = 65;
         dgrvSalesItemList.Columns[2].Width = 60; //dgrvSalesItemList.ActualWidth - 100 - 100 - 8.5;
-        dgrvSalesItemList.Columns[3].Width = 60;
+        dgrvSalesItemList.Columns[3].Width = new DataGridLength(1, DataGridLengthUnitType.Star);
 
-        ////Hide fields
-        dgrvSalesItemList.Columns[4].Visibility = Visibility.Hidden; // ID              
+                ////Hide fields
+                dgrvSalesItemList.Columns[4].Visibility = Visibility.Hidden; // ID              
         dgrvSalesItemList.Columns[5].Visibility = Visibility.Hidden; // Disamt          
         dgrvSalesItemList.Columns[6].Visibility = Visibility.Hidden;   // taxamt         
         dgrvSalesItemList.Columns[7].Visibility = Visibility.Hidden;   // Discount rate   
@@ -249,6 +249,7 @@ namespace PosCube.Sales_Register
             }
         }
 
+        /*
         dgrvSalesItemList.Columns[0].Width = 185;
         dgrvSalesItemList.Columns[1].Width = 65;
         dgrvSalesItemList.Columns[2].Width = 60; //dgrvSalesItemList.ActualWidth - 100 - 100 - 8.5;165
@@ -263,6 +264,7 @@ namespace PosCube.Sales_Register
         dgrvSalesItemList.Columns[9].Visibility = Visibility.Hidden;   // KD
         dgrvSalesItemList.Columns[10].Visibility = Visibility.Hidden;   // Option
         dgrvSalesItemList.Columns[11].Visibility = Visibility.Hidden;   // Weight 
+        */
 
         dgrvSalesItemList.SelectedIndex = n;
 
@@ -2057,6 +2059,32 @@ namespace PosCube.Sales_Register
             double dbTemp = double.Parse(strInput);
             string s = string.Format("{0:N2}", dbTemp);
             return s;
+        }
+
+        public void CashDrawer()
+        {
+            System.IO.Ports.SerialPort sp = new System.IO.Ports.SerialPort();
+            sp.PortName = "COM3";  ////Insert your pole Device Port Name E.g. COM4  -- you can find  from pole device manual  
+            sp.BaudRate = 9600;     // Pole Bound Rate 
+            sp.Parity = System.IO.Ports.Parity.None;
+            sp.DataBits = 8;   // Data Bits
+            sp.StopBits = System.IO.Ports.StopBits.One;
+            sp.Open();
+
+            byte[] buffer = new byte[5]
+            {
+                (byte) 27,
+                (byte) 112,
+                (byte) 0,
+                (byte) 25,
+                (byte) 250
+            };
+            //port is an instance of a Serial Port
+            sp.Write(buffer, 0, buffer.Length);
+
+            sp.Close();
+            sp.Dispose();
+            sp = null;
         }
     }
 }

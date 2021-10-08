@@ -3,15 +3,16 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"   Icon="Res/icon.png"
         WindowStartupLocation="CenterScreen" WindowState="Maximized" AllowsTransparency="True" WindowStyle="None"   
         Title="SplashScreen"  >
-  <Grid Background="#477080">
-    <!--FF7D89D8-->
-    <Grid.RowDefinitions>
-      <RowDefinition Height="*" />
-    </Grid.RowDefinitions>
-    <TextBlock Name="lblDevelopername" HorizontalAlignment="Center" Margin="0,225,0,0" TextWrapping="Wrap" Text="PosCube" Foreground="White"  FontSize="40" VerticalAlignment="Top"/>
-    <TextBlock Name="lblversion" HorizontalAlignment="Center" Margin="366,285,341,0" TextWrapping="Wrap" Text="Retail" Foreground="White" FontSize="25" VerticalAlignment="Top" FontFamily="Calibri Light" Width="61"/>
-    <ProgressBar Name="progressBar1" HorizontalAlignment="Center" Height="10" Margin="0,378,0,0"   VerticalAlignment="Top" Width="200"/>
+    <Grid Background="#477080">
+        <!--FF7D89D8-->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <TextBlock Name="lblDevelopername" HorizontalAlignment="Center" Margin="0,225,0,0" TextWrapping="Wrap" Text="PosCube" Foreground="White"  FontSize="40" VerticalAlignment="Top" Visibility="Hidden"/>
+        <Image Source="Res/icon.png" Height="200" Margin="284,67,284,0" VerticalAlignment="Top"/>
+        <TextBlock Name="lblversion" HorizontalAlignment="Center" Margin="366,285,341,0" TextWrapping="Wrap" Text="Retail" Foreground="White" FontSize="25" VerticalAlignment="Top" FontFamily="Calibri Light" Width="61"/>
+        <ProgressBar Name="progressBar1" HorizontalAlignment="Center" Height="10" Margin="0,378,0,0"   VerticalAlignment="Top" Width="200"/>
 
 
-  </Grid>
+    </Grid>
 </Window>

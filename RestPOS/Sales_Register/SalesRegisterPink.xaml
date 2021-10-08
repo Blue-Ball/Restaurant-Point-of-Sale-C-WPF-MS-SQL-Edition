@@ -38,7 +38,7 @@
                             <RowDefinition Height="620"/>
                         </Grid.RowDefinitions>
 
-                        <DataGrid x:Name="dgrvSalesItemList" ColumnWidth="Auto"  CanUserSortColumns="False"   CanUserAddRows="False"   ItemsSource="{Binding}" Margin="69,22,0,271" HeadersVisibility="Column" FontSize="16" 
+                        <DataGrid x:Name="dgrvSalesItemList" ColumnWidth="*"  CanUserSortColumns="False"   CanUserAddRows="False"   ItemsSource="{Binding}" Margin="69,22,0,271" HeadersVisibility="Column" FontSize="16" 
                       FontFamily="Times New Roman" Grid.RowSpan="2" 
                       CellEditEnding="dgrvSalesItemList_CellEditEnding" 
                       SelectedCellsChanged="dgrvSalesItemList_SelectedCellsChanged" PreviewMouseUp="dgrvSalesItemList_PreviewMouseUp" 

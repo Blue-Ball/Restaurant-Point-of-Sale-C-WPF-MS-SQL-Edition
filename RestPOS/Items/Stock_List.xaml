@@ -143,6 +143,12 @@
                     <local:Items_Alert HorizontalAlignment="Left" Margin="3,2,0,0" VerticalAlignment="Top"  />
                 </Grid>
             </TabItem>
+            <TabItem x:Name="tabItemsBarcode" Header="Bar Code" FontSize="14" >
+                <Grid  Background="#FFF1F1F1">
+                    <Button Name="btnBarcodeMachine" Content="Barcode Machine"  Foreground="DarkRed" Margin="385,48,356,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="147" Click="btnBarcodeMachine_Click" Height="40"/>
+                    <Button Name="btnBarcodeCreator" Content="Create Barcode | Print Label"  Foreground="DarkRed" Margin="354,110,334,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="200" Height="40" Click="btnBarcodeCreator_Click"/>
+                </Grid>
+            </TabItem>
         </TabControl>
 
 

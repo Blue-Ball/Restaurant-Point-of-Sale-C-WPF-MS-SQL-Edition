@@ -4,12 +4,12 @@
     <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
       <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
         <Connections>
-          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PosCubeSQLConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PosCubeSQLConnectionString (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PosCube.Properties.Settings.GlobalReference.Default.PosCubeSQLConnectionString" Provider="System.Data.SqlClient" />
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="PosCubeSQLConnectionStr1ing" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="PosCubeSQLConnectionStr1ing (Settings)" ParameterPrefix="@" PropertyReference="ApplicationSettings.PosCube.Properties.Settings.GlobalReference.Default.PosCubeSQLConnectionStr1ing" Provider="System.Data.SqlClient" />
         </Connections>
         <Tables>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="sales_itemTableAdapter" GeneratorDataComponentClassName="sales_itemTableAdapter" Name="sales_item" UserDataComponentName="sales_itemTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="PosCubeSQLConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="PosCubeSQLConnectionStr1ing (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
                     <CommandText>select  *  
@@ -94,7 +94,7 @@ ON  sp.c_id  = c.ID</CommandText>
   <xs:element name="DataSetInvoice" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="DataSetInvoice" msprop:Generator_UserDSName="DataSetInvoice">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="sales_item" msprop:Generator_TableClassName="sales_itemDataTable" msprop:Generator_TableVarName="tablesales_item" msprop:Generator_RowChangedName="sales_itemRowChanged" msprop:Generator_TablePropName="sales_item" msprop:Generator_RowDeletingName="sales_itemRowDeleting" msprop:Generator_RowChangingName="sales_itemRowChanging" msprop:Generator_RowEvHandlerName="sales_itemRowChangeEventHandler" msprop:Generator_RowDeletedName="sales_itemRowDeleted" msprop:Generator_RowClassName="sales_itemRow" msprop:Generator_UserTableName="sales_item" msprop:Generator_RowEvArgName="sales_itemRowChangeEvent">
+        <xs:element name="sales_item" msprop:Generator_TableClassName="sales_itemDataTable" msprop:Generator_TableVarName="tablesales_item" msprop:Generator_TablePropName="sales_item" msprop:Generator_RowDeletingName="sales_itemRowDeleting" msprop:Generator_RowChangingName="sales_itemRowChanging" msprop:Generator_RowEvHandlerName="sales_itemRowChangeEventHandler" msprop:Generator_RowDeletedName="sales_itemRowDeleted" msprop:Generator_UserTableName="sales_item" msprop:Generator_RowChangedName="sales_itemRowChanged" msprop:Generator_RowEvArgName="sales_itemRowChangeEvent" msprop:Generator_RowClassName="sales_itemRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="item_id" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnitem_id" msprop:Generator_ColumnPropNameInRow="item_id" msprop:Generator_ColumnPropNameInTable="item_idColumn" msprop:Generator_UserColumnName="item_id" type="xs:long" />

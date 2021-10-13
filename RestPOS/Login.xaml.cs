@@ -156,7 +156,7 @@ namespace PosCube
 
           }
         }
-        catch //(Exception exe)
+        catch (Exception exe)
         {
           growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Username or Password does not match", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
         }

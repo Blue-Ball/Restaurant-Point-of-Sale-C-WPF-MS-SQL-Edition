@@ -1,0 +1,161 @@
+﻿<Window x:Class="PosCube.Items.BarcodeMachine"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PosCube.Items"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="Barcode Machine" Height="705.097" Width="1162.076" WindowStartupLocation="CenterScreen" Loaded="Window_Loaded">
+    <Grid Background="#FFF1F1F1" Margin="0,0,0,-19">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="39*"/>
+            <ColumnDefinition Width="539*"/>
+        </Grid.ColumnDefinitions>
+        <Label Content="Barcode Type:" Margin="10,19,0,0" Padding="0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="220" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cmbBarcodeType" HorizontalAlignment="Left" Margin="10,39,0,0" VerticalAlignment="Top" Width="220" IsReadOnly="True" 
+                  SelectedIndex="3" SelectionChanged="cmbBarcodeType_SelectionChanged" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="CODABAR"/>
+            <ComboBoxItem Content="CODE_39"/>
+            <ComboBoxItem Content="CODE_93"/>
+            <ComboBoxItem Content="CODE_128"/>
+            <ComboBoxItem Content="DATA_MATRIX"/>
+            <ComboBoxItem Content="EAN_8"/>
+            <ComboBoxItem Content="EAN_13"/>
+            <ComboBoxItem Content="ITF"/>
+            <ComboBoxItem Content="MAXICODE"/>
+            <ComboBoxItem Content="PDF_417"/>
+            <ComboBoxItem Content="QR_CODE"/>
+            <ComboBoxItem Content="RSS_14"/>
+            <ComboBoxItem Content="RSS_EXPANDED"/>
+            <ComboBoxItem Content="UPC_A"/>
+            <ComboBoxItem Content="UPC_E"/>
+            <ComboBoxItem Content="All_1D"/>
+            <ComboBoxItem Content="UPC_EAN_EXTENSION"/>
+            <ComboBoxItem Content="MSI"/>
+            <ComboBoxItem Content="PLESSEY"/>
+            <ComboBoxItem Content="IMB"/>
+            <ComboBoxItem Content="PHARMA_CODE"/>
+        </ComboBox>
+        <Label Content="Barcode:" Margin="10,66,0,0" Height="20" Padding="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="220" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtBarcode" HorizontalAlignment="Left" Height="23" Margin="10,86,0,0" TextWrapping="Wrap" Text="123456" VerticalAlignment="Top" Width="220" TextChanged="txtBarcode_TextChanged" Grid.ColumnSpan="2"/>
+        <Label Content="Company Name:" Margin="10,116,0,0" Height="20" Padding="0" HorizontalAlignment="Left" Width="220" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtCompanyName" HorizontalAlignment="Left" Height="22" Margin="10,136,0,0" TextWrapping="Wrap" Text="Marche Amar" VerticalAlignment="Top" Width="220" TextChanged="txtCompanyName_TextChanged" Grid.ColumnSpan="2"/>
+        <Label Content="Top Text Description:" Margin="10,163,0,0" Height="20" Padding="0" HorizontalAlignment="Left" Width="220" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+        <TextBox Background="White" Text="Ingredients: salt,water, milk, rice, " x:Name="txtDescription" HorizontalAlignment="Left" Height="97" Margin="10,183,0,0"  VerticalAlignment="Top" Width="220" AcceptsReturn="True" TextChanged="txtDescription_TextChanged" Grid.ColumnSpan="2"/>
+        <Label Content="Currency:" Margin="10,285,0,0" Height="20" Padding="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" Grid.ColumnSpan="2"/>
+        <Label Content="Price:" Margin="47,285,0,0" Height="20" Padding="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="105" Grid.Column="1"/>
+        <TextBox x:Name="txtCurrency" HorizontalAlignment="Left" Height="22" Margin="10,305,0,0" TextWrapping="Wrap" Text="$" VerticalAlignment="Top" Width="105" TextChanged="txtCurrency_TextChanged" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Height="22" Margin="47,305,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="105" TextChanged="txtPrice_TextChanged" Grid.Column="1"/>
+        <Label Content="Font Family:" Margin="10,336,0,0" Padding="0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="220" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cmbFontFamily" HorizontalAlignment="Left" Margin="10,356,0,0" VerticalAlignment="Top" Width="220" IsReadOnly="True"
+                  SelectedIndex="4" SelectionChanged="cmbFontFamily_SelectionChanged" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="Times New Roman"/>
+            <ComboBoxItem Content="Cambria"/>
+            <ComboBoxItem Content="Calibri"/>
+            <ComboBoxItem Content="Arial"/>
+            <ComboBoxItem Content="Verdana"/>
+            <ComboBoxItem Content="Arial Black"/>
+            <ComboBoxItem Content="Arial Narrow"/>
+            <ComboBoxItem Content="SimSun"/>
+            <ComboBoxItem Content="Corbel"/>
+        </ComboBox>
+        <Label Content="Border Type:" Margin="10,388,0,0" Padding="0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cmbBorderType" HorizontalAlignment="Left" Margin="10,408,0,0" VerticalAlignment="Top" Width="90" IsReadOnly="True"
+            SelectedIndex="0" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="Solid"/>
+            <!--<ComboBoxItem Content="Dash"/>
+            <ComboBoxItem Content="Dot"/>
+            <ComboBoxItem Content="DashDot"/>
+            <ComboBoxItem Content="DashDotDot"/>-->
+        </ComboBox>
+        <Label Content="Fore Color:" Margin="10,441,0,0" Padding="0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cmbForeColor" HorizontalAlignment="Left" Margin="10,461,0,0" VerticalAlignment="Top" Width="90" IsReadOnly="True"
+            SelectedIndex="7" SelectionChanged="cmbForeColor_SelectionChanged" Grid.ColumnSpan="2">
+            <ComboBoxItem Content="AliceBlue"/>
+            <ComboBoxItem Content="AntiqueWhite"/>
+            <ComboBoxItem Content="Aqua"/>
+            <ComboBoxItem Content="Aquamarine"/>
+            <ComboBoxItem Content="Azure"/>
+            <ComboBoxItem Content="Beige"/>
+            <ComboBoxItem Content="Bisque"/>
+            <ComboBoxItem Content="Black"/>
+            <ComboBoxItem Content="BlanchedAlmond"/>
+            <ComboBoxItem Content="Blue"/>
+            <ComboBoxItem Content="BlueViolet"/>
+            <ComboBoxItem Content="Brown"/>
+            <ComboBoxItem Content="BurlyWood"/>
+            <ComboBoxItem Content="CadetBlue"/>
+            <ComboBoxItem Content="Chocolate"/>
+            <ComboBoxItem Content="Coral"/>
+            <ComboBoxItem Content="DarkBlue"/>
+            <ComboBoxItem Content="DarkGreen"/>
+            <ComboBoxItem Content="Goldenrod"/>
+            <ComboBoxItem Content="GreenYellow"/>
+            <ComboBoxItem Content="SteelBlue"/>
+        </ComboBox>
+        <Label Content="Font Size:" Margin="10,493,0,0" Height="20" Padding="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" Grid.ColumnSpan="2" />
+        <TextBox x:Name="txtFontSize" HorizontalAlignment="Left" Height="22" Margin="10,513,0,0" TextWrapping="Wrap" Text="12" VerticalAlignment="Top" Width="90" TextChanged="txtFontSize_TextChanged" Grid.ColumnSpan="2"/>
+        <Label Content="Bar Height:" Margin="10,540,0,0" Height="20" Padding="0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="90" Grid.ColumnSpan="2"/>
+        <TextBox x:Name="txtBarHeight" HorizontalAlignment="Left" Height="22" Margin="10,560,0,0" TextWrapping="Wrap" Text="50" VerticalAlignment="Top" Width="90" TextChanged="txtBarHeight_TextChanged" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnCreateBarcode" Content="Create Barcode" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Margin="10,592,0,0" Height="35" Grid.ColumnSpan="2" Click="btnCreateBarcode_Click"/>
+        <CheckBox x:Name="chkShowCheckSum" Content="Show CheckSum" HorizontalAlignment="Left" Margin="44,412,0,0" VerticalAlignment="Top" Grid.Column="1" Visibility="Collapsed"/>
+        <CheckBox x:Name="chkShowText" Content="Show Text" HorizontalAlignment="Left" Margin="44,441,0,0" VerticalAlignment="Top" IsChecked="True" Checked="chkShowText_Checked" Unchecked="chkShowText_Checked" Grid.Column="1" />
+        <CheckBox x:Name="chkShowBorder" Content="Show Border" HorizontalAlignment="Left" Margin="44,468,0,0" VerticalAlignment="Top" Grid.Column="1" Checked="chkShowText_Checked" Unchecked="chkShowText_Checked"/>
+        <Label Content="Product Code:" Margin="171,19,0,0" Padding="0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="220" Grid.Column="1"/>
+        <ComboBox x:Name="cmbProductCode" HorizontalAlignment="Left" Margin="171,39,0,0" VerticalAlignment="Top" Width="220" SelectionChanged="cmbProductCode_SelectionChanged" Grid.Column="1"/>
+        <Border x:Name="borderGrid" Width="274" Margin="171,80,0,0" Height="Auto" Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Left" BorderBrush="LimeGreen" BorderThickness="0">
+            <Grid x:Name="gridBarcode" Background="White">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackPanel x:Name="panelTopText" Grid.Row="0">
+                    <Label x:Name="lblBarcodeCompany" Content="Company" Margin="10,0,0,0"/>
+                    <Label x:Name="lblBarcodeSeperate" Content="=================" Margin="17,-10,0,0"/>
+                    <TextBlock x:Name="txtBarcodeDescription" TextWrapping="Wrap" Text="TextBlock&#10;asdf" Margin="17,0,0,0"/>
+                    <Label x:Name="lblBarcodePrice" Margin="10,5,0,5"  Content="Price:"/>
+                </StackPanel>
+
+                <Image Margin="5, 5, 5, 2" x:Name="imgBarcode" Grid.Row="1" Source="../Res/icon.png"  Height="50" Width="274" HorizontalAlignment="Left" />
+            </Grid>
+        </Border>
+
+        <Label Content="Scan Result:" Margin="209,441,0,0" Height="20" Padding="0" HorizontalAlignment="Left" Width="220" VerticalAlignment="Top" Grid.Column="1" Visibility="Hidden"/>
+        <TextBox x:Name="txtScanResult" HorizontalAlignment="Left" Height="22" Margin="209,461,0,0" TextWrapping="Wrap" Text="Marche Amar" VerticalAlignment="Top" Width="220" Grid.Column="1" Visibility="Hidden"/>
+        <Button x:Name="btnScan" Content="Scan" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Margin="209,488,0,0" Height="35" Grid.Column="1" Visibility="Hidden"/>
+        <Button x:Name="btnSaveImage" Content="Save Image" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Margin="209,530,0,0" Height="35" Grid.Column="1" Click="btnSaveImage_Click"/>
+        <Button x:Name="btnPrint" Content="Print" HorizontalAlignment="Left" VerticalAlignment="Top" Width="220" Margin="209,592,0,0" Height="35" Grid.Column="1" Click="btnPrint_Click"/>
+        <Grid x:Name="grdPrintPanel" HorizontalAlignment="Right" Height="Auto" Margin="0,19,10,0" VerticalAlignment="Top" Width="Auto" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Border x:Name="printBorder0x0" Grid.Row="0" Grid.Column="0" Width="274" Height="188" Background="White" Margin="3,3,3,3" BorderThickness="0" BorderBrush="LimeGreen">
+                <Image x:Name="printBarcode0x0" Source="../Res/icon.png" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Border>
+            <Border x:Name="printBorder0x1" Grid.Row="0" Grid.Column="1" Width="274" Height="188" Background="White" Margin="3,3,3,3" BorderThickness="0" BorderBrush="LimeGreen">
+                <Image x:Name="printBarcode0x1" Source="../Res/icon.png" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Border>
+            <Border x:Name="printBorder1x0" Grid.Row="1" Grid.Column="0" Width="274" Height="188" Background="White" Margin="3,3,3,3" BorderThickness="0" BorderBrush="LimeGreen">
+                <Image x:Name="printBarcode1x0" Source="../Res/icon.png" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Border>
+            <Border x:Name="printBorder1x1" Grid.Row="1" Grid.Column="1" Width="274" Height="188" Background="White" Margin="3,3,3,3" BorderThickness="0" BorderBrush="LimeGreen">
+                <Image x:Name="printBarcode1x1" Source="../Res/icon.png" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Border>
+            <Border x:Name="printBorder2x0" Grid.Row="2" Grid.Column="0" Width="274" Height="188" Background="White" Margin="3,3,3,3" BorderThickness="0" BorderBrush="LimeGreen">
+                <Image x:Name="printBarcode2x0" Source="../Res/icon.png" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Border>
+            <Border x:Name="printBorder2x1" Grid.Row="2" Grid.Column="1" Width="274" Height="188" Background="White" Margin="3,3,3,3" BorderThickness="0" BorderBrush="LimeGreen">
+                <Image x:Name="printBarcode2x1" Source="../Res/icon.png" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+            </Border>
+
+        </Grid>
+
+    </Grid>
+</Window>

@@ -818,5 +818,17 @@ namespace PosCube.Items
                 }
             }
         }
+
+        private void btnBarcodeMachine_Click(object sender, RoutedEventArgs e)
+        {
+            BarcodeMachine go = new BarcodeMachine();
+            go.ShowDialog();
+        }
+
+        private void btnBarcodeCreator_Click(object sender, RoutedEventArgs e)
+        {
+            BarcodeCreator go = new BarcodeCreator();
+            go.ShowDialog();
+        }
     }
 }

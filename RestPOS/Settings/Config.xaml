@@ -163,6 +163,16 @@
                     <Settings:DataManager HorizontalAlignment="Left"  VerticalAlignment="Top"  />
                 </Grid>
             </TabItem>
+            <TabItem x:Name="tabComport" Header="COM Port" FontSize ="14">
+                <Grid  Background="#FFF1F1F1">
+                    <Label Content="Pole Display COM Port" Height="30" Margin="10,10,851,484"/>
+                    <Label Content="Serial Cash Drawer COM port" Height="30" Margin="10,45,851,449" />
+                    <Label Content="Weight Scale COM port" Height="30" Margin="10,80,851,414" />
+                    <TextBox x:Name="txtComPoleDisplay" HorizontalAlignment="Left" Height="23" Margin="231,14,0,0" TextWrapping="Wrap" Text="COM3" VerticalAlignment="Top" Width="120" TextChanged="txtComPoleDisplay_TextChanged"/>
+                    <TextBox x:Name="txtComCashDrawer" HorizontalAlignment="Left" Height="23" Margin="231,49,0,0" TextWrapping="Wrap" Text="COM5" VerticalAlignment="Top" Width="120" TextChanged="txtComPoleDisplay_TextChanged"/>
+                    <TextBox x:Name="txtComWeightScale" HorizontalAlignment="Left" Height="23" Margin="231,84,0,0" TextWrapping="Wrap" Text="COM4" VerticalAlignment="Top" Width="120" TextChanged="txtComPoleDisplay_TextChanged"/>
+                </Grid>
+            </TabItem>
         </TabControl>
         <!--Top body section END-->
 

@@ -1,0 +1,36 @@
+﻿<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PosCube.Items"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="PosCube.Items.BarcodeCreator"
+        mc:Ignorable="d"
+        ResizeMode="NoResize"
+        Title="BarcodeCreator" Height="395" Width="500" WindowStartupLocation="CenterScreen">
+    <Grid Background="#FFF1F1F1">
+        <Label Content="EAN-13 Bar-code" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="215,0,0,0"/>
+        <Label Content="------------------------------------------------------------------" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="107,10,0,0"/>
+        <Grid x:Name="gridPrint" Background="White" Width="208" Height="150" Margin="10,43,0,0" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <StackPanel VerticalAlignment="Center">
+                <Image Width="200" Height="140" x:Name="imgBarcode" Source="../Res/icon.png" />
+            </StackPanel>
+        </Grid>
+        <Label Content="Back Color:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="231,43,0,0"/>
+        <xctk:ColorPicker x:Name="colorPickerBack" HorizontalAlignment="Left" Margin="351,45,0,0" VerticalAlignment="Top" Width="105" SelectedColor="White" SelectedColorChanged="colorPickerBack_SelectedColorChanged"/>
+        <Label Content="Fore Color:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="231,74,0,0"/>
+        <xctk:ColorPicker x:Name="colorPickerFore" HorizontalAlignment="Left" Margin="351,76,0,0" VerticalAlignment="Top" Width="105" SelectedColor="Black" SelectedColorChanged="colorPickerBack_SelectedColorChanged"/>
+        <Label Content="Product Code:" Margin="10,217,0,0" Padding="0" Height="20" VerticalAlignment="Top" HorizontalAlignment="Left" Width="200"/>
+        <ComboBox x:Name="cmbProductCode" HorizontalAlignment="Left" Margin="10,237,0,0" VerticalAlignment="Top" Width="208" IsEditable="True"/>
+        <CheckBox x:Name="chkShowBarcodeText" Content="Show Barcode Text" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,264,0,0" Width="208" Checked="chkShowBarcodeText_Checked" Unchecked="chkShowBarcodeText_Checked"/>
+        <Button x:Name="btnCreate" Content="Create" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,300,0,0" Height="32" Width="208" ToolTip="Press to Create Barcode" Click="btnCreate_Click"/>
+        <Label Content="Item code must be 12 digit in EAN_13 " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,332,0,0"/>
+        <GroupBox Header="Printing" HorizontalAlignment="Left" Height="100" Margin="231,103,0,0" VerticalAlignment="Top" Width="243">
+            <Grid>
+                <Label Content="Number of Pages:"/>
+                <xctk:IntegerUpDown x:Name="txtIntUpDown" Value="1" Minimum="1" HorizontalAlignment="Left" VerticalAlignment="Top" Width="108" Margin="113,3,0,0"/>
+                <Button x:Name="btnPrint" Content="Print" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,38,0,0" Width="164" Height="29" Click="btnPrint_Click"/>
+            </Grid>
+        </GroupBox>
+    </Grid>
+</Window>

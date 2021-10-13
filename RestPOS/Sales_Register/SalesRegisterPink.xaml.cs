@@ -1,7 +1,10 @@
 ﻿using Activationconfig;
+using IniParser;
+using IniParser.Model;
 using System;
 using System.Data;
 using System.Globalization;
+using System.IO.Ports;
 using System.Resources;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -1703,6 +1706,9 @@ namespace PosCube.Sales_Register
                             t.Rows.Clear();
                             DiscountCalculation();
                             vatcal();
+
+                            OpenCashDrawer();
+                            DisplayToPole();
                             //txtbarcodescan.Focus();
                         }
 
@@ -1803,6 +1809,9 @@ namespace PosCube.Sales_Register
                             t.Rows.Clear();
                             DiscountCalculation();
                             vatcal();
+
+                            OpenCashDrawer();
+                            DisplayToPole();
                             //txtbarcodescan.Focus();
                         }
 
@@ -2061,30 +2070,92 @@ namespace PosCube.Sales_Register
             return s;
         }
 
-        public void CashDrawer()
+        public void OpenCashDrawer()
         {
-            System.IO.Ports.SerialPort sp = new System.IO.Ports.SerialPort();
-            sp.PortName = "COM3";  ////Insert your pole Device Port Name E.g. COM4  -- you can find  from pole device manual  
-            sp.BaudRate = 9600;     // Pole Bound Rate 
-            sp.Parity = System.IO.Ports.Parity.None;
-            sp.DataBits = 8;   // Data Bits
-            sp.StopBits = System.IO.Ports.StopBits.One;
-            sp.Open();
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile("Configuration.ini");
 
-            byte[] buffer = new byte[5]
+            string port = data["COM"]["CashDrawer"];
+            using (SerialPort serialPort = new SerialPort(port))
             {
-                (byte) 27,
-                (byte) 112,
-                (byte) 0,
-                (byte) 25,
-                (byte) 250
-            };
-            //port is an instance of a Serial Port
-            sp.Write(buffer, 0, buffer.Length);
+                serialPort.Close();
 
-            sp.Close();
-            sp.Dispose();
-            sp = null;
+                serialPort.BaudRate = 9600;     // Pole Bound Rate 
+                serialPort.Parity = System.IO.Ports.Parity.None;
+                serialPort.DataBits = 8;   // Data Bits
+                serialPort.StopBits = System.IO.Ports.StopBits.One;
+
+                serialPort.Open();
+                serialPort.Write("\x001B@\x001Bp\0.}");
+                serialPort.Close();
+            }
+
+            //System.IO.Ports.SerialPort sp = new System.IO.Ports.SerialPort();
+            //sp.PortName = data["COM"]["CashDrawer"];
+            //sp.BaudRate = 9600;     // Pole Bound Rate 
+            //sp.Parity = System.IO.Ports.Parity.None;
+            //sp.DataBits = 8;   // Data Bits
+            //sp.StopBits = System.IO.Ports.StopBits.One;
+            //sp.Open();
+
+            //byte[] buffer = new byte[5]
+            //{
+            //    (byte) 27,
+            //    (byte) 112,
+            //    (byte) 0,
+            //    (byte) 25,
+            //    (byte) 250
+            //};
+            ////port is an instance of a Serial Port
+            //sp.Write(buffer, 0, buffer.Length);
+
+            //sp.Close();
+            //sp.Dispose();
+            //sp = null;
+        }
+
+        public void DisplayToPole()
+        {
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile("Configuration.ini");
+
+            string port = data["COM"]["PoleDisplay"];
+            using (SerialPort serialPort = new SerialPort(port))
+            {
+                serialPort.Close();
+
+                serialPort.BaudRate = 9600;     // Pole Bound Rate 
+                serialPort.Parity = System.IO.Ports.Parity.None;
+                serialPort.DataBits = 8;   // Data Bits
+                serialPort.StopBits = System.IO.Ports.StopBits.One;
+
+                serialPort.Open();
+                serialPort.WriteLine(lblTotalPayable.Text);
+                serialPort.Close();
+            }
+
+            //System.IO.Ports.SerialPort sp = new System.IO.Ports.SerialPort();
+            //sp.PortName = data["COM"]["CashDrawer"];
+            //sp.BaudRate = 9600;     // Pole Bound Rate 
+            //sp.Parity = System.IO.Ports.Parity.None;
+            //sp.DataBits = 8;   // Data Bits
+            //sp.StopBits = System.IO.Ports.StopBits.One;
+            //sp.Open();
+
+            //byte[] buffer = new byte[5]
+            //{
+            //    (byte) 27,
+            //    (byte) 112,
+            //    (byte) 0,
+            //    (byte) 25,
+            //    (byte) 250
+            //};
+            ////port is an instance of a Serial Port
+            //sp.Write(buffer, 0, buffer.Length);
+
+            //sp.Close();
+            //sp.Dispose();
+            //sp = null;
         }
     }
 }

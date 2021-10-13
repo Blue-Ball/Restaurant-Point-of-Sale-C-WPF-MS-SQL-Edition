@@ -1,4 +1,6 @@
-﻿using Microsoft.Win32;
+﻿using IniParser;
+using IniParser.Model;
+using Microsoft.Win32;
 using System;
 using System.Data;
 using System.Globalization;
@@ -115,7 +117,13 @@ namespace PosCube.Settings
         btndelete.Visibility = Visibility.Hidden;
         lbltrmsg.Visibility = Visibility.Hidden;
         switch_language();
-      }
+
+                var parser = new FileIniDataParser();
+                IniData data = parser.ReadFile("Configuration.ini");
+                txtComPoleDisplay.Text = data["COM"]["PoleDisplay"];
+                txtComCashDrawer.Text = data["COM"]["CashDrawer"];
+                txtComWeightScale.Text = data["COM"]["WeightScale"];
+            }
       catch
       {
 
@@ -364,11 +372,29 @@ namespace PosCube.Settings
 
     private void btnHomeMenuLink_Click(object sender, RoutedEventArgs e)
     {
-      this.Visibility = Visibility.Hidden;
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile("Configuration.ini");
+            data["COM"]["PoleDisplay"] = txtComPoleDisplay.Text;
+            data["COM"]["CashDrawer"] = txtComCashDrawer.Text;
+            data["COM"]["WeightScale"] = txtComWeightScale.Text;
+            parser.WriteFile("Configuration.ini", data);
+
+            this.Visibility = Visibility.Hidden;
       Home go = new Home();
       go.Show();
 
     }
 
-  }
+        private void txtComPoleDisplay_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            try
+            {
+                
+            }
+            catch
+            {
+
+            }
+        }
+    }
 }

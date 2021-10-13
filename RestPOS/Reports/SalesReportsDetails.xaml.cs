@@ -322,6 +322,9 @@ namespace PosCube.Reports
       go.Show();
     }
 
+        private void Overview_Loaded(object sender, RoutedEventArgs e)
+        {
 
-  }
+        }
+    }
 }

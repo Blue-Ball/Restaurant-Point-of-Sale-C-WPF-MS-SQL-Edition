@@ -73,7 +73,12 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit">
+      <HintPath>..\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -175,11 +180,17 @@
     <Compile Include="Reports\DueReport.xaml.cs">
       <DependentUpon>DueReport.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Reports\SalesChart.xaml.cs">
+      <DependentUpon>SalesChart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Reports\SalesReportsDetails.xaml.cs">
       <DependentUpon>SalesReportsDetails.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reports\ReturnedReports.xaml.cs">
       <DependentUpon>ReturnedReports.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\Overview.xaml.cs">
+      <DependentUpon>Overview.xaml</DependentUpon>
     </Compile>
     <Compile Include="Reports\TopSales.xaml.cs">
       <DependentUpon>TopSales.xaml</DependentUpon>
@@ -324,11 +335,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Reports\SalesChart.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Reports\SalesReportsDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Reports\ReturnedReports.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Reports\Overview.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -637,6 +656,9 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="PosCube.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

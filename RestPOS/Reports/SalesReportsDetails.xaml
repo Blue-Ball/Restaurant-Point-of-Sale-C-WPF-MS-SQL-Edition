@@ -67,7 +67,18 @@
 
                     </Grid>
                 </TabItem>
-            </TabControl>          
+                <TabItem Name="taboverviewchart" Header=" Overview Chart " Foreground="Navy">
+                    <Grid Background="#FFF1F1F1" Margin="0,0,0,0" Width="Auto"  >
+                        <local:Overview HorizontalAlignment="Left"  Margin="0,0,0,0"  VerticalAlignment="Top" Loaded="Overview_Loaded"/>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Name="tabsaleschart" Header=" Sales Chart " Foreground="Navy">
+                    <Grid Background="#FFF1F1F1" Margin="0,0,0,0" Width="Auto"  >
+                        <local:SalesChart HorizontalAlignment="Left" VerticalAlignment="Top" Height="600" Width="1000" Margin="0,0,0,0"/>
+                    </Grid>
+                </TabItem>
+            </TabControl>
         </Grid>
     </Grid>
 </Window>

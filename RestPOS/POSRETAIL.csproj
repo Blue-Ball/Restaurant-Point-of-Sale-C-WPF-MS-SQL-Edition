@@ -73,12 +73,11 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Printing" />
-    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit">
-      <HintPath>..\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
+    <Reference Include="System.Windows.Controls.DataVisualization.Toolkit, Version=3.5.40128.1, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>.\System.Windows.Controls.DataVisualization.Toolkit.dll</HintPath>
     </Reference>
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Windows.Forms.DataVisualization" />
-    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -210,9 +209,6 @@
     </Compile>
     <Compile Include="Sales_Register\EnterAmountPopup.xaml.cs">
       <DependentUpon>EnterAmountPopup.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Sales_Register\InvoiceView.xaml.cs">
-      <DependentUpon>InvoiceView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Sales_Register\PrintTicket.xaml.cs">
       <DependentUpon>PrintTicket.xaml</DependentUpon>
@@ -363,10 +359,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Sales_Register\InvoiceView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Sales_Register\PrintTicket.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -462,7 +454,6 @@
     <EmbeddedResource Include="Resource\Res.uk.resx" />
     <EmbeddedResource Include="Resource\Res.ur.resx" />
     <EmbeddedResource Include="Resource\Res.zh.resx" />
-    <EmbeddedResource Include="Sales_Register\InvoiceView.rdlc" />
     <EmbeddedResource Include="Sales_Register\InvoiceReceipt.rdlc" />
     <EmbeddedResource Include="Sales_Register\ReceiptRpt.rdlc" />
     <EmbeddedResource Include="Sales_Register\TicketRpt.rdlc" />
@@ -659,6 +650,14 @@
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="System.Windows.Controls.DataVisualization.Toolkit.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WPFToolkit.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

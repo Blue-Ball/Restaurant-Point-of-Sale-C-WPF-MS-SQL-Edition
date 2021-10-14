@@ -8,13 +8,13 @@
 
     <Grid    Name="Maingrid"  Background="#FFF1F1F1" Margin="0,0,0,-66" >
         <!--Top Header section  start -->
-        <Grid  Name="Toolbargrid"  Width="1024"   VerticalAlignment="Top"  Background="#FFF1F1F1" Height="40" Margin="14,0,302,0">
+        <Grid  Name="Toolbargrid"  Width="1024"   VerticalAlignment="Top"  Background="#FFF1F1F1" Height="40" Margin="14,0,302,0" Visibility="Hidden">
             <PosCube:HomeToolbar HorizontalAlignment="Left"  VerticalAlignment="Top" Height="35" Width="1000" Margin="10,2,0,0"/>
         </Grid>
         <!--Top Header section  END -->
 
 
-        <TabControl HorizontalAlignment="Left" x:Name="tabSalesRegister"  Height="768" Margin="25,48,0,0" VerticalAlignment="Top" Width="1024">
+        <TabControl HorizontalAlignment="Left" x:Name="tabSalesRegister"  Height="768" Margin="0,0,0,0" VerticalAlignment="Top" Width="1024">
             <TabItem x:Name="tabterminal"  Selector.IsSelected="True"    Header="Terminal">
                 <Grid Background="#FFF1F1F1" Margin="0,0,0,0" >
                     <!-- Body section  start  Add to cart -->

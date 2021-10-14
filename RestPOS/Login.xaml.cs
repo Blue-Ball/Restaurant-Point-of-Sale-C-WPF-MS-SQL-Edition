@@ -1,4 +1,4 @@
-﻿using Activationconfig;
+﻿//using Activationconfig;
 using System;
 using System.Data;
 using System.Windows;
@@ -228,7 +228,8 @@ namespace PosCube
     public void expodtclass()
     {
       ///////////////// Ex date ////////////////////////////
-      if (Convert.ToInt32(InvoicesManager.Activationvalue) > Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd"))) // Ex date > Curnt date              
+      // if (Convert.ToInt32(InvoicesManager.Activationvalue) > Convert.ToInt32(DateTime.Now.ToString("yyyyMMdd"))) // Ex date > Curnt date              
+      if(true)
       {
         btnSignin.Visibility = Visibility.Visible;
         btnLogin.Visibility = Visibility.Hidden;

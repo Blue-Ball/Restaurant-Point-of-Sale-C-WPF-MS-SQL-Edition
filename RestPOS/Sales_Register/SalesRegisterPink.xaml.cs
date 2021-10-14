@@ -1,4 +1,4 @@
-﻿using Activationconfig;
+﻿//using Activationconfig;
 using IniParser;
 using IniParser.Model;
 using System;
@@ -645,10 +645,10 @@ namespace PosCube.Sales_Register
       {
             growlNotifications.AddNotification(new Notification { Title = "Alert Message2", Message = "Sorry ! You don't have enough product in Item cart    Please Add to cart", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
         }
-      else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
-      {
-        MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
-      }
+      //else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
+      //{
+      //  MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
+      //}
       else
       {
         string strMessage = "Print?";
@@ -877,7 +877,7 @@ namespace PosCube.Sales_Register
 
     private void lstvwStocklist_TouchEnter(object sender, TouchEventArgs e)
     {
-      barcodeInput();
+      // barcodeInput();
       txtbarcodescan.Focus();
     }
 
@@ -1114,11 +1114,11 @@ namespace PosCube.Sales_Register
         growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Please insert paid amount", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
         txtPaidAmount.Focus();
       }
-      else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
-      {
-        MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
-        txtbarcodescan.Focus();
-      }
+      //else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
+      //{
+      //  MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
+      //  txtbarcodescan.Focus();
+      //}
       else
       {
         try
@@ -1172,10 +1172,10 @@ namespace PosCube.Sales_Register
         growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Please insert paid amount", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
         txtPaidAmount.Focus();
       }
-      else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
-      {
-        MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : sales@poscube.co.uk \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
-      }
+      //else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
+      //{
+      //  MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : sales@poscube.co.uk \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
+      //}
       else
       {
         try
@@ -1664,11 +1664,11 @@ namespace PosCube.Sales_Register
                 growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Please insert paid amount", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
                 txtPaidAmount.Focus();
             }
-            else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
-            {
-                MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
-                txtbarcodescan.Focus();
-            }
+            //else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
+            //{
+            //    MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //    txtbarcodescan.Focus();
+            //}
             else
             {
                 string strMessage = string.Format("Change: {0} ?\nPrint?", txtChangeAmount.Text);
@@ -1766,11 +1766,11 @@ namespace PosCube.Sales_Register
                 growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Please insert paid amount", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
                 txtPaidAmount.Focus();
             }
-            else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
-            {
-                MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
-                txtbarcodescan.Focus();
-            }
+            //else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
+            //{
+            //    MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
+            //    txtbarcodescan.Focus();
+            //}
             else
             {
 
@@ -2076,42 +2076,22 @@ namespace PosCube.Sales_Register
             IniData data = parser.ReadFile("Configuration.ini");
 
             string port = data["COM"]["CashDrawer"];
-            using (SerialPort serialPort = new SerialPort(port))
+            if(!port.Equals(""))
             {
-                serialPort.Close();
+                using (SerialPort serialPort = new SerialPort(port))
+                {
+                    serialPort.Close();
 
-                serialPort.BaudRate = 9600;     // Pole Bound Rate 
-                serialPort.Parity = System.IO.Ports.Parity.None;
-                serialPort.DataBits = 8;   // Data Bits
-                serialPort.StopBits = System.IO.Ports.StopBits.One;
+                    serialPort.BaudRate = 9600;     // Pole Bound Rate 
+                    serialPort.Parity = System.IO.Ports.Parity.None;
+                    serialPort.DataBits = 8;   // Data Bits
+                    serialPort.StopBits = System.IO.Ports.StopBits.One;
 
-                serialPort.Open();
-                serialPort.Write("\x001B@\x001Bp\0.}");
-                serialPort.Close();
+                    serialPort.Open();
+                    serialPort.Write("\x001B@\x001Bp\0.}");
+                    serialPort.Close();
+                }
             }
-
-            //System.IO.Ports.SerialPort sp = new System.IO.Ports.SerialPort();
-            //sp.PortName = data["COM"]["CashDrawer"];
-            //sp.BaudRate = 9600;     // Pole Bound Rate 
-            //sp.Parity = System.IO.Ports.Parity.None;
-            //sp.DataBits = 8;   // Data Bits
-            //sp.StopBits = System.IO.Ports.StopBits.One;
-            //sp.Open();
-
-            //byte[] buffer = new byte[5]
-            //{
-            //    (byte) 27,
-            //    (byte) 112,
-            //    (byte) 0,
-            //    (byte) 25,
-            //    (byte) 250
-            //};
-            ////port is an instance of a Serial Port
-            //sp.Write(buffer, 0, buffer.Length);
-
-            //sp.Close();
-            //sp.Dispose();
-            //sp = null;
         }
 
         public void DisplayToPole()
@@ -2120,42 +2100,22 @@ namespace PosCube.Sales_Register
             IniData data = parser.ReadFile("Configuration.ini");
 
             string port = data["COM"]["PoleDisplay"];
-            using (SerialPort serialPort = new SerialPort(port))
+            if (!port.Equals(""))
             {
-                serialPort.Close();
+                using (SerialPort serialPort = new SerialPort(port))
+                {
+                    serialPort.Close();
 
-                serialPort.BaudRate = 9600;     // Pole Bound Rate 
-                serialPort.Parity = System.IO.Ports.Parity.None;
-                serialPort.DataBits = 8;   // Data Bits
-                serialPort.StopBits = System.IO.Ports.StopBits.One;
+                    serialPort.BaudRate = 9600;     // Pole Bound Rate 
+                    serialPort.Parity = System.IO.Ports.Parity.None;
+                    serialPort.DataBits = 8;   // Data Bits
+                    serialPort.StopBits = System.IO.Ports.StopBits.One;
 
-                serialPort.Open();
-                serialPort.WriteLine(lblTotalPayable.Text);
-                serialPort.Close();
+                    serialPort.Open();
+                    serialPort.WriteLine(lblTotalPayable.Text);
+                    serialPort.Close();
+                }
             }
-
-            //System.IO.Ports.SerialPort sp = new System.IO.Ports.SerialPort();
-            //sp.PortName = data["COM"]["CashDrawer"];
-            //sp.BaudRate = 9600;     // Pole Bound Rate 
-            //sp.Parity = System.IO.Ports.Parity.None;
-            //sp.DataBits = 8;   // Data Bits
-            //sp.StopBits = System.IO.Ports.StopBits.One;
-            //sp.Open();
-
-            //byte[] buffer = new byte[5]
-            //{
-            //    (byte) 27,
-            //    (byte) 112,
-            //    (byte) 0,
-            //    (byte) 25,
-            //    (byte) 250
-            //};
-            ////port is an instance of a Serial Port
-            //sp.Write(buffer, 0, buffer.Length);
-
-            //sp.Close();
-            //sp.Dispose();
-            //sp = null;
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Activationconfig;
+﻿//using Activationconfig;
 using System;
 using System.Data;
 using System.Globalization;
@@ -632,10 +632,10 @@ namespace PosCube.Sales_Register
       {
         growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Sorry ! You don't have enough product in Item cart    Please Add to cart", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
       }
-      else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
-      {
-        MessageBox.Show("Sorry ! License has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
-      }
+      //else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
+      //{
+      //  MessageBox.Show("Sorry ! License has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
+      //}
       else
       {
         try
@@ -1037,10 +1037,10 @@ namespace PosCube.Sales_Register
         growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Please insert paid amount", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
         txtPaidAmount.Focus();
       }
-      else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
-      {
-        MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
-      }
+      //else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
+      //{
+      //  MessageBox.Show("Sorry ! Demo version has limited transaction \n Please buy it \n contact at : citkar@live.com \nhttps://goo.gl/ktvmHn ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
+      //}
       else
       {
         try
@@ -1094,10 +1094,10 @@ namespace PosCube.Sales_Register
         growlNotifications.AddNotification(new Notification { Title = "Alert Message", Message = "Please insert paid amount", ImageUrl = "pack://application:,,,/Notifications/Radiation_warning_symbol.png" });
         txtPaidAmount.Focus();
       }
-      else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
-      {
-        MessageBox.Show("Sorry ! Demo version has limited transaction ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
-      }
+      //else if (Convert.ToInt64(txtInvoice.Text) >= InvoicesManager.InvoiceNo)
+      //{
+      //  MessageBox.Show("Sorry ! Demo version has limited transaction ", "Yes or No", MessageBoxButton.OK, MessageBoxImage.Warning);
+      //}
       else
       {
         try

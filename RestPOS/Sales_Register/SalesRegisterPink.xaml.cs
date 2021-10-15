@@ -1492,13 +1492,14 @@ namespace PosCube.Sales_Register
 
         private void lstvwStocklist_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            var item = sender as ListView;
+            var item = (sender as ListView).SelectedItem;
 
-            if (item != null && item.SelectedItems.Count > 0)
+            if (item != null && !(e.OriginalSource is System.Windows.Controls.ScrollViewer))
             {
-                System.Diagnostics.Debug.WriteLine(item.SelectedItems[0].ToString());
+                System.Diagnostics.Debug.WriteLine(item.ToString());
                 barcodeInput();
                 txtbarcodescan.Focus();
+                (sender as ListView).SelectedIndex = -1;
             }
             txtbarcodescan.Focus();
         }

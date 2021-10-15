@@ -5,7 +5,44 @@
         xmlns:PosCube="clr-namespace:PosCube" xmlns:local="clr-namespace:PosCube.Sales_Register" x:Name="SalesRegisterForm" x:Class="PosCube.Sales_Register.SalesRegisterPink"
         Title="SalesRegisterPink"   Height="768" Width="1340" WindowStartupLocation="CenterScreen" WindowState="Maximized"
         Icon="/PosCube;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None"     Loaded="Window_Loaded" Background="#FFF1F1F1">
-
+    <Window.Resources>
+        <Style x:Key="LvItemStyle" TargetType="ListViewItem">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="ListViewItem">
+                        <Border x:Name="border" Background="Transparent">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup x:Name="CommonStates">
+                                    <VisualState x:Name="Normal" />
+                                    <VisualState x:Name="Disabled" />
+                                </VisualStateGroup>
+                                <VisualStateGroup x:Name="SelectionStates">
+                                    <VisualState x:Name="Unselected" />
+                                    <VisualState x:Name="Selected">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                            Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                <EasingColorKeyFrame KeyTime="0" Value="LightBlue" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                    <VisualState x:Name="SelectedUnfocused">
+                                        <Storyboard>
+                                            <ColorAnimationUsingKeyFrames Storyboard.TargetName="border"
+                                                            Storyboard.TargetProperty="(Panel.Background).(SolidColorBrush.Color)">
+                                                <EasingColorKeyFrame KeyTime="0" Value="SkyBlue" />
+                                            </ColorAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+                            <ContentPresenter/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
     <Grid    Name="Maingrid"  Background="#FFF1F1F1" Margin="0,0,0,-66" >
         <!--Top Header section  start -->
         <Grid  Name="Toolbargrid"  Width="1024"   VerticalAlignment="Top"  Background="#FFF1F1F1" Height="40" Margin="14,0,302,0" Visibility="Hidden">
@@ -101,7 +138,8 @@
                                     <ColumnDefinition Width="205*"/>
                                     <ColumnDefinition Width="198*"/>
                                 </Grid.ColumnDefinitions>
-                                <ListView x:Name="lstvwStocklist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ToolTip="Click for Qty increase"  Background="#4CFFFFFF"   SelectionChanged="lstvwStocklist_SelectionChanged" TouchEnter="lstvwStocklist_TouchEnter" Margin="-2,-2,0,0" Grid.ColumnSpan="3" PreviewMouseUp="lstvwStocklist_PreviewMouseUp"  >
+                                <ListView x:Name="lstvwStocklist" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ToolTip="Click for Qty increase"  Background="#4CFFFFFF"   SelectionChanged="lstvwStocklist_SelectionChanged" TouchEnter="lstvwStocklist_TouchEnter" Margin="-2,-2,0,0" Grid.ColumnSpan="3" PreviewMouseUp="lstvwStocklist_PreviewMouseUp"
+                                          ItemContainerStyle="{StaticResource LvItemStyle}">
                                     <ListView.ItemsPanel>
                                         <ItemsPanelTemplate>
                                             <WrapPanel/>
@@ -110,7 +148,7 @@
                                     <ListView.ItemTemplate>
                                         <DataTemplate>
                                             <DockPanel>
-                                                <Border Margin="0"   BorderBrush="BlueViolet">
+                                                <Border Margin="5"   BorderBrush="BlueViolet">
                                                     <Grid Width="117" Grid.RowSpan="2"    Background="#FAC532">
                                                         <Grid.RowDefinitions>
                                                             <RowDefinition Height="*" />

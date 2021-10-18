@@ -5,6 +5,7 @@ using System;
 using System.Data;
 using System.Globalization;
 using System.IO.Ports;
+using System.Linq;
 using System.Resources;
 using System.Text.RegularExpressions;
 using System.Windows;
@@ -89,18 +90,53 @@ namespace PosCube.Sales_Register
 
     public void ReLayoutPanels()
     {
-        if(dgrvSalesItemList.Items.Count > 0)
-        {
-            dgrvSalesItemList.Margin = new Thickness(70, dgrvSalesItemList.Margin.Top, dgrvSalesItemList.Margin.Right, dgrvSalesItemList.Margin.Bottom);
+            if(dgrvSalesItemList.Items.Count > 0)
+            {
+                dgrvSalesItemList.Margin = new Thickness(70, dgrvSalesItemList.Margin.Top, dgrvSalesItemList.Margin.Right, dgrvSalesItemList.Margin.Bottom);
                 
-            gridOperation.Visibility = Visibility.Visible;
-        }
-        else
-        {
-            dgrvSalesItemList.Margin = new Thickness(0, dgrvSalesItemList.Margin.Top, dgrvSalesItemList.Margin.Right, dgrvSalesItemList.Margin.Bottom);
-            gridOperation.Visibility = Visibility.Hidden;
+                gridOperation.Visibility = Visibility.Visible;
 
-        }
+                int n = dgrvSalesItemList.SelectedIndex;
+                if (n < 0)
+                {
+                    txtbarcodescan.Focus();
+                    return;
+                }
+                else
+                    {
+                        try
+                        {
+                            DataRowView dataRow = (DataRowView)dgrvSalesItemList.SelectedItem;
+                            if(dataRow.Row[11].ToString().Length > 0)
+                            {
+                                string numericValue = new String(dataRow.Row[11].ToString().Where(Char.IsDigit).ToArray());
+                                double weight = double.Parse(numericValue);
+                                if (weight > 0)
+                                {
+                                    btnItemWeight.IsEnabled = true;
+                                }
+                                else
+                                {
+                                    btnItemWeight.IsEnabled = false;
+                                }
+                            }
+                            else
+                            {
+                                btnItemWeight.IsEnabled = false;
+                            }
+                        }
+                        catch
+                        {
+
+                        }
+                    }
+            }
+            else
+            {
+                dgrvSalesItemList.Margin = new Thickness(0, dgrvSalesItemList.Margin.Top, dgrvSalesItemList.Margin.Right, dgrvSalesItemList.Margin.Bottom);
+                gridOperation.Visibility = Visibility.Hidden;
+            }
+            txtbarcodescan.Focus();
         }
 
     private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -252,23 +288,6 @@ namespace PosCube.Sales_Register
             }
         }
 
-        /*
-        dgrvSalesItemList.Columns[0].Width = 185;
-        dgrvSalesItemList.Columns[1].Width = 65;
-        dgrvSalesItemList.Columns[2].Width = 60; //dgrvSalesItemList.ActualWidth - 100 - 100 - 8.5;165
-        dgrvSalesItemList.Columns[3].Width = 60;
-
-        //Hide fields
-        dgrvSalesItemList.Columns[4].Visibility = Visibility.Hidden; // ID              
-        dgrvSalesItemList.Columns[5].Visibility = Visibility.Hidden; // Disamt          
-        dgrvSalesItemList.Columns[6].Visibility = Visibility.Hidden;   // taxamt         
-        dgrvSalesItemList.Columns[7].Visibility = Visibility.Hidden;   // Discount rate   
-        dgrvSalesItemList.Columns[8].Visibility = Visibility.Hidden;   // Tax
-        dgrvSalesItemList.Columns[9].Visibility = Visibility.Hidden;   // KD
-        dgrvSalesItemList.Columns[10].Visibility = Visibility.Hidden;   // Option
-        dgrvSalesItemList.Columns[11].Visibility = Visibility.Hidden;   // Weight 
-        */
-
         dgrvSalesItemList.SelectedIndex = n;
 
         txtbarcodescan.Text = "";
@@ -334,54 +353,6 @@ namespace PosCube.Sales_Register
       DiscountCalculation();
       vatcal();
       txtbarcodescan.Focus();
-    }
-
-    private void Minus_Click(object sender, RoutedEventArgs e)
-    {
-            System.Diagnostics.Debug.WriteLine("Minus_Click");
-      try
-      {
-        DataRowView dataRow = (DataRowView)dgrvSalesItemList.SelectedItem;
-        int i = dgrvSalesItemList.CurrentCell.Column.DisplayIndex;
-        for (i = 0; i < dgrvSalesItemList.SelectedItems.Count; i++)
-        {
-          if (Convert.ToDouble(dataRow.Row[2].ToString()) != 1)
-          {
-
-            double Qty = Convert.ToDouble(dataRow.Row.ItemArray[2].ToString()) - 1;
-            dataRow.Row[2] = Qty;  // Qty Decrease 
-
-            double CurrentQty = Convert.ToDouble(dataRow.Row[2]);
-            double Price = Convert.ToDouble(dataRow.Row[1].ToString());
-            double disrate = Convert.ToDouble(dataRow.Row[7].ToString());
-            double Taxrate = Convert.ToDouble(vatdisvalue.vat);
-
-            //// show total price   Qty  * Rprice
-            dataRow.Row[3] = Price * CurrentQty;   // Total Price
-
-            if (disrate != 0)
-            {
-              double Disamt = (((Price * CurrentQty) * disrate) / 100.00);      // Total Discount amount of this item
-              dataRow.Row[5] = Disamt;
-            }
-
-            if (Convert.ToDouble(dataRow.Row[8].ToString()) != 0)
-            {
-              double Taxamt = ((((Price * CurrentQty) - (((Price * CurrentQty) * disrate) / 100.00)) * Taxrate) / 100.00); // Total Tax amount  of this item
-              dataRow.Row[6] = Taxamt;
-            }
-
-            DiscountCalculation();
-            vatcal();
-          }
-        }
-      }
-      catch
-      {
-
-      }
-      txtbarcodescan.Focus();
-
     }
 
     public void DiscountCalculation()
@@ -651,11 +622,6 @@ namespace PosCube.Sales_Register
       //}
       else
       {
-        string strMessage = "Print?";
-        // System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show(strMessage, "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
-        MessageBoxResult dialogResult = CustomMessageBox.ShowYesNo(strMessage, "PosCube", "Yes", "No");
-        if (dialogResult == MessageBoxResult.Yes)
-        {
             try
             {
                 ////Save payment info into sales_payment table
@@ -673,55 +639,36 @@ namespace PosCube.Sales_Register
                 //// Booked Table 
                 updatetablebooked();
 
-                ///// // Open Print Invoice
-                // this.Visibility = Visibility.Hidden;
-                parameter.autoprint = "1";
-                Sales_Register.ReceiptPrint go = new Sales_Register.ReceiptPrint(txtInvoice.Text);
-                go.ShowDialog();
-                this.Visibility = Visibility.Hidden;
+                OpenCashDrawer();
+                DisplayToPole();
+
+                string strMessage = "Print?";
+                // System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show(strMessage, "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
+                MessageBoxResult dialogResult = CustomMessageBox.ShowYesNo(strMessage, "PosCube", "Yes", "No");
+                if (dialogResult == MessageBoxResult.Yes)
+                {
+                    ///// // Open Print Invoice
+                    // this.Visibility = Visibility.Hidden;
+                    parameter.autoprint = "1";
+                    Sales_Register.ReceiptPrint go = new Sales_Register.ReceiptPrint(txtInvoice.Text);
+                    go.ShowDialog();
+                    this.Visibility = Visibility.Hidden;
+                }
+                else
+                {
+                }
+
 
                 tabPayment.Visibility = Visibility.Hidden;
                 t.Rows.Clear();
                 DiscountCalculation();
                 vatcal();
-
             }
             catch (Exception exp)
             {
                 MessageBox.Show(exp.Message);
             }
         }
-        else if (dialogResult == MessageBoxResult.No)
-        {
-            try
-            {
-                ////Save payment info into sales_payment table
-                payment_item(lblTotalPayable.Text, "0", "0", "Cash", DateTime.Now.ToString("yyyy-MM-dd").ToString(), "8101", "Guest");
-
-                ///// save sales items one by one  
-                sales_item(DateTime.Now.ToString("yyyy-MM-dd").ToString());
-
-                //// TokennoInsert
-                tokennoInsert();
-
-                // // Change Hold Status to normal
-                if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
-
-                //// Booked Table 
-                updatetablebooked();
-
-                tabPayment.Visibility = Visibility.Hidden;
-                t.Rows.Clear();
-                DiscountCalculation();
-                vatcal();
-
-            }
-            catch (Exception exp)
-            {
-                MessageBox.Show(exp.Message);
-            }
-        }
-      }
       txtbarcodescan.Focus();
     }
 
@@ -787,6 +734,7 @@ namespace PosCube.Sales_Register
     //Edit Qty Cell
     private void dgrvSalesItemList_CellEditEnding(object sender, DataGridCellEditEndingEventArgs e)
     {
+            return;
       try
       {
 
@@ -836,6 +784,7 @@ namespace PosCube.Sales_Register
     //Open Sauce Options tab
     private void dgrvSalesItemList_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
     {
+            return;
       //try
       //{
       //  if (bNoSelectChange) return;
@@ -1538,6 +1487,8 @@ namespace PosCube.Sales_Register
                 txtbarcodescan.Focus();
             }
             nLastSelectedSalesRow = ((DataGrid)sender).SelectedIndex;
+
+            ReLayoutPanels();
         }
 
         private void btnItemPlus_Click(object sender, RoutedEventArgs e)
@@ -1672,89 +1623,56 @@ namespace PosCube.Sales_Register
             //}
             else
             {
-                string strMessage = string.Format("Change: {0} ?\nPrint?", txtChangeAmount.Text);
-                // System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show(strMessage, "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
-                MessageBoxResult dialogResult = CustomMessageBox.ShowYesNo(strMessage, "PosCube", "Yes", "No");
-                if (dialogResult == MessageBoxResult.Yes)
+                try
                 {
-                    try
+                    //if (MessageBox.Show("Do you want to Complete this transaction?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                     {
-                        //if (MessageBox.Show("Do you want to Complete this transaction?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        ////Save payment info into sales_payment table
+                        payment_item(lblTotalPayable.Text, txtChangeAmount.Text, txtDueAmount.Text, "Cash", dtSalesDate.Text, lblCustID.Text, txtcomment.Text);
+
+                        ///// save sales items one by one  
+                        sales_item(dtSalesDate.Text);
+
+                        //// TokennoInsert
+                        tokennoInsert();
+
+                        // // Change Hold Status to normal
+                        if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
+
+                        //// Booked Table 
+                        updatetablebooked();
+
+                        tabPayment.Visibility = Visibility.Hidden;
+                        t.Rows.Clear();
+                        DiscountCalculation();
+                        vatcal();
+
+                        OpenCashDrawer();
+                        DisplayToPole();
+                        //txtbarcodescan.Focus();
+
+                        string strMessage = string.Format("Change: {0} ?\nPrint?", txtChangeAmount.Text);
+                        // System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show(strMessage, "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
+                        MessageBoxResult dialogResult = CustomMessageBox.ShowYesNo(strMessage, "PosCube", "Yes", "No");
+                        if (dialogResult == MessageBoxResult.Yes)
                         {
-                            ////Save payment info into sales_payment table
-                            payment_item(lblTotalPayable.Text, txtChangeAmount.Text, txtDueAmount.Text, "Cash", dtSalesDate.Text, lblCustID.Text, txtcomment.Text);
-
-                            ///// save sales items one by one  
-                            sales_item(dtSalesDate.Text);
-
-                            //// TokennoInsert
-                            tokennoInsert();
-
-                            // // Change Hold Status to normal
-                            if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
-
-                            //// Booked Table 
-                            updatetablebooked();
-
                             ///// // Open Print Invoice
                             // this.Visibility = Visibility.Hidden;
                             parameter.autoprint = "1";
                             Sales_Register.ReceiptPrint go = new Sales_Register.ReceiptPrint(txtInvoice.Text);
                             go.ShowDialog();
                             this.Visibility = Visibility.Hidden;
-
-                            tabPayment.Visibility = Visibility.Hidden;
-                            t.Rows.Clear();
-                            DiscountCalculation();
-                            vatcal();
-
-                            OpenCashDrawer();
-                            DisplayToPole();
-                            //txtbarcodescan.Focus();
                         }
-
-                    }
-                    catch (Exception exp)
-                    {
-                        MessageBox.Show(exp.Message);
-                    }
-                }
-                else if (dialogResult == MessageBoxResult.No)
-                {
-                    try
-                    {
-                        //if (MessageBox.Show("Do you want to Complete this transaction?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        else
                         {
-                            ////Save payment info into sales_payment table
-                            payment_item(lblTotalPayable.Text, txtChangeAmount.Text, txtDueAmount.Text, "Cash", dtSalesDate.Text, lblCustID.Text, txtcomment.Text);
-
-                            ///// save sales items one by one  
-                            sales_item(dtSalesDate.Text);
-
-                            //// TokennoInsert
-                            tokennoInsert();
-
-                            // // Change Hold Status to normal
-                            if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
-
-                            //// Booked Table 
-                            updatetablebooked();
-
-                            tabPayment.Visibility = Visibility.Hidden;
-                            t.Rows.Clear();
-                            DiscountCalculation();
-                            vatcal();
-                            //txtbarcodescan.Focus();
-
                             tabSalesRegister.SelectedItem = tabterminal;
                             txtPaidAmount.Text = "";
                         }
-
                     }
-                    catch (Exception exp)
-                    {
-                        MessageBox.Show(exp.Message);
-                    }
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show(exp.Message);
                 }
             }
         }
@@ -1773,91 +1691,59 @@ namespace PosCube.Sales_Register
             //    txtbarcodescan.Focus();
             //}
             else
-            {
-
-                String strMessage = string.Format("Change: {0} ?\nPrint?", txtChangeAmount.Text);
-                //System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show(strMessage, "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
-                MessageBoxResult dialogResult = CustomMessageBox.ShowYesNo(strMessage, "PosCube", "Yes", "No");
-                if (dialogResult == MessageBoxResult.Yes)
+            {   
+                try
                 {
-                    try
+                    //if (MessageBox.Show("Do you want to Complete this transaction?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
                     {
-                        //if (MessageBox.Show("Do you want to Complete this transaction?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        ////Save payment info into sales_payment table
+                        payment_item(lblTotalPayable.Text, txtChangeAmount.Text, txtDueAmount.Text, "Credit Card", dtSalesDate.Text, lblCustID.Text, txtcomment.Text);
+
+                        ///// save sales items one by one  
+                        sales_item(dtSalesDate.Text);
+
+                        //// TokennoInsert
+                        tokennoInsert();
+
+                        // // Change Hold Status to normal
+                        if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
+
+                        //// Booked Table 
+                        updatetablebooked();
+
+
+                        tabPayment.Visibility = Visibility.Hidden;
+                        t.Rows.Clear();
+                        DiscountCalculation();
+                        vatcal();
+
+                        OpenCashDrawer();
+                        DisplayToPole();
+                        //txtbarcodescan.Focus();
+
+                        String strMessage = string.Format("Change: {0} ?\nPrint?", txtChangeAmount.Text);
+                        //System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show(strMessage, "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
+                        MessageBoxResult dialogResult = CustomMessageBox.ShowYesNo(strMessage, "PosCube", "Yes", "No");
+                        if (dialogResult == MessageBoxResult.Yes)
                         {
-                            ////Save payment info into sales_payment table
-                            payment_item(lblTotalPayable.Text, txtChangeAmount.Text, txtDueAmount.Text, "Credit Card", dtSalesDate.Text, lblCustID.Text, txtcomment.Text);
-
-                            ///// save sales items one by one  
-                            sales_item(dtSalesDate.Text);
-
-                            //// TokennoInsert
-                            tokennoInsert();
-
-                            // // Change Hold Status to normal
-                            if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
-
-                            //// Booked Table 
-                            updatetablebooked();
-
                             ///// // Open Print Invoice
                             // this.Visibility = Visibility.Hidden;
                             parameter.autoprint = "1";
                             Sales_Register.ReceiptPrint go = new Sales_Register.ReceiptPrint(txtInvoice.Text);
                             go.ShowDialog();
                             this.Visibility = Visibility.Hidden;
-
-                            tabPayment.Visibility = Visibility.Hidden;
-                            t.Rows.Clear();
-                            DiscountCalculation();
-                            vatcal();
-
-                            OpenCashDrawer();
-                            DisplayToPole();
-                            //txtbarcodescan.Focus();
                         }
-
-                    }
-                    catch (Exception exp)
-                    {
-                        MessageBox.Show(exp.Message);
-                    }
-                }
-                else if (dialogResult == MessageBoxResult.No)
-                {
-                    try
-                    {
-                        //if (MessageBox.Show("Do you want to Complete this transaction?", "Question", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+                        else
                         {
-                            ////Save payment info into sales_payment table
-                            payment_item(lblTotalPayable.Text, txtChangeAmount.Text, txtDueAmount.Text, "Credit Card", dtSalesDate.Text, lblCustID.Text, txtcomment.Text);
-
-                            ///// save sales items one by one  
-                            sales_item(dtSalesDate.Text);
-
-                            //// TokennoInsert
-                            tokennoInsert();
-
-                            // // Change Hold Status to normal
-                            if (parameter.resumesalesstatus == "1") { resumestatuschange(parameter.holdtransactionID); }
-
-                            //// Booked Table 
-                            updatetablebooked();
-
-                            tabPayment.Visibility = Visibility.Hidden;
-                            t.Rows.Clear();
-                            DiscountCalculation();
-                            vatcal();
-                            //txtbarcodescan.Focus();
-
                             tabSalesRegister.SelectedItem = tabterminal;
                             txtPaidAmount.Text = "";
                         }
+                    }
 
-                    }
-                    catch (Exception exp)
-                    {
-                        MessageBox.Show(exp.Message);
-                    }
+                }
+                catch (Exception exp)
+                {
+                    MessageBox.Show(exp.Message);
                 }
             }
         }
@@ -1933,9 +1819,8 @@ namespace PosCube.Sales_Register
 
                 DiscountCalculation();
                 vatcal();
-
-                txtbarcodescan.Focus();
             }
+            txtbarcodescan.Focus();
         }
 
         private void btnItemChangePrice_Click(object sender, RoutedEventArgs e)
@@ -1985,9 +1870,8 @@ namespace PosCube.Sales_Register
 
                 DiscountCalculation();
                 vatcal();
-
-                txtbarcodescan.Focus();
             }
+            txtbarcodescan.Focus();
         }
 
         private void btnItemWeight_Click(object sender, RoutedEventArgs e)
@@ -2004,7 +1888,18 @@ namespace PosCube.Sales_Register
             EnterAmountPopup popUp = new EnterAmountPopup(2);
             //popUp.txtAmount.Text = dataRow.Row.ItemArray[1].ToString();
             //popUp.txtAmount.CaretIndex = popUp.txtAmount.Text.Length;
-            popUp.Title = "Weight = " + dataRow.Row.ItemArray[11].ToString();
+            double weight = 0;
+            string strUnit = "";
+            if (dataRow.Row[11].ToString().Length > 0)
+            {
+                string numericValue = new String(dataRow.Row[11].ToString().Where(Char.IsDigit).ToArray());
+                weight = double.Parse(numericValue);
+                strUnit = new String(dataRow.Row[11].ToString().Where(Char.IsLetter).ToArray());
+            }
+            popUp.m_fWeight = weight;
+            popUp.m_strUnit = strUnit;
+            popUp.Title = "Weight = 0" + popUp.m_strUnit;
+            popUp.m_fPrice = Convert.ToDouble(dataRow.Row[1].ToString());
             bool bReturn = (bool)popUp.ShowDialog();
 
             if (bReturn)
@@ -2039,9 +1934,8 @@ namespace PosCube.Sales_Register
 
                 DiscountCalculation();
                 vatcal();
-
-                txtbarcodescan.Focus();
             }
+            txtbarcodescan.Focus();
         }
 
         private void btnDiscount_Click(object sender, RoutedEventArgs e)
@@ -2115,6 +2009,7 @@ namespace PosCube.Sales_Register
                     serialPort.Open();
                     serialPort.WriteLine(lblTotalPayable.Text);
                     serialPort.Close();
+                    serialPort.Dispose();
                 }
             }
         }

@@ -32,5 +32,16 @@ namespace PosCube.Properties {
                 return ((string)(this["PosCubeSQLConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=10.10.11.21;Initial Catalog=RestPOS;Persist Security Info=True;User I" +
+            "D=sa;Password=password")]
+        public string RestPOSConnectionString {
+            get {
+                return ((string)(this["RestPOSConnectionString"]));
+            }
+        }
     }
 }

@@ -53,7 +53,7 @@ namespace PosCube.Items
     public void StockitemDatabind(string value)
     {
       //var uriSource = new Uri(AppDomain.CurrentDomain.BaseDirectory + "\\ITEMIMAGE\\", UriKind.RelativeOrAbsolute);
-      string sqlCmd = " Select product_id, product_name , product_quantity ,  retail_price ,  imagename as  imagename " +
+      string sqlCmd = " Select product_id, product_name , product_quantity,  retail_price ,  imagename as  imagename " +
                       " from  purchase  where   product_name like '%" + value + "%'  " +
                       " OR ( product_id like '" + value + "%' ) " +
                       " OR (category like '" + value + "%')  ";

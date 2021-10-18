@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Data;
+using System.Data.SqlClient;
 using System.Globalization;
 using System.Resources;
 using System.Windows;
@@ -42,14 +43,15 @@ namespace PosCube.Settings
     {
       try
       {
-        string sql = " BACKUP DATABASE PosCube  " +
+        string sql = " BACKUP DATABASE RestPOS  " +
                        " TO DISK = '" + txtfilepathbackup.Text + "\\" + "PosCube_" + DateTime.Now.ToString("yyyy-MM-dd_hh-mm-ss-fff") + ".bak' ";
         DataAccess.ExecuteSQL(sql);
         DataTable dt5 = DataAccess.GetDataTable(sql);
         MessageBox.Show("Successfully database backup has been Completed");
       }
-      catch
-      {
+      catch (SqlException ex)
+            {
+                Console.WriteLine(ex.Message);
       }
     }
 
@@ -111,13 +113,13 @@ namespace PosCube.Settings
 
           if (MessageBox.Show("Do you want Restore Databackup \n After Press Yes you loss your previous Database ", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning) == MessageBoxResult.Yes)
           {
-            string sql = " USE master;     ALTER DATABASE PosCube " +
+            string sql = " USE master;     ALTER DATABASE RestPOS " +
                       " SET SINGLE_USER WITH " +
                       " ROLLBACK IMMEDIATE; " +
-                      " RESTORE DATABASE PosCube " +
+                      " RESTORE DATABASE RestPOS " +
                       " FROM DISK = '" + txtfilepath.Text + "' " +
                       " WITH REPLACE; " +
-                      " ALTER DATABASE PosCube SET MULTI_USER ";
+                      " ALTER DATABASE RestPOS SET MULTI_USER ";
             DataAccess.ExecuteSQL(sql);
             DataTable dt5 = DataAccess.GetDataTable(sql);
 

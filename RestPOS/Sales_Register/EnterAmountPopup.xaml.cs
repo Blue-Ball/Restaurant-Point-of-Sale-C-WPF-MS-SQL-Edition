@@ -1,5 +1,8 @@
-﻿using System;
+﻿using IniParser;
+using IniParser.Model;
+using System;
 using System.Collections.Generic;
+using System.IO.Ports;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +25,12 @@ namespace PosCube.Sales_Register
     {
         public int m_nType; // 0: QTY, 1: ChangePrice, 2: Weight, 3: Discount
 
+        public double m_fWeight;
+        public string m_strUnit;
+        public double m_fPrice;
+        public double m_fWeightScale;
+        SerialPort m_serialPort;
+
         public EnterAmountPopup(int nType)
         {
             InitializeComponent();
@@ -29,8 +38,9 @@ namespace PosCube.Sales_Register
             Topmost = true;
             m_nType = nType;
             txtAmount.Text = "";
+            m_fWeightScale = 0.0;
 
-            if(nType == 0)
+            if (nType == 0)
             {
                 txtAmount.Text = "";
                 txtAmount.IsReadOnly = true;
@@ -42,10 +52,14 @@ namespace PosCube.Sales_Register
             }
             txtAmount.CaretIndex = txtAmount.Text.Length;
             txtAmount.Focus();
+            m_serialPort = null;
         }
 
         private void btnBack_Click(object sender, RoutedEventArgs e)
         {
+            if (m_nType == 2)
+                return;
+
             string strTxtAmount = txtAmount.Text;
             if(m_nType == 0)
             {
@@ -69,6 +83,9 @@ namespace PosCube.Sales_Register
 
         private void btn_Num_Click(object sender, RoutedEventArgs e)
         {
+            if (m_nType == 2)
+                return;
+
             string strNumber = "0";
             switch (((Button)sender).Name)
             {
@@ -131,12 +148,85 @@ namespace PosCube.Sales_Register
 
         private void btnOK_Click(object sender, RoutedEventArgs e)
         {
+            if(m_nType == 2)
+            {
+                if (m_serialPort != null && m_serialPort.IsOpen)
+                    m_serialPort.Close();
+                if (m_serialPort != null)
+                    m_serialPort.Dispose();
+            }
             DialogResult = true;
         }
 
         private void btnCancel_Click(object sender, RoutedEventArgs e)
         {
+            if (m_nType == 2)
+            {
+                if (m_serialPort != null && m_serialPort.IsOpen)
+                    m_serialPort.Close();
+                if (m_serialPort != null)
+                    m_serialPort.Dispose();
+            }
+
             DialogResult = false;
+        }
+
+        public void OpenWeightScale()
+        {
+            var parser = new FileIniDataParser();
+            IniData data = parser.ReadFile("Configuration.ini");
+
+            string port = data["COM"]["WeightScale"];
+            if (!port.Equals(""))
+            {
+                using (m_serialPort = new SerialPort(port))
+                {
+                    m_serialPort.Close();
+
+                    m_serialPort.BaudRate = 9600;     // Pole Bound Rate 
+                    m_serialPort.Parity = System.IO.Ports.Parity.None;
+                    m_serialPort.DataBits = 8;   // Data Bits
+                    m_serialPort.StopBits = System.IO.Ports.StopBits.One;
+
+                    m_serialPort.DataReceived += SerialPortOnDataReceived;       //<-- this event happens everytime when new data is received by the ComPort
+                    m_serialPort.Open();     //<-- make the comport listen
+                }
+            }
+        }
+
+        private void Window_ContentRendered(object sender, EventArgs e)
+        {
+            if(m_nType == 2)
+            {
+                if(m_fWeight > 0)
+                {
+                    txtAmount.Text = (m_fPrice * (m_fWeightScale/m_fWeight)).ToString();
+                }
+                
+                this.Title = "Weight = " + m_fWeightScale + m_strUnit;
+
+                OpenWeightScale();
+            }
+        }
+
+        private void SerialPortOnDataReceived(object sender, SerialDataReceivedEventArgs serialDataReceivedEventArgs)
+        {
+            int dataLength = m_serialPort.BytesToRead;
+            byte[] data = new byte[dataLength];
+            int nbrDataRead = m_serialPort.Read(data, 0, dataLength);
+            if (nbrDataRead == 0)
+                return;
+            string str = System.Text.Encoding.UTF8.GetString(data);
+            string numericValue = new String(str.Where(Char.IsDigit).ToArray());
+            m_fWeightScale = double.Parse(numericValue);
+            m_strUnit = new String(str.Where(Char.IsLetter).ToArray());
+
+            if (m_fWeight > 0)
+            {
+                txtAmount.Text = (m_fPrice * (m_fWeightScale / m_fWeight)).ToString();
+            }
+
+            this.Title = "Weight = " + m_fWeightScale + m_strUnit;
         }
     }
 }

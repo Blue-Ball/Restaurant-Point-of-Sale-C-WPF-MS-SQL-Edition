@@ -95,6 +95,7 @@ namespace PosCube
 
     private void btnKitdisply_Click(object sender, RoutedEventArgs e)
     {
+            return;
       this.Visibility = Visibility.Hidden;
       Items.Kitchen_Display go = new Items.Kitchen_Display();
       go.ShowDialog();

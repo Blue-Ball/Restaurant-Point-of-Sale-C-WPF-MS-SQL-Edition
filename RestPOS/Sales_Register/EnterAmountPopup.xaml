@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:PosCube.Sales_Register"
         mc:Ignorable="d"
-        Title="Enter Amount" Height="418" Width="311" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True">
+        Title="Enter Amount" Height="418" Width="311" WindowStartupLocation="CenterScreen" ResizeMode="NoResize" ShowInTaskbar="False" Topmost="True"
+        ContentRendered="Window_ContentRendered">
     <Window.Background>
         <SolidColorBrush Color="#FFF0F0F0"/>
     </Window.Background>

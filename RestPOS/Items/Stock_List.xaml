@@ -44,7 +44,7 @@
                                             <TextBlock  Margin="74,7,0,0"   Text="{Binding product_id}" TextWrapping="Wrap" HorizontalAlignment="Left" />
                                             <TextBlock  Margin="74,23,0,0"    Text="{Binding product_name}" TextWrapping="Wrap" HorizontalAlignment="Left"  FontWeight="Bold"  Foreground="Navy"    />
                                             <TextBlock  Margin="74,40,0,0"    Text="Qty: " TextWrapping="Wrap" HorizontalAlignment="Left" />
-                                            <TextBlock  Margin="104,40,0,0"    Text="{Binding product_quantity}" TextWrapping="Wrap" HorizontalAlignment="Left" FontWeight="Bold"  />
+                                            <TextBlock  Margin="104,40,0,0"    Text="{Binding product_quantity, StringFormat='F0'}" TextWrapping="Wrap" HorizontalAlignment="Left" FontWeight="Bold"  />
                                             <TextBlock  Margin="74,55,0,0"    Text="Price: " TextWrapping="Wrap" HorizontalAlignment="Left" />
                                             <TextBlock  Margin="104,55,0,10"    Text="{Binding retail_price}" TextWrapping="Wrap" HorizontalAlignment="Left" />
                                         </Grid>

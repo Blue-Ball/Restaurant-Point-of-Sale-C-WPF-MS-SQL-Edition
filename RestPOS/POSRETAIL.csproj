@@ -199,6 +199,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Res.fr.resx</DependentUpon>
     </Compile>
+    <Compile Include="RestPOSDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RestPOSDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Sales_Register\CurrencyShortcuts.xaml.cs">
       <DependentUpon>CurrencyShortcuts.xaml</DependentUpon>
     </Compile>
@@ -467,6 +472,17 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="RestPOSDataSet.xsc">
+      <DependentUpon>RestPOSDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="RestPOSDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>RestPOSDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="RestPOSDataSet.xss">
+      <DependentUpon>RestPOSDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Sales_Register\DataSetInvoice.xsc">
       <DependentUpon>DataSetInvoice.xsd</DependentUpon>
     </None>

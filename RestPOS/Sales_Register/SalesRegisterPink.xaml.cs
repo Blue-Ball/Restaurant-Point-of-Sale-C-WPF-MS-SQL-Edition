@@ -296,6 +296,8 @@ namespace PosCube.Sales_Register
         vatcal();
         lblmsg.Visibility = Visibility.Visible;
         btnholdsale.Visibility = Visibility.Visible;
+
+            DisplayToPole();
     }
 
     private void txtbarcodescan_TextChanged(object sender, TextChangedEventArgs e)
@@ -640,7 +642,6 @@ namespace PosCube.Sales_Register
                 updatetablebooked();
 
                 OpenCashDrawer();
-                DisplayToPole();
 
                 string strMessage = "Print?";
                 // System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show(strMessage, "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
@@ -722,6 +723,8 @@ namespace PosCube.Sales_Register
         lstvwHoldList.SelectedItems.Clear();
         btnDeleteholdsale.Visibility = Visibility.Hidden;
         btnholdsale.Visibility = Visibility.Hidden;
+
+                DisplayToPole();
       }
       catch
       {
@@ -1648,7 +1651,6 @@ namespace PosCube.Sales_Register
                         vatcal();
 
                         OpenCashDrawer();
-                        DisplayToPole();
                         //txtbarcodescan.Focus();
 
                         string strMessage = string.Format("Change: {0} ?\nPrint?", txtChangeAmount.Text);
@@ -1718,7 +1720,6 @@ namespace PosCube.Sales_Register
                         vatcal();
 
                         OpenCashDrawer();
-                        DisplayToPole();
                         //txtbarcodescan.Focus();
 
                         String strMessage = string.Format("Change: {0} ?\nPrint?", txtChangeAmount.Text);

@@ -203,6 +203,8 @@ namespace PosCube.Sales_Register
         switch_language();
         txtbarcodescan.Focus();
         ReLayoutPanels();
+
+                DisplayToPole("Welcome", "");
       }
       catch
       {
@@ -297,7 +299,7 @@ namespace PosCube.Sales_Register
         lblmsg.Visibility = Visibility.Visible;
         btnholdsale.Visibility = Visibility.Visible;
 
-            DisplayToPole();
+        DisplayToPole(dt.Rows[0].ItemArray[1].ToString(), lblTotalPayable.Text);
     }
 
     private void txtbarcodescan_TextChanged(object sender, TextChangedEventArgs e)
@@ -642,8 +644,9 @@ namespace PosCube.Sales_Register
                 updatetablebooked();
 
                 OpenCashDrawer();
+                DisplayToPole("Welcome", "");
 
-                string strMessage = "Print?";
+                    string strMessage = "Print?";
                 // System.Windows.Forms.DialogResult dialogResult = (System.Windows.Forms.DialogResult)MessageBox.Show(strMessage, "PosCube", (MessageBoxButton)System.Windows.Forms.MessageBoxButtons.YesNo);
                 MessageBoxResult dialogResult = CustomMessageBox.ShowYesNo(strMessage, "PosCube", "Yes", "No");
                 if (dialogResult == MessageBoxResult.Yes)
@@ -724,7 +727,7 @@ namespace PosCube.Sales_Register
         btnDeleteholdsale.Visibility = Visibility.Hidden;
         btnholdsale.Visibility = Visibility.Hidden;
 
-                DisplayToPole();
+        DisplayToPole("Welcome", "");
       }
       catch
       {
@@ -1336,7 +1339,7 @@ namespace PosCube.Sales_Register
       {
                 Console.WriteLine("error6");
       }
-
+        DisplayToPole(txtPaidAmount.Text, txtChangeAmount.Text);
     }
 
     private void NumaricKeypad(string Numvalue)
@@ -1354,6 +1357,7 @@ namespace PosCube.Sales_Register
       {
 
       }
+        DisplayToPole(txtPaidAmount.Text, txtChangeAmount.Text);
     }
 
     #endregion
@@ -1651,6 +1655,7 @@ namespace PosCube.Sales_Register
                         vatcal();
 
                         OpenCashDrawer();
+                        DisplayToPole("Welcome", "");
                         //txtbarcodescan.Focus();
 
                         string strMessage = string.Format("Change: {0} ?\nPrint?", txtChangeAmount.Text);
@@ -1720,6 +1725,7 @@ namespace PosCube.Sales_Register
                         vatcal();
 
                         OpenCashDrawer();
+                        DisplayToPole("Welcome", "");
                         //txtbarcodescan.Focus();
 
                         String strMessage = string.Format("Change: {0} ?\nPrint?", txtChangeAmount.Text);
@@ -1990,8 +1996,10 @@ namespace PosCube.Sales_Register
             }
         }
 
-        public void DisplayToPole()
+        public void DisplayToPole(string strLine1, string strLine2)
         {
+            //Console.WriteLine("Line1:" + strLine1);
+            //Console.WriteLine("Line2:" + strLine2);
             var parser = new FileIniDataParser();
             IniData data = parser.ReadFile("Configuration.ini");
 
@@ -2008,7 +2016,15 @@ namespace PosCube.Sales_Register
                     serialPort.StopBits = System.IO.Ports.StopBits.One;
 
                     serialPort.Open();
-                    serialPort.WriteLine(lblTotalPayable.Text);
+
+                    // Line 1
+                    serialPort.Write(new byte[] { 0x0C }, 0, 1);
+                    serialPort.WriteLine(strLine1);
+
+                    // Line 2
+                    serialPort.Write(new byte[] { 0x0A, 0x0D }, 0, 2);
+                    serialPort.Write(strLine2);
+
                     serialPort.Close();
                     serialPort.Dispose();
                 }

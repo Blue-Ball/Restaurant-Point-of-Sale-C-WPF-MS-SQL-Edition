@@ -299,7 +299,7 @@ namespace PosCube.Sales_Register
         lblmsg.Visibility = Visibility.Visible;
         btnholdsale.Visibility = Visibility.Visible;
 
-        DisplayToPole(dt.Rows[0].ItemArray[1].ToString(), lblTotalPayable.Text);
+        DisplayToPole(ConvertDoubleFormat(dt.Rows[0].ItemArray[1].ToString()), "Total:"+ ConvertDoubleFormat(lblTotalPayable.Text));
     }
 
     private void txtbarcodescan_TextChanged(object sender, TextChangedEventArgs e)
@@ -1339,7 +1339,7 @@ namespace PosCube.Sales_Register
       {
                 Console.WriteLine("error6");
       }
-        DisplayToPole(txtPaidAmount.Text, txtChangeAmount.Text);
+        DisplayToPole(ConvertDoubleFormat(txtPaidAmount.Text), ConvertDoubleFormat(txtChangeAmount.Text));
     }
 
     private void NumaricKeypad(string Numvalue)
@@ -1357,7 +1357,7 @@ namespace PosCube.Sales_Register
       {
 
       }
-        DisplayToPole(txtPaidAmount.Text, txtChangeAmount.Text);
+        DisplayToPole(ConvertDoubleFormat(txtPaidAmount.Text), ConvertDoubleFormat(txtChangeAmount.Text));
     }
 
     #endregion
@@ -2029,6 +2029,11 @@ namespace PosCube.Sales_Register
                     serialPort.Dispose();
                 }
             }
+        }
+
+        private void SalesRegisterForm_ContentRendered(object sender, EventArgs e)
+        {
+
         }
     }
 }

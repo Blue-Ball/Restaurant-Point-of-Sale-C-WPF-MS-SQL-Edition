@@ -4,7 +4,9 @@
         xmlns:k="clr-namespace:PosCube.Keyboard" 
         xmlns:PosCube="clr-namespace:PosCube" xmlns:local="clr-namespace:PosCube.Sales_Register" x:Name="SalesRegisterForm" x:Class="PosCube.Sales_Register.SalesRegisterPink"
         Title="SalesRegisterPink"   Height="768" Width="1340" WindowStartupLocation="CenterScreen" WindowState="Maximized"
-        Icon="/PosCube;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None"     Loaded="Window_Loaded" Background="#FFF1F1F1">
+        Icon="/PosCube;component/Res/icon2.png"  AllowsTransparency="True" WindowStyle="None"     
+    Loaded="Window_Loaded" Background="#FFF1F1F1"
+    ContentRendered="SalesRegisterForm_ContentRendered">
     <Window.Resources>
         <Style x:Key="LvItemStyle" TargetType="ListViewItem">
             <Setter Property="Template">
@@ -318,7 +320,7 @@
                     <Label Content="Discount: " Grid.Column="2" HorizontalAlignment="Left" Margin="30,552,0,0" VerticalAlignment="Top" Width="62" Visibility="Hidden"/>
                     <TextBox x:Name="txtDiscountRate" Margin="101,552,0,0" FontWeight="SemiBold" ToolTip="Insert Over all Discount Rate. Discount Rate Apply with Sub total" HorizontalAlignment="Left"  Height="24"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top"   Width="92" TextChanged="txtDiscountRate_TextChanged" Grid.Column="2" Visibility="Hidden"/>
                     <TextBlock x:Name="lbldisrateSRtitle" HorizontalAlignment="Left" Margin="203,557,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Grid.Column="2" Width="76" Visibility="Hidden"><Run Text="Discount "/><Run Text="%: "/></TextBlock>
-                    <TextBlock x:Name="lblOverallDiscount" HorizontalAlignment="Left" Margin="285,557,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Grid.Column="2" Width="107" Visibility="Hidden"/>
+                    <TextBlock x:Name="lblOverallDiscount" HorizontalAlignment="Left" Margin="285,557,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Grid.Column="2" Width="107" Visibility="Collapsed"/>
 
                     <TextBlock Name="lblchngamttitle" Text="Change Amount" HorizontalAlignment="Left" Margin="-421,165,0,0" VerticalAlignment="Top"/>
                     <TextBox x:Name="txtChangeAmount" HorizontalAlignment="Left" IsReadOnly="True"  Height="24" Margin="-421,185,0,0"  TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="278"/>
